@@ -1,6 +1,11 @@
+import Sidebar from "../CommonComponents/Sidebar/sidebar";
+
+
 const Like = () => {
     return (
-        <h1> Like page </h1>
+        <div>
+            <Sidebar/>
+        </div>
     )
 }
 
