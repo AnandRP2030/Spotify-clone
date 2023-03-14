@@ -20,7 +20,7 @@ const Sidebar = () => {
         <SideComp icon={BiLibrary} name="Library" />
       </Box>
 
-      <Grid h='150px'  mt='20px' color='#7c7c7c' >
+      <Grid h='150px'  mt='20px' color='#7c7c7c' borderBottomColor='white'>
         <Flex mt='20px' className={style.hoverText}>
           <img
             width="25px"
