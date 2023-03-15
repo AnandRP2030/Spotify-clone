@@ -10,11 +10,15 @@ const Sidebar = () => {
   return (
     <Box
       className={style.sideBox}
-      bgColor="#000"
-      h="680px"
-      w="240px"
-      pl="23px"
-      pt="23px"
+      bg="#000000"
+      position={'fixed'}
+      w="196px"
+     p={'24px'}
+      zIndex={5}
+      top='0'
+      bottom={'0'}
+     left='0'
+
     >
       <img
         src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_White.png"
@@ -22,13 +26,13 @@ const Sidebar = () => {
         style={{ maxWidth: "130px", cursor: "pointer" }}
       />
 
-      <Box mt="40px">
-        <SideComp icon={HiOutlineHome} name="Home" />
+      <Box mt="20px" p={'10px 0'} color='#b3b3b3' >
+        <SideComp icon={HiOutlineHome} name="Home"  />
         <SideComp icon={IoSearchOutline} name="Search" />
         <SideComp icon={BiLibrary} name="Library" />
       </Box>
 
-      <Grid h='150px'  mt='20px' color='#7c7c7c' borderBottomColor='white'>
+      <Grid h='150px'  mt='20px'  borderBottomColor='white'>
         <Flex mt='20px' className={style.hoverText}>
           <img
             width="25px"
@@ -36,7 +40,7 @@ const Sidebar = () => {
             src="https://raw.githubusercontent.com/AnandRP2030/Resource-website/master/images/playlist.jpg"
             alt="icon"
           />
-          <Text color="#a3a3a3" ml="13px">
+          <Text color="#b3b3b3" ml="13px">
             Create Playlist
           </Text>
         </Flex>
@@ -47,7 +51,7 @@ const Sidebar = () => {
             src="https://raw.githubusercontent.com/AnandRP2030/Resource-website/master/images/love.jpg"
             alt="icon"
           />
-          <Text ml="13px" color="#a3a3a3">
+          <Text ml="13px" color="#b3b3b3">
             {" "}
             Liked Songs
           </Text>
@@ -59,7 +63,7 @@ const Sidebar = () => {
             src="https://github.com/AnandRP2030/Resource-website/blob/master/images/bookmark.svg.jpg?raw=true"
             alt="icon"
           />
-          <Text ml="13px" color="#a3a3a3">
+          <Text ml="13px" color="#b3b3b3">
             {" "}
             Your Episodes
           </Text>
