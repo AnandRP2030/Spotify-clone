@@ -1,0 +1,58 @@
+.SpotifyPlaylist{
+    padding: 20px 40px;
+    /* background-color: #181818; */
+}
+.SpotifyPlaylist h2{
+    color:#ffffff;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+/* .listContainer{
+    gap: 20px;
+  overflow: hidden;
+}
+.cardContainer{
+    min-width: 140px;
+    width: 160px;
+    padding: 15px;
+    background-color: #181818;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all ease 0.4s;
+
+}
+.cardContainer:hover{
+    background-color:#252525;
+    
+}
+.cardContainer img{
+    width: 100%;
+    border-radius:6px;
+    margin-bottom: 10px;
+}
+
+.playButtonDiv{
+    position: relative;
+}
+
+  /* .playButtonDiv .fa{
+    position: absolute;
+    right: 10px;
+    top: -60px;
+    padding: 18px;
+    background-color: #1db954;
+    border-radius: 100%;
+    opacity: 1;
+    transition: all ease 0.4s;
+} 
+.cardContainer:hover .playButtonDiv .fa {
+    opacity: 1;
+    transform: translateY(-20px);
+  } */
+
+  /* .songDesc{
+    color: #989898;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 600;
+  } */ 
