@@ -1,0 +1,5 @@
+.upgrade:hover{
+   background-color: '#282828';
+    transition: 500ms linear; 
+    transform: scale(1.1);
+}
