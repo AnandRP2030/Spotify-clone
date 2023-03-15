@@ -10,7 +10,7 @@ const Upgrade = () => {
       <Navbar />
       <PremiumSection />
       <PowerSection />
-      {/*<PricingCard />*/}
+      <PricingCard />
     </div>
   );
 };
