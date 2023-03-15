@@ -6,12 +6,14 @@ import RecentlyPayed from "./HomeComponents/RecentlyPayed";
 import styles from './home.module.css'
 const Home = () => {
     return (
-         <Container maxWidth="100%" className={styles.homeContainer} >
+         <Box ml='196px'
+         mb='100px'
+          className={styles.homeContainer} >
             <Navbar/>
             {/* <Flex> */}
             <Sidebar/>
-           <RecentlyPayed/>
-         </Container>
+           {/* <RecentlyPayed/> */}
+         </Box>
     )
 }
 
