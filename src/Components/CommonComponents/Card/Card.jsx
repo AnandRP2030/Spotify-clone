@@ -1,5 +1,6 @@
 import React from 'react'
-import {Card, CardBody, CardFooter, Heading, Image, Stack, Text} from '@chakra-ui/react'
+import {Card, CardBody, CardFooter, Heading, Image, Stack, Text, IconButton} from '@chakra-ui/react'
+import {FaCaretRight} from 'react-icons/fa'
 function CardCom() {
   return (
     <Card  bg='blackAlpha.900' color={'white'} direction='column' p='4px' >

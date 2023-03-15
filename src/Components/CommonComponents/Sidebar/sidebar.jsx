@@ -15,7 +15,7 @@ const Sidebar = () => {
       w="240px"
       pl="23px"
       pt="23px"
-      zIndex={3}
+      zIndex={5}
       top='0px'
       position={'fixed'}
      left='0'

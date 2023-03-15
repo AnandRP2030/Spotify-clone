@@ -48,7 +48,7 @@ function Navbar() {
         position='fixed'
         top="0px"
         // left={"240px"}
-        z-index="-1"
+        zIndex={3}
         justify="space-between"
       >
         <Box ml={'240px'} >
