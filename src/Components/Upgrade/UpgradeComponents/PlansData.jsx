@@ -8,14 +8,21 @@ const PlansData = ({ ele }) => {
 	return (
 		<Flex
 			direction="column"
-			px="5%"
+			px={{ base: "5%", xl: "1%" }}
 			py="30px"
 			boxShadow="dark-lg"
 			mt="30px"
 			rounded="10px"
+			w={{ base: "400px", xl: "270px" }}
 		>
 			<Flex borderBottom="1px" direction="column" pb="15px">
-				<Flex fontWeight="bold" gap={3} align="center">
+				<Flex
+					fontWeight="bold"
+					gap={3}
+					align="center"
+					direction={{ xl: "column" }}
+					align="flex-start"
+				>
 					{ele.free ? (
 						<Text
 							bg="#0D72EA"

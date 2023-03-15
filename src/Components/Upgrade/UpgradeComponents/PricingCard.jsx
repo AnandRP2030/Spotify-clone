@@ -45,7 +45,13 @@ const PricingCard = () => {
 	];
 	return (
 		<>
-			<Flex direction="column" px="5%">
+			<Flex
+				direction={{ base: "column", xl: "row" }}
+				maxW="1140px"
+				m="auto"
+				justify="space-around"
+				align={{ base: "center", xl: "normal" }}
+			>
 				{plans.map((ele) => {
 					return <PlansData ele={ele} />;
 				})}
