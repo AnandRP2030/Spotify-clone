@@ -6,8 +6,8 @@ import { motion } from "framer-motion";
 const PlansData = ({ ele }) => {
 	console.log(ele);
 	return (
-		<Flex direction="column" px="5%">
-			<Flex borderBottom="2px" direction="column">
+		<Flex direction="column" px="5%" py="30px" border="2px" mt="30px">
+			<Flex borderBottom="1px" direction="column" pb="15px">
 				<Flex fontWeight="bold" gap={3} align="center">
 					{ele.free ? (
 						<Text
@@ -23,36 +23,38 @@ const PlansData = ({ ele }) => {
 					<Text
 						rounded="5px"
 						color="#0D72EA"
-						border="2px"
+						border="1px"
 						borderColor="#0D72EA"
 						px="6px"
-						py="1px"
+						py="2px"
 					>
 						One-time plans available
 					</Text>
 				</Flex>
-				<Text>{ele.plan}</Text>
-				<Text>{ele.day}</Text>
-				<Text>{ele.account}</Text>
+				<Text fontSize="24px" fontWeight="bold" mt="10px">
+					{ele.plan}
+				</Text>
+				<Text fontSize="16px">{ele.day}</Text>
+				<Text fontSize="16px">{ele.account}</Text>
 			</Flex>
-			<Flex direction="column">
+			<Flex direction="column" gap={3} my="20px">
 				{ele.family !== undefined ? (
 					<Flex>
 						<CheckIcon boxSize={6} />
-						<Text>{ele.family}</Text>
+						<Text ml="10px">{ele.family}</Text>
 					</Flex>
 				) : null}
 				<Flex>
 					<CheckIcon boxSize={6} />
-					<Text>{ele.adFree}</Text>
+					<Text ml="10px">{ele.adFree}</Text>
 				</Flex>
 				<Flex>
 					<CheckIcon boxSize={6} />
-					<Text>{ele.group}</Text>
+					<Text ml="10px">{ele.group}</Text>
 				</Flex>
 				<Flex>
 					<CheckIcon boxSize={6} />
-					<Text>{ele.download}</Text>
+					<Text ml="10px">{ele.download}</Text>
 				</Flex>
 			</Flex>
 			<Box
@@ -63,7 +65,7 @@ const PlansData = ({ ele }) => {
 					backgroundColor: "black",
 				}}
 				rounded="50px"
-				w="80%"
+				w="100%"
 				m="auto"
 				bg="black"
 				color="white"
@@ -72,7 +74,9 @@ const PlansData = ({ ele }) => {
 			>
 				VIEW PLANS
 			</Box>
-			<Link>Terms and conditions apply,</Link>
+			<Link fontSize="10px" mt="5px">
+				Terms and conditions apply,
+			</Link>
 		</Flex>
 	);
 };
