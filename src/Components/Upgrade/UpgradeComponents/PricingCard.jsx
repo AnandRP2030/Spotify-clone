@@ -46,6 +46,7 @@ const PricingCard = () => {
 	return (
 		<>
 			<Flex
+				bg="#EFEFEF"
 				direction={{ base: "column", xl: "row" }}
 				maxW="1140px"
 				m="auto"

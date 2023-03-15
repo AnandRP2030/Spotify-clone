@@ -7,6 +7,7 @@ const PlansData = ({ ele }) => {
 	console.log(ele);
 	return (
 		<Flex
+			bg="white"
 			direction="column"
 			px={{ base: "5%", xl: "1%" }}
 			py="30px"
