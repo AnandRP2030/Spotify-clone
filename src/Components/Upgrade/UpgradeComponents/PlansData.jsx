@@ -8,7 +8,7 @@ const PlansData = ({ ele }) => {
 	return (
 		<Flex direction="column" px="5%">
 			<Flex borderBottom="2px" direction="column">
-				<Flex fontWeight="bold">
+				<Flex fontWeight="bold" gap={3} align="center">
 					{ele.free ? (
 						<Text
 							bg="#0D72EA"
@@ -20,7 +20,16 @@ const PlansData = ({ ele }) => {
 							1 month free
 						</Text>
 					) : null}
-					<Text rounded="5px">One-time plans available</Text>
+					<Text
+						rounded="5px"
+						color="#0D72EA"
+						border="2px"
+						borderColor="#0D72EA"
+						px="6px"
+						py="1px"
+					>
+						One-time plans available
+					</Text>
 				</Flex>
 				<Text>{ele.plan}</Text>
 				<Text>{ele.day}</Text>
