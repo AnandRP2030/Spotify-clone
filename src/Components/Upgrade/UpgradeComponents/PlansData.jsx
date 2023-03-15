@@ -6,7 +6,14 @@ import { motion } from "framer-motion";
 const PlansData = ({ ele }) => {
 	console.log(ele);
 	return (
-		<Flex direction="column" px="5%" py="30px" border="2px" mt="30px">
+		<Flex
+			direction="column"
+			px="5%"
+			py="30px"
+			boxShadow="dark-lg"
+			mt="30px"
+			rounded="10px"
+		>
 			<Flex borderBottom="1px" direction="column" pb="15px">
 				<Flex fontWeight="bold" gap={3} align="center">
 					{ele.free ? (
