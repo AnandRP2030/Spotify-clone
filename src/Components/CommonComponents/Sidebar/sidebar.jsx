@@ -11,6 +11,7 @@ const Sidebar = () => {
     <Box
       className={style.sideBox}
       bgColor="#000"
+
       h="100vh"
       w="240px"
       pl="23px"
@@ -19,6 +20,12 @@ const Sidebar = () => {
       top='0px'
       position={'fixed'}
      left='0'
+
+    
+     
+    
+      
+
     >
       <img
         src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_White.png"
