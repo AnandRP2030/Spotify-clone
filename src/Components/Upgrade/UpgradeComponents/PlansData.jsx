@@ -4,7 +4,6 @@ import { CheckIcon } from "@chakra-ui/icons";
 import { motion } from "framer-motion";
 
 const PlansData = ({ ele }) => {
-	console.log(ele);
 	return (
 		<Flex
 			bg="white"
