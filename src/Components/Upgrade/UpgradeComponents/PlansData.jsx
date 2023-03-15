@@ -10,7 +10,7 @@ const PlansData = ({ ele }) => {
 			direction="column"
 			px={{ base: "5%", xl: "1%" }}
 			py="30px"
-			boxShadow="dark-lg"
+			boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px"
 			mt="30px"
 			rounded="10px"
 			w={{ base: "400px", xl: "270px" }}
