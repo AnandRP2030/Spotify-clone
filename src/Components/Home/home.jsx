@@ -1,9 +1,17 @@
+import Navbar from "../CommonComponents/Navbar/Navbar";
+import Sidebar from "../CommonComponents/Sidebar/sidebar";
+import {Card, Container, Flex, Grid,Box} from '@chakra-ui/react'
+import CardCom from "../CommonComponents/Card/Card";
+import RecentlyPayed from "./HomeComponents/RecentlyPayed";
+import styles from './home.module.css'
 const Home = () => {
     return (
-        <div>
-            <h1> Home page </h1>
-        <h2>Home branch</h2>
-        </div>
+         <Container maxWidth="100%" className={styles.homeContainer} >
+            <Navbar/>
+            {/* <Flex> */}
+            <Sidebar/>
+           <RecentlyPayed/>
+         </Container>
     )
 }
 
