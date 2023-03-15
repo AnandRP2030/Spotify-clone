@@ -21,6 +21,7 @@ import {
   MenuItem,
   MenuDivider,
   transition,
+  Divider,
 } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
 import {
@@ -33,38 +34,50 @@ import {
 } from "@chakra-ui/icons";
 
 import { FaPowerOff } from "react-icons/fa";
-import styles from './Navbar.module.css'
+import styles from "./Navbar.module.css";
+import { Link } from "react-router-dom";
 function Navbar() {
   const initRef = React.useRef();
   const { isOpen, onToggle, onOpen } = useDisclosure();
   return (
     <>
       <Flex
-        bg={"blackAlpha.900"}
-        // w={["100%","100%","100%","80%",'80%']}
-        w='100%'
-        h={"10vh"}
-        // position={['relative','relative','relative','fixed']}
-        position='fixed'
-        top="0px"
-        // left={"240px"}
-        zIndex={3}
+        className={styles.navbarContainer}
         justify="space-between"
+        bg={"#101010"}
+        padding="14px 30px"
+        // w={["100%","100%","100%","80%",'80%']}
+        // w='100%'
+        // h={"10vh"}
+        // // position={['relative','relative','relative','fixed']}
+        // position='fixed'
+        // top="0px"
+        // // left={"240px"}
+        // zIndex={3}
+        //
       >
-        <Box ml={'240px'} >
+        {/* //! pagination buttons */}
+        <Box
+        // ml={'240px'}
+        >
           <IconButton
-            bg={"blackAlpha.200"}
-            color={"white"}
+            color={"#7a7a7a"}
+            cursor="not-allowed"
+            bg={"#090909"}
+            mr="10px"
+            r={"white"}
             aria-label="Search database"
             size="lg"
             variant={"unstyled"}
             icon={<ChevronLeftIcon boxSize={8} />}
-            mr={2}
           />
           <IconButton
-            bg="blackAlpha.100"
-            color={"white"}
-            aria-label="Call Segun"
+            color={"#7a7a7a"}
+            cursor="not-allowed"
+            bg={"#090909"}
+            mr="10px"
+            r={"white"}
+            aria-label="Search database"
             size="lg"
             variant={"unstyled"}
             icon={<ChevronRightIcon boxSize={8} />}
@@ -72,18 +85,97 @@ function Navbar() {
         </Box>
         <Spacer />
 
-        <Flex align={"center"} mr={10}>
-          <Button
-          className={styles.upgrade}
+        {/* //! navbar section */}
+        <Flex align={"center"} alignItems="center">
+          <Link to={""}>
+            <Button
+              className={styles.navButtons}
+              variant={"unstyled"}
+              bg="#090909"
+              m={"0 8px"}
+              borderRadius="25px"
+              w="90px"
+              display={["none", "none", "none", "flex", "flex"]}
+            >
+              Premium
+            </Button>
+          </Link>
+
+          <Link to={""}>
+            <Button
+              className={styles.navButtons}
+              variant={"unstyled"}
+              bg="#090909"
+              m={"0 8px"}
+              borderRadius="25px"
+              w="90px"
+              display={["none", "none", "none", "flex", "flex"]}
+            >
+              Support
+            </Button>
+          </Link>
+
+          <Link to={""}>
+            <Button
+              className={styles.navButtons}
+              variant={"unstyled"}
+              bg="#090909"
+              m={"0 8px"}
+              borderRadius="25px"
+              w="90px"
+              display={["none", "none", "none", "flex", "flex"]}
+            >
+              Download
+            </Button>
+          </Link>
+
+          {/* //! Divide vertical */}
+
+          <Divider
+            orientation="vertical"
+            m={"0 20px"}
+            fontSize="25px"
+            w={"auto"}
+          />
+
+          <Link to={""}>
+            <Button
+              className={styles.navButtons}
+              variant={"unstyled"}
+              bg="#090909"
+              m={"0 8px"}
+              borderRadius="25px"
+              w="90px"
+              display={["none", "none", "none", "flex", "flex"]}
+            >
+              Sign Up
+            </Button>
+          </Link>
+
+          <Link to={""}>
+            <Button
+              className={styles.login}
+              variant={"unstyled"}
+              bg="#ffffff"
+              color={"#000000"}
+              borderRadius="25px"
+              w="90px"
+              display={["none", "none", "none", "flex", "flex"]}
+            >
+              Log In
+            </Button>
+          </Link>
+          {/* <Button
+            className={styles.navButtons}
             variant={"unstyled"}
             bg="blackAlpha.100"
-            color="white"
-            mr={5}
+            // color="white"
+            m={"0 8px"}
             borderRadius="25px"
+            w="90px"
             border={"1px solid white"}
-            w="110px"
+            w="90px"
             display={["none", "none", "none", "flex", "flex"]}
-            
           >
             Upgrade
           </Button>
@@ -92,11 +184,10 @@ function Navbar() {
             justify={"space-between"}
             align={"center"}
             bg="black"
-            color={"white"}
+            // color={"white"}
             borderRadius="25px"
             h={"45px"}
             w={"xsm"}
-           
           >
             <Image
               borderRadius="full"
@@ -184,7 +275,7 @@ function Navbar() {
                 User Name
               </Button>
             </Fade>
-          </Flex>
+          </Flex> */}
         </Flex>
       </Flex>
       <Box></Box>
