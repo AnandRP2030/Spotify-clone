@@ -58,7 +58,7 @@ function SpotifyPlaylist() {
                 ]} gap='20px' >
         {/* <Flex className={style.cardContainer}> */}
           {
-           data.length>0? data.map((ele)=>{
+           data?.length>0? data.map((ele)=>{
               // console.log(ele)
               return(
                 // <h1>{ele.album.cover_xl}</h1>
