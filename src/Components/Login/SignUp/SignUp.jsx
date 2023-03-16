@@ -138,7 +138,6 @@ function Signup() {
                                         border="1px solid white"
                                         _placeholder={{ color: "white" }}
                                         _focus={{ border: "2px solid white" }}
-                                        required
                                     />
                                     {/* <FormLabel fontSize="0.875rem">
                                         Confirm your email
