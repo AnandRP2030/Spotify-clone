@@ -4,7 +4,11 @@ import { Like } from './Components/Like/like';
 import { Upgrade } from './Components/Upgrade/upgrade';
 import {Signup} from "../src/Components/Login/SignUp/SignUp"
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import { Payment } from './Components/Payment/payment';
+
+import  Payment  from './Components/Payment/payment';
+import NotFound from './Components/CommonComponents/NotFoundPage/Notfound';
+
+
 
 function App() {
   return (
@@ -17,7 +21,10 @@ function App() {
           <Route path="/upgrade" element={<Upgrade/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/Signup" element={<Signup/>}/>
-          <Route path="/Signup" element={<Payment />}/>
+
+          <Route path="/payment" element={<Payment />}/>
+          <Route path="*" element={<NotFound/>}/>
+
         </Routes>
       </BrowserRouter>
 

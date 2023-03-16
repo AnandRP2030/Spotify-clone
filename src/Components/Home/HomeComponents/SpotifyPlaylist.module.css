@@ -1,16 +1,20 @@
 .SpotifyPlaylist{
-    padding: 20px 40px;
-    /* background-color: #181818; */
+    padding: 14px 40px 10px 40px ;
+    /* height: 100vh; */
+    background-color: #181818;
 }
 .SpotifyPlaylist h2{
     color:#ffffff;
     font-size: 22px;
     margin-bottom: 20px;
+    margin-top: -5px;
 }
-/* .listContainer{
-    gap: 20px;
+.listContainer{
+    /* gap: 20px; */
   overflow: hidden;
+  
 }
+/* 
 .cardContainer{
     min-width: 140px;
     width: 160px;

@@ -22,6 +22,8 @@ import {
   MenuDivider,
   transition,
   Divider,
+
+  
 } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
 import {
@@ -36,7 +38,7 @@ import {
 import { FaPowerOff } from "react-icons/fa";
 import styles from "./Navbar.module.css";
 import { Link } from "react-router-dom";
-function Navbar() {
+function Navbar({bgColor}) {
   const initRef = React.useRef();
   const { isOpen, onToggle, onOpen } = useDisclosure();
   return (
@@ -44,8 +46,8 @@ function Navbar() {
       <Flex
         className={styles.navbarContainer}
         justify="space-between"
-        bg={"#101010"}
-        padding="14px 30px"
+        bg={bgColor}
+        padding="5px 30px"
         // w={["100%","100%","100%","80%",'80%']}
         // w='100%'
         // h={"10vh"}
@@ -138,7 +140,7 @@ function Navbar() {
             w={"auto"}
           />
 
-          <Link to={""}>
+          <Link to={"/signup"}>
             <Button
               className={styles.navButtons}
               variant={"unstyled"}
@@ -152,7 +154,7 @@ function Navbar() {
             </Button>
           </Link>
 
-          <Link to={""}>
+          <Link to={"/login"}>
             <Button
               className={styles.login}
               variant={"unstyled"}

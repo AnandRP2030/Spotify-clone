@@ -4,15 +4,19 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { ChakraProvider } from "@chakra-ui/react";
-import { GoogleOAuthProvider } from '@react-oauth/google';
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import { Provider } from "react-redux";
+import store from "./Redux/store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <GoogleOAuthProvider clientId="577316870252-rj741d84b5410lalp73fun6l5fg1bhci.apps.googleusercontent.com">
-    <ChakraProvider>
-      <App />
-    </ChakraProvider>
+      <ChakraProvider>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </ChakraProvider>
     </GoogleOAuthProvider>
   </React.StrictMode>
 );
