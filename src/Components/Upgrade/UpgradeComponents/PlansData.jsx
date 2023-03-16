@@ -2,8 +2,20 @@ import React from "react";
 import { Box, Flex, Text, Button, Link } from "@chakra-ui/react";
 import { CheckIcon } from "@chakra-ui/icons";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router";
+import { useDispatch } from "react-redux";
 
-const PlansData = ({ ele }) => {
+const PlansData = ({ ele , index}) => {
+	const navigate = useNavigate();
+	const dispatch = useDispatch();
+
+	function setCurrentPlan(i){
+		dispatch({
+			type: "SET_CURRENT_PLAN",
+            payload: i
+		})
+		navigate("/payment")
+	}
 	return (
 		<Flex
 			bg="white"
@@ -85,6 +97,7 @@ const PlansData = ({ ele }) => {
 				color="white"
 				py="10px"
 				fontWeight="bold"
+				onClick={()=>setCurrentPlan(index+1)}
 			>
 				VIEW PLANS
 			</Box>

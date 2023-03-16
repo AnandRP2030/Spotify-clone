@@ -21,7 +21,6 @@ function App() {
           <Route path="/upgrade" element={<Upgrade/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/Signup" element={<Signup/>}/>
-
           <Route path="/payment" element={<Payment />}/>
           <Route path="*" element={<NotFound/>}/>
 
