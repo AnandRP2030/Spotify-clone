@@ -143,25 +143,37 @@ function Signup() {
                         alignItems="center"
                         justifyContent="center"
                         mb="50px"
+                        mt="40px"
                         bgGradient="linear(to-b,#000000, #1ed760)"
                         zIndex="2"
+                        boxShadow="#1ed760 0px 19px 38px, #1ed760 0px 15px 12px"
+                        minWidth="380px"
                     >
-                        <form onSubmit={Sign_up}>
+                        <form onSubmit={Sign_up} style={{width:"98%",height:"98%"}}>
                             <Flex
                                 w="full"
                                 h="90%"
                                 bgGradient="linear(to-b, #1ed760, RGBA(0, 0, 0.5, 0.9),#000000)"
                                 justify="center"
+                                align="center"
                                 mt="5px"
                                 mb="5px"
                                 zIndex="100"
+                                direction="column"
                             >
+                                    <Heading 
+                                    textAlign="center"
+                                    mt="20px"
+                                    >
+                                        Sigin Up
+                                        </Heading>
                                 <FormControl
                                     w="84%"
                                     color="white"
                                     mb="80px"
-                                    mt="80px"
+                                    mt="30px"
                                     align="center"
+                                    isRequired
                                 >
                                     <FormLabel fontSize="0.875rem">
                                         What's your email?
@@ -174,7 +186,7 @@ function Signup() {
                                         _focus={{ border: "2px solid white" }}
                                         required
                                     />
-                                    <FormLabel fontSize="0.875rem">
+                                    {/* <FormLabel fontSize="0.875rem">
                                         Confirm your email
                                     </FormLabel>
                                     <Input
@@ -183,7 +195,7 @@ function Signup() {
                                         border="1px solid white"
                                         _placeholder={{ color: "white" }}
                                         _focus={{ border: "2px solid white" }}
-                                    />
+                                    /> */}
                                     <FormLabel fontSize="0.875rem">
                                         Create a password
                                     </FormLabel>
@@ -193,6 +205,7 @@ function Signup() {
                                         border="1px solid white"
                                         _placeholder={{ color: "white" }}
                                         _focus={{ border: "2px solid white" }}
+                                        minLength={6}
                                     />
                                     <FormLabel fontSize="0.875rem">
                                         What should we call you?
@@ -203,10 +216,12 @@ function Signup() {
                                         border="1px solid white"
                                         _placeholder={{ color: "white" }}
                                         _focus={{ border: "2px solid white" }}
+                                        minLength={4}
                                     />
                                     <FormHelperText
                                         fontSize="0.799rem"
                                         color=""
+                                        textAlign="left"
                                     >
                                         This appears on your profile.
                                     </FormHelperText>
@@ -302,7 +317,7 @@ function Signup() {
                                     >
                                         Have an account?{" "}
                                         <Link
-                                            href="https://www.spotify.com/us/legal/end-user-agreement/"
+                                            href="/Login"
                                             color="#1ed760"
                                         >
                                             Log in

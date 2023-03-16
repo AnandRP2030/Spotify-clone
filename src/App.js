@@ -8,8 +8,6 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import { PrivatePayment } from './Components/Payment/plansDetails/PrivatePayment';
 
 import {BrowserRouter, Routes, Route, useLocation} from 'react-router-dom';
-
-
 import  {Payment}  from './Components/Payment/payment';
 import NotFound from './Components/CommonComponents/NotFoundPage/Notfound';
 import { AnimatePresence } from 'framer-motion';
