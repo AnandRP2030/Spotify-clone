@@ -8,7 +8,7 @@ const PlansData = ({ ele }) => {
 		<Flex
 			bg="white"
 			direction="column"
-			px={{ base: "5%", xl: "1%" }}
+			px={{ base: "3%", xl: "1%" }}
 			py="30px"
 			boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px"
 			mt="30px"
