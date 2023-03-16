@@ -7,6 +7,8 @@ const initialState={plans:[
         adFree: "Ad-free music listening on mobile",
         group: "Group Session",
         download: "Download 30 songs on 1 mobile device",
+        bg:"#0E8388",
+        color:"white"
     },
     {
         free: true,
@@ -20,6 +22,8 @@ const initialState={plans:[
         month6:"719",
         month3:"389",
         month1:"129",
+        bg:"#3E54AC",
+        color: "white"
     },
     {
         free: true,
@@ -34,6 +38,8 @@ const initialState={plans:[
         month6:"899",
         month3:"499",
         month1:"165",
+        bg: "#ffc862",
+        color: "black"
     },
     {
         free: true,
@@ -48,6 +54,8 @@ const initialState={plans:[
         month6:"1,075",
         month3:"595",
         month1:"199",
+        bg:"#EB455F",
+        color: "white"
     },
 ],
     currentPlan: 0,
@@ -66,3 +74,12 @@ switch(action.type){
 
 }
 export {PaymentReducer}
+
+
+
+
+
+
+
+
+
