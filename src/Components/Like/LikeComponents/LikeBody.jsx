@@ -6,6 +6,7 @@ import { Icon } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { likePageDisplaySong } from "../../../Redux/LikedSong/likeThunk";
 import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 import {
   Table,
@@ -18,9 +19,11 @@ import {
 } from "@chakra-ui/react";
 
 const LikeBody = () => {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  let likedSongList = useSelector((state) => state.likedSong[0]);
+  console.log('songlist', likedSongList)
 
-
+  console.log(likedSongList, "list of");
   const getData = () => {
     const options = {
       method: "GET",
@@ -36,7 +39,7 @@ const LikeBody = () => {
     )
       .then((response) => response.json())
       .then((response) => {
-       dispatch(likePageDisplaySong(response.data));
+        dispatch(likePageDisplaySong(response.data));
       });
   };
 
@@ -48,7 +51,7 @@ const LikeBody = () => {
     <Box
       bg="#1e1737"
       w="auto"
-      h="1000px"
+      h="auto"
       p="5%"
       pt="2%"
       pos="relative"
@@ -70,8 +73,9 @@ const LikeBody = () => {
             </Tr>
           </Thead>
           <Tbody>
-            <TableRow />
-            <TableRow />
+            {likedSongList?.map((song, index) => {
+              return <TableRow key={index} id={index+1} name={song.artist.name} />;
+            })}
           </Tbody>
         </Table>
       </TableContainer>

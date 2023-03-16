@@ -7,18 +7,18 @@ import styles from './home.module.css'
 import Preview from "./HomeComponents/Preview";
 import SpotifyPlaylist from "./HomeComponents/SpotifyPlaylist";
 import {Divider} from '@chakra-ui/react'
+import { useEffect, useState } from "react";
 const Home = () => {
+  
     return (
          <Box ml='196px'
          mb='100px'
           className={styles.homeContainer} >
-            <Navbar/>
-            {/* <Flex> */}
+            <Navbar bgColor="black"/>
             <SpotifyPlaylist/>
             <Sidebar/>
-           {/* <RecentlyPayed/> */}
            <Preview/>
-           <Divider  className={styles.divider} />
+           
          </Box>
     )
 }
