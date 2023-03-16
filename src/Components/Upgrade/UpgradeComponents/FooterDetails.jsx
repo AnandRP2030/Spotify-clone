@@ -3,7 +3,7 @@ import { Box, Text, Link } from "@chakra-ui/react";
 
 const FooterDetails = ({ ele }) => {
 	return (
-		<Box ml="60px">
+		<Box>
 			{Object.keys(ele).map((key) => {
 				{
 					if (key === "title") {

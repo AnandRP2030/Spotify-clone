@@ -31,11 +31,13 @@ const Footer = () => {
 			<Flex
 				color="white"
 				justify="space-between"
-				h="500px"
+				minH="550px"
 				maxW="1140px"
 				m="auto"
 				px={{ base: "5%", xl: "2%" }}
 				py="70px"
+				direction={{ base: "column", lg: "row" }}
+				gap={12}
 			>
 				<Box>
 					<Image
@@ -44,7 +46,11 @@ const Footer = () => {
 					/>
 				</Box>
 
-				<Flex flex="3">
+				<Flex
+					flex="3"
+					gap={12}
+					direction={{ base: "column", md: "row" }}
+				>
 					{details.map((ele) => {
 						return <FooterDetails ele={ele} />;
 					})}
