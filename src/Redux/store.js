@@ -8,6 +8,6 @@ let store = createStore(LikeReducer);
 
 
 
-store.subscribe(() => console.log('state',store.getState()));
+// store.subscribe(() => console.log('state',store.getState()));
 
 export default store;

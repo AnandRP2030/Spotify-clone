@@ -5,12 +5,12 @@ const initialValue = {
 
 
 export default function LikeReducer(state = initialValue, action) {
-    console.log(action.payload, 'payload')
+    
   switch (action.type) {
     case "DISPLAY_SONG":
       return {
         ...state,
-        likedSong : [...state.likedSong, action.payload],
+        likedSong : [ action.payload],
       };
 
     default:
