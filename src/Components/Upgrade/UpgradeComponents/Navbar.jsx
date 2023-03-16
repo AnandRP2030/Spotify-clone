@@ -1,21 +1,16 @@
 import { HamburgerIcon } from "@chakra-ui/icons";
 import {
   Box,
-  Button,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
   DrawerContent,
   DrawerFooter,
-  DrawerHeader,
   DrawerOverlay,
   Flex,
   Hide,
-  Input,
-  Show,
   useDisclosure,
   Image,
-  Spacer,
   Container,
   Icon,
   Text,
@@ -111,7 +106,7 @@ function Navbar() {
                   <Image
                     src={require("./logo.jpg")}
                     w="100px"
-                    mr="295px"
+                    mr="345px"
                     mb="40px"
                   />
                 </Box>
