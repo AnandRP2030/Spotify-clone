@@ -15,19 +15,26 @@ import {
 import { FaCaretRight } from "react-icons/fa";
 import style from "./Card.module.css";
 import { useNavigate } from "react-router-dom";
-function CardCom({prop}) {
-  console.log(prop)
+import { BsFillSuitHeartFill, BsHeart } from "react-icons/bs";
+
+function CardCom({ prop }) {
+  console.log(prop);
   const navigate = useNavigate();
   return (
-    <Box className={style.cardContainer} onClick={()=>{navigate('/like')}} >
-      <Image
-        src={prop.album.cover_medium}
-        alt="image"
-      />
-
+    <Box
+      // position={'relative'}
+    className={style.cardContainer}
+      onClick={() => {
+        navigate("/like");
+      }}
+    >
+      <Image src={prop.album.cover_xl} alt="image" />
+      {/* <Box 
+      position={"absolute"}
+          top="-20vh" left='15px'  >
+        <BsHeart fontSize={'30px'} color={'white'} />
+      </Box> */}
       <Box className={style.playButtonDiv}>
-        {/* <span className={style.playButton}><FaCaretRight  /></span> */}
-        {/* <span class="fa fa-play"></span> */}
         <IconButton
           as={"Button"}
           className={style.playButton}
@@ -38,6 +45,7 @@ function CardCom({prop}) {
           transition="all ease 0.4s"
           bg="#1db954"
           borderRadius="50%"
+         
           // _groupHover
           _hover={{ opacity: "1", transition: "all ease 0.4s" }}
           variant={"unstyled"}
@@ -51,7 +59,7 @@ function CardCom({prop}) {
         />
       </Box>
       <Heading as={"h6"} size="xsm" color="#fff" noOfLines={1}>
-      {prop.album.title}
+        {prop.album.title}
       </Heading>
       <Text className={style.songDesc} noOfLines={2}>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ratione
