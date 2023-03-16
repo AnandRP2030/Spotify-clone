@@ -1,0 +1,36 @@
+.previewbox{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to right, #ae2896, #509bf5);
+    padding: 15px 40px;
+}
+
+.heading{
+    color:#ffffff;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.text{
+    color:#ffffff;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.button{
+   font-size: 15px;
+   font-weight: bold;
+   padding: 14px 30px;
+   border:0px;
+   border-radius:40px;
+}
+
+.button:hover{
+    font-size: 16px;
+    transition: 500ms linear; 
+    transform: scale(1.1);
+}

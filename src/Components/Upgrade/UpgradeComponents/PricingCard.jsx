@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Text, Flex } from "@chakra-ui/react";
+import { Box, Text, Flex, Center } from "@chakra-ui/react";
 import PlansData from "./PlansData";
 
 const PricingCard = () => {
@@ -44,13 +44,25 @@ const PricingCard = () => {
 		},
 	];
 	return (
-		<>
-			<Flex direction="column">
+		<Box bg="#EFEFEF" pt="30px">
+			<Center fontWeight="bold" fontSize="30px">
+				Pick your Premium
+			</Center>
+			<Center fontWeight="semibold" fontSize="13px">
+				Listen without limits on your phone, speaker, and other devices
+			</Center>
+			<Flex
+				direction={{ base: "column", xl: "row" }}
+				maxW="1140px"
+				m="auto"
+				justify="space-around"
+				align={{ base: "center", xl: "normal" }}
+			>
 				{plans.map((ele) => {
 					return <PlansData ele={ele} />;
 				})}
 			</Flex>
-		</>
+		</Box>
 	);
 };
 

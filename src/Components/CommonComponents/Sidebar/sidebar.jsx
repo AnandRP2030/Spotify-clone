@@ -14,7 +14,7 @@ const Sidebar = () => {
       position={'fixed'}
       w="196px"
      p={'24px'}
-      zIndex={5}
+      // zIndex={5}
       top='0'
       bottom={'0'}
      left='0'
@@ -26,7 +26,7 @@ const Sidebar = () => {
         style={{ maxWidth: "130px", cursor: "pointer" }}
       />
 
-      <Box mt="20px" p={'10px 0'} color='#b3b3b3' >
+      <Box mt="12px" p={'10px 0'} color='#b3b3b3' >
         <SideComp icon={HiOutlineHome} name="Home"  />
         <SideComp icon={IoSearchOutline} name="Search" />
         <SideComp icon={BiLibrary} name="Library" />
@@ -70,12 +70,12 @@ const Sidebar = () => {
         </Flex>
       </Grid>
 
-      <Box  h="220px" w="100%" mt="20px">
+      <Box  h="180px" w="100%" mt="20px">
         {/* playlist box work pending  */}
       </Box>
         
-      <Flex style={{cursor:'pointer'}} color='white' w="100%" h="50px">
-        <Icon as={FiDownload} boxSize={6} />
+      <Flex style={{cursor:'pointer'}} color='white' w="100%" h="50px"  >
+        <Icon as={FiDownload} boxSize={6}  />
         <Text ml='15px'> Install App </Text>
       </Flex>
     </Box>
