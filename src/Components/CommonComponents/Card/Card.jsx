@@ -28,7 +28,7 @@ function CardCom({ prop }) {
         navigate("/like");
       }}
     >
-      <Image src={prop.album.cover_medium} alt="image" />
+      <Image src={prop.album.cover_xl} alt="image" />
       {/* <Box 
       position={"absolute"}
           top="-20vh" left='15px'  >
@@ -45,6 +45,7 @@ function CardCom({ prop }) {
           transition="all ease 0.4s"
           bg="#1db954"
           borderRadius="50%"
+         
           // _groupHover
           _hover={{ opacity: "1", transition: "all ease 0.4s" }}
           variant={"unstyled"}
