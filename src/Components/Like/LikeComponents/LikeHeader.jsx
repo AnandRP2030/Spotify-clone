@@ -12,7 +12,6 @@ const LikeHeader = () => {
 
   return (
     <Box
-     
       h="340px"
       w="auto"
       left="195px"

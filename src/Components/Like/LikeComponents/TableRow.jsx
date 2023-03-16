@@ -9,7 +9,6 @@ const TableRow = () => {
     }
 
     const handleRemove = () => {
-
         alert ('remove function pending')
     }
 
