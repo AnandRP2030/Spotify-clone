@@ -12,7 +12,7 @@ const Home = () => {
          <Box ml='196px'
          mb='100px'
           className={styles.homeContainer} >
-            <Navbar/>
+            <Navbar bgColor="black"/>
             {/* <Flex> */}
             <SpotifyPlaylist/>
             <Sidebar/>

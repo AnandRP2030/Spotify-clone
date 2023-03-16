@@ -38,7 +38,7 @@ import {
 import { FaPowerOff } from "react-icons/fa";
 import styles from "./Navbar.module.css";
 import { Link } from "react-router-dom";
-function Navbar() {
+function Navbar({bgColor}) {
   const initRef = React.useRef();
   const { isOpen, onToggle, onOpen } = useDisclosure();
   return (
@@ -46,7 +46,7 @@ function Navbar() {
       <Flex
         className={styles.navbarContainer}
         justify="space-between"
-        bg={"#101010"}
+        bg={bgColor}
         padding="14px 30px"
         // w={["100%","100%","100%","80%",'80%']}
         // w='100%'
