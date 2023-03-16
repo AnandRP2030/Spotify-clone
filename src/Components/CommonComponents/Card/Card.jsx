@@ -35,6 +35,7 @@ function CardCom() {
           transition="all ease 0.4s"
           bg="#1db954"
           borderRadius="50%"
+          // _groupHover
           _hover={{ opacity: "1", transition: "all ease 0.4s" }}
           variant={"unstyled"}
           aria-label="Call Segun"

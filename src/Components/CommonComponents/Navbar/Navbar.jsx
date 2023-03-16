@@ -22,6 +22,8 @@ import {
   MenuDivider,
   transition,
   Divider,
+
+  
 } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
 import {
@@ -138,7 +140,7 @@ function Navbar() {
             w={"auto"}
           />
 
-          <Link to={""}>
+          <Link to={"/signup"}>
             <Button
               className={styles.navButtons}
               variant={"unstyled"}
@@ -152,7 +154,7 @@ function Navbar() {
             </Button>
           </Link>
 
-          <Link to={""}>
+          <Link to={"/login"}>
             <Button
               className={styles.login}
               variant={"unstyled"}
