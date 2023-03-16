@@ -21,8 +21,8 @@ const LikeHeader = () => {
       ,
       <Image
         src="https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png"
-        h="58%"
-        w="14.2%"
+        h="61%"
+        w="13.3%"
         pos="relative"
         alt="Like-logo"
         top="80px"
