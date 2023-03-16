@@ -1,7 +1,6 @@
 import { Box, Icon,Flex, Text, Center } from "@chakra-ui/react";
 // import svg from "./logo-svg/homeLogo.svg"
 import style from './sidebar.module.css';
-
 const SideComp = ({icon, name}) => {
     return (
         <Flex className={style.hoverText} h='30px' mt='10px'>

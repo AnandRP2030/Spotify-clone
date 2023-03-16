@@ -26,7 +26,7 @@ const PowerSection = () => {
 		},
 	];
 	return (
-		<Box h="590px">
+		<Box h={{ base: "780", lg: "590px" }}>
 			<Center
 				fontSize={{ base: "28px", lg: "40px" }}
 				fontWeight="bold"
