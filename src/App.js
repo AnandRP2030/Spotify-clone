@@ -1,8 +1,8 @@
 import { Home } from './Components/Home/home';
-import { Login } from './Components/Login/login';
+import { Login } from '../src/Components/Login/Log_in/login';
 import { Like } from './Components/Like/like';
 import { Upgrade } from './Components/Upgrade/upgrade';
-import {Signup} from './Components/Login/SignUp';
+import {Signup} from "../src/Components/Login/SignUp/SignUp"
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 
