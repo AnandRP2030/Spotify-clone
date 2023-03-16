@@ -4,10 +4,10 @@ import { FaFacebookF } from "react-icons/fa";
 import { Icon, Flex } from "@chakra-ui/react";
 const FooterIcon = () => {
 	return (
-		<Flex>
-			<Icon as={BsTwitter} />
-			<Icon as={BsInstagram} />
-			<Icon as={FaFacebookF} />
+		<Flex gap={4} flex="1">
+			<Icon as={BsTwitter} boxSize={12} />
+			<Icon as={BsInstagram} boxSize={12} />
+			<Icon as={FaFacebookF} boxSize={12} />
 		</Flex>
 	);
 };

@@ -15,7 +15,7 @@ const PlansData = ({ ele }) => {
 			rounded="10px"
 			w={{ base: "400px", xl: "270px" }}
 		>
-			<Flex borderBottom="1px" direction="column" pb="15px">
+			<Flex borderBottom="1px" direction="column" pb="15px" h="190px">
 				<Flex
 					fontWeight="bold"
 					gap={3}
@@ -51,7 +51,7 @@ const PlansData = ({ ele }) => {
 				<Text fontSize="16px">{ele.day}</Text>
 				<Text fontSize="16px">{ele.account}</Text>
 			</Flex>
-			<Flex direction="column" gap={3} my="20px">
+			<Flex direction="column" gap={4} my="20px" h="160px">
 				{ele.family !== undefined ? (
 					<Flex>
 						<CheckIcon boxSize={6} />

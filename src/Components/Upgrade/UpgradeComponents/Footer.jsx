@@ -27,21 +27,31 @@ const Footer = () => {
 	];
 
 	return (
-		<Flex bg="black" color="white" justify="space-between">
-			<Box>
-				<Image
-					src={require("./logo.jpg")}
-					w={{ base: "90px", lg: "130px" }}
-				/>
-			</Box>
+		<Box bg="black">
+			<Flex
+				color="white"
+				justify="space-between"
+				h="500px"
+				maxW="1140px"
+				m="auto"
+				px={{ base: "5%", xl: "2%" }}
+				py="70px"
+			>
+				<Box>
+					<Image
+						src={require("./logo.jpg")}
+						w={{ base: "90px", lg: "130px" }}
+					/>
+				</Box>
 
-			<Flex>
-				{details.map((ele) => {
-					return <FooterDetails ele={ele} />;
-				})}
+				<Flex flex="3">
+					{details.map((ele) => {
+						return <FooterDetails ele={ele} />;
+					})}
+				</Flex>
+				<FooterIcon />
 			</Flex>
-			<FooterIcon />
-		</Flex>
+		</Box>
 	);
 };
 

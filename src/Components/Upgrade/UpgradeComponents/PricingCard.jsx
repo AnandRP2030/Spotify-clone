@@ -44,7 +44,7 @@ const PricingCard = () => {
 		},
 	];
 	return (
-		<Box bg="#EFEFEF" pt="30px">
+		<Box bg="#EFEFEF" py="60px">
 			<Center fontWeight="bold" fontSize="30px">
 				Pick your Premium
 			</Center>
