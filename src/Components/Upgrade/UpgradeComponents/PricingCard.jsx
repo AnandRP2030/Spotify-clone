@@ -21,8 +21,8 @@ const PricingCard = () => {
 				justify="space-around"
 				align={{ base: "center", xl: "normal" }}
 			>
-				{plans.map((ele) => {
-					return <PlansData ele={ele} />;
+				{plans.map((ele, i) => {
+					return <PlansData ele={ele}  index={i}/>;
 				})}
 			</Flex>
 		</Box>
