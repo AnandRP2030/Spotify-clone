@@ -22,7 +22,7 @@ const initialState={plans:[
         month6:"719",
         month3:"389",
         month1:"129",
-        bg:"#3E54AC",
+        bg:"#1d75de",
         color: "white"
     },
     {
