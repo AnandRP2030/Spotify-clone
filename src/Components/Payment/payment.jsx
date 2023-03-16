@@ -9,8 +9,8 @@ export const Payment = () => {
   const currentPlan = useSelector(state=>state.paymentReducer.currentPlan)
   const data = useSelector(state=>state.paymentReducer.plans[currentPlan-1])
   return (
-    <Box bgGradient='linear(to-r, rgb(5,227,136),rgb(26,141,95))' p={8} h="100vh" >
-      <Flex fontWeight="bold" 
+    <Box bgGradient='linear(to-r, rgb(5,227,136),rgb(26,141,95))' p={8} minH="100vh" >
+      <Flex fontWeight="bold"
       maxW="1140px"
       m="auto"
       minH="600px" boxShadow="rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px" rounded="20px">
