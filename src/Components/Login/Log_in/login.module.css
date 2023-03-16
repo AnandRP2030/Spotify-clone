@@ -1,4 +1,4 @@
-*{
+/* *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -83,4 +83,4 @@ body{
 .box form .inputBox input:valid ~ i,
 .box form .inputBox input:focus ~ i{
     
-}
+} */
