@@ -5,7 +5,7 @@ import { Upgrade } from './Components/Upgrade/upgrade';
 import {Signup} from "../src/Components/Login/SignUp/SignUp"
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
-import  Payment  from './Components/Payment/payment';
+import  {Payment}  from './Components/Payment/payment';
 import NotFound from './Components/CommonComponents/NotFoundPage/Notfound';
 
 
