@@ -14,11 +14,14 @@ import {
 } from "@chakra-ui/react";
 import { FaCaretRight } from "react-icons/fa";
 import style from "./Card.module.css";
-function CardCom() {
+import { useNavigate } from "react-router-dom";
+function CardCom({prop}) {
+  console.log(prop)
+  const navigate = useNavigate();
   return (
-    <Box className={style.cardContainer}>
+    <Box className={style.cardContainer} onClick={()=>{navigate('/like')}} >
       <Image
-        src="https://i.scdn.co/image/ab67706f0000000239c7f666dce699bae067bc72"
+        src={prop.album.cover_medium}
         alt="image"
       />
 
@@ -47,8 +50,8 @@ function CardCom() {
           }
         />
       </Box>
-      <Heading as={"h6"} size="xsm" color="#fff" onoOfLines={1}>
-        Todays, Top Hits
+      <Heading as={"h6"} size="xsm" color="#fff" noOfLines={1}>
+      {prop.album.title}
       </Heading>
       <Text className={style.songDesc} noOfLines={2}>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ratione

@@ -47,7 +47,7 @@ function Navbar({bgColor}) {
         className={styles.navbarContainer}
         justify="space-between"
         bg={bgColor}
-        padding="14px 30px"
+        padding="5px 30px"
         // w={["100%","100%","100%","80%",'80%']}
         // w='100%'
         // h={"10vh"}
