@@ -7,7 +7,8 @@ const LikeHeader = () => {
 
     const[userData, setUserData] = useState({
         name: "User name",
-        noOfSong: 2
+        noOfSong: 2,
+
     })
 
   return (
@@ -22,7 +23,7 @@ const LikeHeader = () => {
       ,
       <Image
         src="https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png"
-        h="61%"
+        h="55%"
         w="13.3%"
         pos="relative"
         alt="Like-logo"

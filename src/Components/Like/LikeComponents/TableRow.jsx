@@ -31,7 +31,13 @@ const TableRow = ({
   };
 
   const songClicked = () => {
-    setPlaySong({ songUrl: url, playSong: true });
+    setPlaySong({
+      songUrl: url,
+      img: image,
+      songName: title,
+      singer: name,
+      playSong: true,
+    });
     console.log("called");
   };
 

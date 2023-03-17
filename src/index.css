@@ -1,3 +1,34 @@
 body {
   font-family: “Circular Std”, sans-serif;
 }
+
+.rhap_container{
+  background-image: linear-gradient(to left, #130a2c, #090612) !important;
+  
+}
+
+.rhap_container svg {
+  color: white;
+}
+
+.rhap_time{
+  color: white !important;
+}
+
+.rhap_footer{
+  color: white !important;
+}
+
+.rhap_progress-bar{
+  width: 40% !important;
+  height: 9px !important;
+  margin: auto !important;
+}
+
+.rhap_progress-filled{
+  background-color: #01f659 !important;
+}
+
+.rhap_progress-indicator{
+  background-color: white !important;
+}

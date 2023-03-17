@@ -68,7 +68,7 @@ const LikeBody = ({setPlaySong}) => {
       left="195px"
     >
       <PlayButton />
-      <TableContainer w="80%" mt="50px" color="white">
+      <TableContainer w="95%" mt="50px" color="white">
         <Table variant="simple" borderColor="transparent">
           <Thead>
             <Tr id={style.likeTableRow}>
