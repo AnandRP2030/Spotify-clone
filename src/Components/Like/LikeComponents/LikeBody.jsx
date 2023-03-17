@@ -7,6 +7,9 @@ import { useEffect } from "react";
 import { likePageDisplaySong } from "../../../Redux/LikedSong/likeThunk";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import { useState } from "react";
+import AudioPlayer from 'react-h5-audio-player';
+import 'react-h5-audio-player/lib/styles.css';
 
 import {
   Table,
@@ -19,6 +22,23 @@ import {
 } from "@chakra-ui/react";
 
 const LikeBody = () => {
+
+  const[playSong, setPlaySong] = useState({
+    songUrl: "",
+    playSong: false
+  })
+
+  const Player = () => (
+    <AudioPlayer
+      autoPlay
+      src="https://cdns-preview-e.dzcdn.net/stream/c-e54e737bf7f2cf479c66a13ba5116848-2.mp3"
+      onPlay={e => console.log("onPlay")}
+      // other props here
+    />
+  );
+
+  Player();
+
   const dispatch = useDispatch();
   let likedSongList = useSelector((state) => state.likedSong[0]);
   // console.log('songlist', likedSongList)

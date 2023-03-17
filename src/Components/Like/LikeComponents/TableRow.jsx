@@ -7,7 +7,6 @@ const TableRow = ({ name, image, id, title, type, duration }) => {
     cursor: "pointer",
   };
 
-  console.log(duration, 'dd')
 
   let inSec = Number(duration);
   let mins = Math.floor(inSec / 60);

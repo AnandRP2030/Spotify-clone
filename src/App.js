@@ -5,7 +5,7 @@ import { Upgrade } from './Components/Upgrade/upgrade';
 import {Signup} from "../src/Components/Login/SignUp/SignUp"
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import NotFound from './Components/CommonComponents/NotFoundPage/Notfound';
-
+import DeeserSdk from './Components/CommonComponents/forTesting/DeeserSdk';
 
 function App() {
   return (
@@ -17,7 +17,8 @@ function App() {
           <Route path="/like" element={<Like/>}/>
           <Route path="/upgrade" element={<Upgrade/>}/>
           <Route path="/login" element={<Login/>}/>
-          <Route path="/Signup" element={<Signup/>}/>
+          <Route path="/signup" element={<Signup/>}/>
+          <Route path="/sdk" element={<DeeserSdk/>}/>
           <Route path="*" element={<NotFound/>}/>
         </Routes>
       </BrowserRouter>
