@@ -7,6 +7,12 @@ const initialState={plans:[
         adFree: "Ad-free music listening on mobile",
         group: "Group Session",
         download: "Download 30 songs on 1 mobile device",
+        month12:"999",
+        month6:"619",
+        month3:"349",
+        month1:"99",
+        bg:"#0E8388",
+        color:"white"
     },
     {
         free: true,
@@ -20,6 +26,8 @@ const initialState={plans:[
         month6:"719",
         month3:"389",
         month1:"129",
+        bg:"#1d75de",
+        color: "white"
     },
     {
         free: true,
@@ -34,6 +42,8 @@ const initialState={plans:[
         month6:"899",
         month3:"499",
         month1:"165",
+        bg: "#ffc862",
+        color: "black"
     },
     {
         free: true,
@@ -48,9 +58,12 @@ const initialState={plans:[
         month6:"1,075",
         month3:"595",
         month1:"199",
+        bg:"#EB455F",
+        color: "white"
     },
 ],
     currentPlan: 0,
+    viewPayment:false
 }
 
 const PaymentReducer = (state=initialState, action)=>{
@@ -58,7 +71,8 @@ switch(action.type){
     case "SET_CURRENT_PLAN":{
         return{
           ...state,
-            currentPlan:action.payload
+            currentPlan:action.payload,
+            viewPayment: true
         }
     }
     default : return state
@@ -66,3 +80,12 @@ switch(action.type){
 
 }
 export {PaymentReducer}
+
+
+
+
+
+
+
+
+
