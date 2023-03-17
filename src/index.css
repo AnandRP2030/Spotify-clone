@@ -4,7 +4,7 @@ body {
 
 .rhap_container{
   background-image: linear-gradient(to left, #130a2c, #090612) !important;
-  
+  width: '90%'
 }
 
 .rhap_container svg {
@@ -13,6 +13,8 @@ body {
 
 .rhap_time{
   color: white !important;
+  position: relative;
+    left: 16%;
 }
 
 .rhap_footer{
@@ -31,4 +33,24 @@ body {
 
 .rhap_progress-indicator{
   background-color: white !important;
+}
+
+/* .rhap_download-progress{
+  position: relative !important; 
+  right: 20% !important;
+   left: -20% !important;
+} */
+
+.rhap_progress-section {
+  width: 85% !important;
+    position: relative !important;
+    left: -8% !important;
+    margin: auto !important;
+
+}
+
+/* white bar  */
+.rhap_progress-container{
+  position: relative;
+  left: -6%;
 }

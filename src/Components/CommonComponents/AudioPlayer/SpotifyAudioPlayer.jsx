@@ -16,7 +16,7 @@ const SpotifyAudioPlayer = ({ song }) => {
   }
 
   return (
-    <Box w="100%" zIndex={10} pos="relative">
+    <Box w="100%" zIndex={10} pos="fixed" bottom="0">
       <AudioPlayer
         id={style.myId}
         autoPlay
@@ -32,7 +32,7 @@ const SpotifyAudioPlayer = ({ song }) => {
         customProgressBarSection={[
           <Flex ml="20px">
             <Image boxSize="50px" borderRadius="30%" src={song.img} alt="img" />
-            <Box color="white" ml="10px">
+            <Box color="white" ml="10px" w='300px'>
               <Text fontSize="20px" mb="8px">
                 {" "}
                 {song.songName}

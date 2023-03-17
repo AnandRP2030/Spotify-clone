@@ -17,14 +17,17 @@ const Like = () => {
   return (
     <div>
         <Sidebar />
-        <LikeHeader />
 
-        <LikeBody setPlaySong={setPlaySong} />
+        <LikeHeader />
+        
         {playSong.playSong ? (
           <SpotifyAudioPlayer song={playSong} />
         ) : (
           ""
         )}
+
+        <LikeBody setPlaySong={setPlaySong} />
+       
     </div>
   );
 };
