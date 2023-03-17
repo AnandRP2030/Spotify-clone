@@ -1,8 +1,9 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import{Flex, Box, Text, Center, List, ListItem, ListIcon} from "@chakra-ui/react"
+import{Flex, Box, Text, Center, List, ListItem, ListIcon, Image} from "@chakra-ui/react"
 import {Link} from 'react-router-dom'
 import {CheckCircleIcon} from '@chakra-ui/icons'
+import { Badges } from './Badges'
 
 export const Payment = () => {
 
@@ -16,15 +17,13 @@ export const Payment = () => {
       minH="600px" boxShadow="rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px" rounded="20px">
         {/* for displaying the pricePlans */}
          <Flex direction="column" flex="1" 
-        //  bgGradient='linear(to-r, #60ed99,#1fbe52)'
         bg={data.bg} color={data.color}
-          // color="white"
-          py="40px"
+          py="30px"
          borderTopLeftRadius="20px" borderBottomLeftRadius="20px">
           <Center fontSize="38px"  >Music For Everyone.</Center>
           <Center fontSize="25px" >Premium Subscription</Center>
         
-              <Flex justify="space-around" align="center" mt="20px">
+              <Flex justify="space-around" align="center" mt="10px">
                 <Text fontSize="24px" >You chose</Text>
                 <Link to="/upgrade"
                 ><Text color={data.color==="white"?"black":"white"}
@@ -39,6 +38,7 @@ export const Payment = () => {
                 <Text fontSize="32px" >Premium {data.plan}</Text>
                 <Text>{data.account}</Text>
               </Flex>
+              <Badges isMargin={false}/>
               <Text mt="8px" fontSize="18px">{data.day}</Text>
               </Box>
               {/* features of plan */}
@@ -56,16 +56,16 @@ export const Payment = () => {
 
               {/* monthly subscription details */}
               <Flex direction="column" mt="20px">
-                <Box border="1px" w="98%" mx="auto" mt="5px" p={3}>
+                <Box border="1px" w="98%" mx="auto" mt="5px" p={2}>
                   <Text fontSize="24px">3 months</Text>
                   <Text fontSize="15px">₹{data.month3} one-time payment</Text>
                   
                 </Box>
-                <Box border="1px" w="98%" mx="auto" mt="5px" p={3}>
+                <Box border="1px" w="98%" mx="auto" mt="5px" p={2}>
                   <Text fontSize="24px">6 months</Text>
                   <Text fontSize="15px">₹{data.month6} one-time payment</Text>
                 </Box>
-                <Box border="1px" w="98%" mx="auto" mt="5px" p={3}>
+                <Box border="1px" w="98%" mx="auto" mt="5px" p={2}>
                   <Text fontSize="24px">1 year</Text>
                   <Text fontSize="15px">₹{data.month12} one-time payment</Text>
                 </Box>
@@ -73,7 +73,24 @@ export const Payment = () => {
 
          </Flex >
          {/* for payment purpose */}
-         <Flex bg="black" flex="1" borderTopRightRadius="20px" borderBottomRightRadius="20px">
+         <Flex bg="black" flex="1" borderTopRightRadius="20px" borderBottomRightRadius="20px" direction="column">
+                <Flex direction="column" mt="40px" align="center" gap={3}>
+                <Box >
+                  <Image
+                    src={require("../Upgrade/UpgradeComponents/logo.jpg")}
+                    w="190px"
+                  
+                  />
+                </Box>
+                <Box >
+                  <Image
+                    src="https://cdn.dribbble.com/users/1299339/screenshots/14693431/media/0d14cfd0199c68d53fff50e42cca6c4b.gif"
+                 
+                  />
+                </Box>
+                </Flex>
+                <Badges isMargin={true}/>
+
 
          </Flex>
       </Flex>

@@ -5,6 +5,7 @@ import { Upgrade } from './Components/Upgrade/upgrade';
 import {Signup} from "../src/Components/Login/SignUp/SignUp"
 
 import { Routes, Route,useLocation} from 'react-router-dom'
+
 import { PrivatePayment } from './Components/Payment/plansDetails/PrivatePayment';
 import  {Payment}  from './Components/Payment/payment';
 import NotFound from './Components/CommonComponents/NotFoundPage/Notfound';
