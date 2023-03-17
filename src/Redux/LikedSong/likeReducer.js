@@ -10,7 +10,7 @@ export default function LikeReducer(state = initialValue, action) {
     case "DISPLAY_SONG":
       return {
         ...state,
-        likedSong : [...state.likedSong, action.payload],
+        likedSong : [ action.payload],
       };
 
     default:
