@@ -8,7 +8,7 @@ const Like = () => {
   return (
     <div>
       <Sidebar />
-      <Navbar bgColor=""/>
+      {/* <Navbar bgColor="#432799"/> */}
       <LikeHeader />
       <LikeBody/>
       

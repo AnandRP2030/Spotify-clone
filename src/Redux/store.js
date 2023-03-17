@@ -12,6 +12,6 @@ let store = legacy_createStore(combine, applyMiddleware(thunk));
 
 
 
-store.subscribe(() => console.log('state',store.getState()));
+// store.subscribe(() => console.log('state',store.getState()));
 
 export default store;
