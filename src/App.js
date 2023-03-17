@@ -4,10 +4,10 @@ import { Like } from './Components/Like/like';
 import { Upgrade } from './Components/Upgrade/upgrade';
 import {Signup} from "../src/Components/Login/SignUp/SignUp"
 
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import { Routes, Route,useLocation} from 'react-router-dom';
 import { PrivatePayment } from './Components/Payment/plansDetails/PrivatePayment';
 
-import {BrowserRouter, Routes, Route, useLocation} from 'react-router-dom';
+// import { Routes, Route, useLocation} from 'react-router-dom';
 import  {Payment}  from './Components/Payment/payment';
 import NotFound from './Components/CommonComponents/NotFoundPage/Notfound';
 import { AnimatePresence } from 'framer-motion';
@@ -19,7 +19,6 @@ function App() {
   return (
     <div className="App">
       
-      {/* <BrowserRouter> */}
       <AnimatePresence mode='wait' >
         <Routes key={location.pathname} location={location} >
           <Route path="/" element={<Home/>}/>
@@ -32,7 +31,6 @@ function App() {
 
         </Routes>
         </AnimatePresence>
-      {/* </BrowserRouter> */}
 
     </div>
   );
