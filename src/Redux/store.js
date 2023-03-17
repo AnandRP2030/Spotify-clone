@@ -1,10 +1,14 @@
-import { createStore, applyMiddleware } from "redux";
+import {legacy_createStore, applyMiddleware, combineReducers } from "redux";
 import thunk from "redux-thunk";
 import LikeReducer from "./LikedSong/likeReducer";
+import { PaymentReducer } from "./LikedSong/paymentReducer";
 
+let combine = combineReducers({
+  likeReducer: LikeReducer,
+    paymentReducer: PaymentReducer,
+})
 
-let store = createStore(LikeReducer);
-
+let store = legacy_createStore(combine, applyMiddleware(thunk));
 
 
 

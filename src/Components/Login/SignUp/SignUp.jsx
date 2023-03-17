@@ -23,6 +23,11 @@ import {
     keyframes,
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import { GoogleButton } from "./GoogleButton";
+import { FacebookButton } from "./FacebookButton";
+import { Head } from "./Head";
+
+
 // const animationKeyframes = keyframes`
 //   0% { transform:  rotate(0deg);  }
 //   100% { transform:  rotate(360deg); }
@@ -71,22 +76,7 @@ function Signup() {
                 w="1fr"
                 bgGradient="linear(to-b, #1ed760, RGBA(0, 0, 0.5, 0.9),#000000)"
             >
-                <Flex mb={["90px", "75px", "75px"]}>
-                    <VStack mt="40px" h="80px">
-                        <Image
-                            src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_Black.png"
-                            alt="Spotify_Logo"
-                            h="full"
-                        />
-                        <Heading
-                            fontSize="2rem"
-                            letterSpacing="-0.04em"
-                            textAlign="center"
-                        >
-                            Sign up for free to start listening.
-                        </Heading>
-                    </VStack>
-                </Flex>
+                <Head/>
                 <Flex
                     display="flex"
                     align="center"
@@ -96,44 +86,8 @@ function Signup() {
                     gap="20px"
                 >
                     <VStack h="full" w="full">
-                        <Button
-                            h="50px"
-                            w="65%"
-                            borderRadius="50px"
-                            mt={["auto", "auto", "-150px"]}
-                            _hover={{
-                                bg: "#405a93",
-                                w: "68%",
-                                h: "51px",
-                                fontSize: "17px",
-                            }}
-                            bg="#405a93"
-                            mb={["10px", "10px", "20px"]}
-                            color="white"
-                        >
-                            <Image
-                                src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/122_Facebook_F_logo_logos-512.png"
-                                h="42%"
-                                bg="white"
-                                borderRadius="90%"
-                                mr="10px"
-                            />{" "}
-                            Sign up with Facebook
-                        </Button>
-                        <Button
-                            h="50px"
-                            w="65%"
-                            borderRadius="50px"
-                            _hover={{ w: "68%", h: "51px", fontSize: "17px" }}
-                            onClick={login}
-                        >
-                            <Image
-                                src="https://www.transparentpng.com/thumb/google-logo/colorful-google-logo-transparent-clipart-download-u3DWLj.png"
-                                h="53%"
-                                mr="10px"
-                            />{" "}
-                            Sign up with Google
-                        </Button>
+                        <FacebookButton />
+                        <GoogleButton onClick={login} />
                     </VStack>
                     <Divider orientation="vertical" />
                     <VStack
@@ -143,25 +97,37 @@ function Signup() {
                         alignItems="center"
                         justifyContent="center"
                         mb="50px"
+                        mt="40px"
                         bgGradient="linear(to-b,#000000, #1ed760)"
                         zIndex="2"
+                        boxShadow="#1ed760 0px 19px 38px, #1ed760 0px 15px 12px"
+                        minWidth="380px"
                     >
-                        <form onSubmit={Sign_up}>
+                        <form onSubmit={Sign_up} style={{ width: "98%", height: "98%" }}>
                             <Flex
                                 w="full"
                                 h="90%"
                                 bgGradient="linear(to-b, #1ed760, RGBA(0, 0, 0.5, 0.9),#000000)"
                                 justify="center"
+                                align="center"
                                 mt="5px"
                                 mb="5px"
                                 zIndex="100"
+                                direction="column"
                             >
+                                <Heading
+                                    textAlign="center"
+                                    mt="20px"
+                                >
+                                    Sigin Up
+                                </Heading>
                                 <FormControl
                                     w="84%"
                                     color="white"
                                     mb="80px"
-                                    mt="80px"
+                                    mt="30px"
                                     align="center"
+                                    isRequired
                                 >
                                     <FormLabel fontSize="0.875rem">
                                         What's your email?
@@ -172,9 +138,8 @@ function Signup() {
                                         border="1px solid white"
                                         _placeholder={{ color: "white" }}
                                         _focus={{ border: "2px solid white" }}
-                                        required
                                     />
-                                    <FormLabel fontSize="0.875rem">
+                                    {/* <FormLabel fontSize="0.875rem">
                                         Confirm your email
                                     </FormLabel>
                                     <Input
@@ -183,7 +148,7 @@ function Signup() {
                                         border="1px solid white"
                                         _placeholder={{ color: "white" }}
                                         _focus={{ border: "2px solid white" }}
-                                    />
+                                    /> */}
                                     <FormLabel fontSize="0.875rem">
                                         Create a password
                                     </FormLabel>
@@ -193,6 +158,7 @@ function Signup() {
                                         border="1px solid white"
                                         _placeholder={{ color: "white" }}
                                         _focus={{ border: "2px solid white" }}
+                                        minLength={6}
                                     />
                                     <FormLabel fontSize="0.875rem">
                                         What should we call you?
@@ -203,10 +169,12 @@ function Signup() {
                                         border="1px solid white"
                                         _placeholder={{ color: "white" }}
                                         _focus={{ border: "2px solid white" }}
+                                        minLength={4}
                                     />
                                     <FormHelperText
                                         fontSize="0.799rem"
                                         color=""
+                                        textAlign="left"
                                     >
                                         This appears on your profile.
                                     </FormHelperText>
@@ -302,7 +270,7 @@ function Signup() {
                                     >
                                         Have an account?{" "}
                                         <Link
-                                            href="https://www.spotify.com/us/legal/end-user-agreement/"
+                                            href="/Login"
                                             color="#1ed760"
                                         >
                                             Log in

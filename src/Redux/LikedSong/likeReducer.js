@@ -5,7 +5,7 @@ const initialValue = {
 
 
 export default function LikeReducer(state = initialValue, action) {
-    
+    // console.log(action.payload, 'payload')
   switch (action.type) {
     case "DISPLAY_SONG":
       return {

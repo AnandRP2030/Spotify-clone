@@ -9,7 +9,10 @@ import {
   Center,
   Text,
   Grid,
-  Divider
+  Divider,
+  SkeletonCircle,
+  SkeletonText,
+  Skeleton,
 } from "@chakra-ui/react";
 import { FaCaretRight } from "react-icons/fa";
 import style from "./SpotifyPlaylist.module.css";
@@ -31,13 +34,6 @@ function SpotifyPlaylist() {
     .then((response) => {
       // console.log('res' ,response)
       setData(response.data);
-      // let arr = response.data;
-      // document.getElementById("container").innerHTML = "";
-      // arr.map((song, index) => {
-      //   let img = song.album.cover_xl;
-      //   let songUrl = song.preview;
-      //   append(img, songUrl);
-      // });
     });
   }
     useEffect(()=>{
@@ -45,6 +41,7 @@ function SpotifyPlaylist() {
     },[])
 // console.log("data",data)
   return (
+    data?.length>0?
     <Box className={style.SpotifyPlaylist}>
       <Heading  >Spotify Playlist</Heading>
 
@@ -56,20 +53,20 @@ function SpotifyPlaylist() {
                     "repeat(6, 1fr)",
                     "repeat(6, 1fr)",
                 ]} gap='20px' >
-        {/* <Flex className={style.cardContainer}> */}
           {
-           data?.length>0? data.map((ele)=>{
-              // console.log(ele)
+            data.map((ele)=>{
               return(
-                // <h1>{ele.album.cover_xl}</h1>
                 <CardCom prop={ele} />
               )
-            }):null
+            })
           }
-        {/* </Flex> */}
       </Grid>
       <Divider mt={'20px'}/>
-    </Box>
+    </Box>:
+    <Box  boxShadow='lg' bg='white'>
+    <Skeleton height='100vh'startColor='#434343' endColor='#000000' />
+    {/* <SkeletonText mt='4' isLoaded={false} startColor='#d7d2cc' endColor='#304352' noOfLines={24} spacing='4' skeletonHeight='2' /> */}
+  </Box>
   );
 }
 
