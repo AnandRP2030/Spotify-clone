@@ -1,10 +1,28 @@
-import React from 'react'
-import {Flex, Image} from "@chakra-ui/react"
+import React,{useState} from 'react'
+import {Box, Flex, Image, Input, Text} from "@chakra-ui/react"
+import { useDisclosure,Modal,ModalBody,ModalOverlay, ModalCloseButton,ModalContent, ModalHeader,ModalFooter,Button } from '@chakra-ui/react'
 
 export const Badges = ({isMargin}) => {
+
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const[promo,  setPromo] = useState("")
+  const[wrongPromo,setWrongPromo] = useState(false)
+  const[correctPromo , setCorrectPromo] = useState(false)
+  const [alreadyApplied, setAlreadyApplied] = useState(false)
+  const checkPromo = (promocode)=>{
+    if(promocode==="Masai30"){
+      setCorrectPromo(true)
+      setAlreadyApplied(true)
+      setTimeout(() => { onClose()
+      setWrongPromo(false)
+    }, 2000)
+    }else{
+      setWrongPromo(true);
+    }
+  }
   return (
-    <Flex maxH="20px" gap={1} mt="15px"  ml={isMargin ? "20px": "0px"}>
-          
+    <Flex maxH="20px" gap={1} mt="15px"  ml={isMargin ? "20px": "0px"} justify="space-between" pr="25px">
+          <Flex maxH="20px" gap={1}>
                   <Image
                     src="https://content-tooling.spotifycdn.com/images/74fdfa7c-bd09-4641-af92-eb69784aa553_paytm.svg"
                   h="full"
@@ -26,7 +44,32 @@ export const Badges = ({isMargin}) => {
                     src="https://content-tooling.spotifycdn.com/images/7ae2af66-ecab-4bb3-b094-c5ae92d42407_mastercard.svg"
                  h="full"
                   />
-                  
+              </Flex>    
+              <Box>
+                {isMargin?<Text onClick={onOpen} color="green" fontSize={{base:"10px", lg:"14px"}}>Have a Promo Code?</Text>:null}
+              </Box>
+              <Modal  isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent bg="black" mt="25%">
+          <ModalHeader color="green">Apply Promo Code</ModalHeader>
+          <ModalCloseButton color="white"/>
+          <ModalBody>
+            <Input 
+            disabled={alreadyApplied}
+            placeholder='Enter Promo Code' color="white" onChange={(e)=>setPromo(e.target.value)} ></Input>
+            <Text color={ correctPromo? "green" :wrongPromo? "red" : "yellow"}
+            
+            >{  alreadyApplied? "Your have already applied the promo code":correctPromo? "PromoCode Successfully Applied":wrongPromo? "PromoCode is Invalid ": null} </Text>
+            
+          </ModalBody>
+
+          <ModalFooter>
+            <Button colorScheme='green' mr={3} onClick={()=>{checkPromo(promo)}}>
+              Apply
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
                
                 </Flex>
   )

@@ -88,7 +88,7 @@ console.log(onPlanData);
                   <Box><ChevronRightIcon  boxSize={8}/></Box>
                   
                 </Flex>
-                <Flex border="1px" w="98%" mx="auto" align="center" justify="space-between" mt="5px" p={2} onClick={()=>updatePlan(3, data.month3)}>
+                <Flex border="1px" w="98%" mx="auto" align="center" justify="space-between" mt="5px" p={2} onClick={()=>updatePlan(6, data.month6)}>
                   <Box>
                   <Text fontSize="24px">6 months</Text>
                   <Text fontSize="15px">₹{data.month6} one-time payment</Text>
@@ -96,7 +96,7 @@ console.log(onPlanData);
                   <Box><ChevronRightIcon  boxSize={8}/></Box>
                   
                 </Flex>
-                <Flex border="1px" w="98%" mx="auto" align="center" justify="space-between" mt="5px" p={2} onClick={()=>updatePlan(3, data.month3)}>
+                <Flex border="1px" w="98%" mx="auto" align="center" justify="space-between" mt="5px" p={2} onClick={()=>updatePlan(12, data.month12)}>
                   <Box>
                   <Text fontSize="24px">1 year</Text>
                   <Text fontSize="15px">₹{data.month12} one-time payment</Text>
