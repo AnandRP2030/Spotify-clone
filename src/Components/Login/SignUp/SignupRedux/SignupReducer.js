@@ -3,7 +3,7 @@ const initialState = {
   isAuth: false,
   UserData: [],
   error: false,
-  isPremiumUser:false,
+  isPremiumUser:false
   };
   
   const SignupReducer = (state = initialState,action) => {
@@ -16,6 +16,12 @@ const initialState = {
             UserData:[action.payload],
           }
       
+        }
+        case "LOGOUT_USER":{
+          return{
+            ...state,
+            isAuth:false,
+          }
         }
         default:
         return state;

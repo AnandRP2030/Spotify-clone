@@ -122,10 +122,10 @@ setTimeout(()=>{
                     gap="20px"
                 >
                     <VStack h="full" w="full">
-                        {/* -------------facebook------------ */}
+                        {/* -------------facebook button------------ */}
                         <FacebookButton 
                         />
-                        {/* ------------google------------------ */}
+                        {/* ------------google button------------------ */}
                         <GoogleButton
                             loging={loging}
                         />
