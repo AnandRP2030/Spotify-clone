@@ -14,7 +14,7 @@ const Sidebar = () => {
     
       const link = document.createElement('a');
       link.download = 'spotifyAppDownload.exe';
-      link.href = `${process.env.PUBLIC_URL}/assets/spotifyAppDownload.exe`
+      link.href = `https://github.com/AnandRP2030/Spotify-clone/raw/master/src/Components/CommonComponents/Sidebar/assets/spotifyAppDownload.exe`
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
