@@ -71,7 +71,7 @@ const LikeBody = () => {
 
   return (
     <Box
-      bg="#1e1737"
+      bgGradient='linear(to-l, #7928CA, #FF0080)'
       w="auto"
       h="auto"
       p="5%"
@@ -81,7 +81,7 @@ const LikeBody = () => {
     >
       <PlayButton />
       <TableContainer w="80%" mt="50px" color="white">
-        <Table variant="simple">
+        <Table variant="simple" borderColor="transparent">
           <Thead>
             <Tr>
               <Th  fontSize='18px' w="4%">No.</Th>
@@ -95,7 +95,7 @@ const LikeBody = () => {
               </Th>
             </Tr>
           </Thead>
-          <Tbody>
+          <Tbody borderColor="transparent">
             {likedSongList?.map((song, index) => {
               return (
                 <TableRow
