@@ -4,7 +4,6 @@ import { Like } from './Components/Like/like';
 import { Upgrade } from './Components/Upgrade/upgrade';
 import {Signup} from "../src/Components/Login/SignUp/SignUp"
 
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import { PrivatePayment } from './Components/Payment/plansDetails/PrivatePayment';
 
 import {BrowserRouter, Routes, Route, useLocation} from 'react-router-dom';

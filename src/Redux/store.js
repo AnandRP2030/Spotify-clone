@@ -5,7 +5,7 @@ import { PaymentReducer } from "./LikedSong/paymentReducer";
 
 let combine = combineReducers({
   likeReducer: LikeReducer,
-    paymentReducer: PaymentReducer,
+  paymentReducer: PaymentReducer,
 })
 
 let store = legacy_createStore(combine, applyMiddleware(thunk));
