@@ -1,7 +1,8 @@
 .SpotifyPlaylist{
-    padding: 14px 40px 10px 40px ;
+    padding: 15px 40px 10px 40px ;
     /* height: 100vh; */
     background-color: #181818;
+    margin-top: 50px;
 }
 .SpotifyPlaylist h2{
     color:#ffffff;

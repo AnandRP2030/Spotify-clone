@@ -1,6 +1,7 @@
 .navbarContainer{
     color:#b3b3b3;
-    background-color:#000000
+    background-color:#000000;
+    z-index:2
 }
 .navButtons{
     color:#b3b3b3;

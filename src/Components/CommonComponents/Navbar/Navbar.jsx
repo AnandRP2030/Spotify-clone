@@ -67,6 +67,7 @@ function Navbar({bgColor}) {
         {/* //! pagination buttons */}
         <Box
         // ml={'240px'}
+        display={["none", "none", "none", "flex", "flex"]}
         >
           <IconButton
             color={"#7a7a7a"}
