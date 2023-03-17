@@ -5,9 +5,10 @@ function PremiumSection() {
 	return (
 		<Flex
 			bg="#1D75DE"
-			h="480px"
+			h="530px"
 			justify={{ base: "flex-start", xl: "center" }}
 			direction="column"
+			pt="50px"
 		>
 			<Center
 				color="white"

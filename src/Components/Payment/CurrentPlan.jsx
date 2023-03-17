@@ -10,7 +10,7 @@ export const CurrentPlan = ({month, price, plan,bg,color}) => {
         </Box>
         <Flex bg="white" color="black" p={4} borderBottomLeftRadius="10px" borderBottomRightRadius="10px">
             <Text flex="1" >Starting Today</Text>
-            <Text flex="2" align="right" >One time payment of {price}.00 INR for {month} months</Text>
+            <Text flex="2" align="right" ml={{base:2, xl:14}}>One time payment of {price}.00 INR for {month} months</Text>
         </Flex>
         <Center mt="10px">
 
