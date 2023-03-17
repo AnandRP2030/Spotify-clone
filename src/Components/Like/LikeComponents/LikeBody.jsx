@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
-
+import style from "../like.module.css";
 import {
   Table,
   Tbody,
@@ -71,7 +71,7 @@ const LikeBody = () => {
 
   return (
     <Box
-      bgGradient='linear(to-l, #7928CA, #FF0080)'
+      bgGradient='linear(to-l, #5337aa, #090612)'
       w="auto"
       h="auto"
       p="5%"
@@ -83,15 +83,16 @@ const LikeBody = () => {
       <TableContainer w="80%" mt="50px" color="white">
         <Table variant="simple" borderColor="transparent">
           <Thead>
-            <Tr>
-              <Th  fontSize='18px' w="4%">No.</Th>
-              <Th  fontSize='18px' w="10%" >Title</Th>
-              <Th  fontSize='18px' w="40%"></Th>
-              <Th  fontSize='18px' w="30%">Type</Th>
+            <Tr id={style.likeTableRow}>
+              <Th color='white' fontSize='18px' w="4%">No.</Th>
+              <Th color='white' fontSize='18px' w="8%" >Title</Th>
+              <Th color='white' fontSize='18px' w="40%"></Th>
+              <Th color='white' fontSize='18px' w="30%">Type</Th>
 
               <Th w="3%"></Th>
-              <Th w="20%">
+              <Th color='white' w="20%" fontSize='18px'>
                 <Icon boxSize={5} as={AiOutlineClockCircle} />{" "}
+                
               </Th>
             </Tr>
           </Thead>
