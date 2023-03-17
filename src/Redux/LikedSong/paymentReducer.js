@@ -88,6 +88,19 @@ switch(action.type){
             }
         }
     }
+    case "PROMO SUCCESS":{
+        const num = parseFloat(state.onPaymentPlan.price.replaceAll(",", ""));
+        const newPrice = Math.floor(num * 0.7);
+
+        return{
+            ...state,
+            onPaymentPlan:{
+                month: state.onPaymentPlan.month,
+                price: newPrice
+            }
+
+        }
+    }
     default : return state
 }
 

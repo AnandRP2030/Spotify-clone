@@ -1,9 +1,10 @@
 import React,{useState} from 'react'
 import {Box, Flex, Image, Input, Text} from "@chakra-ui/react"
 import { useDisclosure,Modal,ModalBody,ModalOverlay, ModalCloseButton,ModalContent, ModalHeader,ModalFooter,Button } from '@chakra-ui/react'
-
+import { useDispatch } from 'react-redux'
 export const Badges = ({isMargin}) => {
 
+  const dispatch = useDispatch();
   const { isOpen, onOpen, onClose } = useDisclosure()
   const[promo,  setPromo] = useState("")
   const[wrongPromo,setWrongPromo] = useState(false)
@@ -12,10 +13,16 @@ export const Badges = ({isMargin}) => {
   const checkPromo = (promocode)=>{
     if(promocode==="Masai30"){
       setCorrectPromo(true)
-      setAlreadyApplied(true)
+      
       setTimeout(() => { onClose()
+        setCorrectPromo(false)
       setWrongPromo(false)
-    }, 2000)
+      setAlreadyApplied(true)
+      
+      dispatch({
+        type:"PROMO SUCCESS",
+      })
+    }, 1000)
     }else{
       setWrongPromo(true);
     }
@@ -59,12 +66,12 @@ export const Badges = ({isMargin}) => {
             placeholder='Enter Promo Code' color="white" onChange={(e)=>setPromo(e.target.value)} ></Input>
             <Text color={ correctPromo? "green" :wrongPromo? "red" : "yellow"}
             
-            >{  alreadyApplied? "Your have already applied the promo code":correctPromo? "PromoCode Successfully Applied":wrongPromo? "PromoCode is Invalid ": null} </Text>
-            
+            >{  correctPromo? "PromoCode Successfully Applied":wrongPromo? "PromoCode is Invalid ":alreadyApplied? "": null} </Text>
+            <Text color="yellow">{alreadyApplied?"You have already applied the Promocode": null}</Text>
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme='green' mr={3} onClick={()=>{checkPromo(promo)}}>
+            <Button as="button" colorScheme='green' mr={3} onClick={()=>{checkPromo(promo)}} disabled={alreadyApplied}>
               Apply
             </Button>
           </ModalFooter>
