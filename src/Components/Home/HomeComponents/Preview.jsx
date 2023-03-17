@@ -4,7 +4,7 @@ import styles from './Preview.module.css';
 
 function Preview() {
   return (
-    <Flex className={styles.previewbox} justify="space-between" >
+    <Flex className={styles.previewbox} justify="space-between"  zIndex={6} >
         <Box>
         <Heading as='h6' size='xs' className={styles.heading} >Preview of Spotify</Heading>
         <Text className={styles.text} >Sign up to get unlimited songs and podcasts with occasional ads. No credit card needed. </Text>

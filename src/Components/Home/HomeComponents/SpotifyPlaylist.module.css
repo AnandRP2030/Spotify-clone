@@ -2,18 +2,21 @@
     padding: 15px 40px 10px 40px ;
     /* height: 100vh; */
     background-color: #181818;
-    margin-top: 50px;
+    margin-top: 52px;
+    bottom: 0;
+   
 }
 .SpotifyPlaylist h2{
     color:#ffffff;
     font-size: 22px;
     margin-bottom: 20px;
     margin-top: -5px;
+   
 }
 .listContainer{
     /* gap: 20px; */
   overflow: hidden;
-  
+  bottom: 0;
 }
 /* 
 .cardContainer{

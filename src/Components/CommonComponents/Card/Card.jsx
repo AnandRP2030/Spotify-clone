@@ -23,6 +23,7 @@ function CardCom({ prop }) {
   return (
     <Box
       // position={'relative'}
+      key={prop.id}
     className={style.cardContainer}
       onClick={() => {
         navigate("/like");
@@ -62,10 +63,7 @@ function CardCom({ prop }) {
         {prop.album.title}
       </Heading>
       <Text className={style.songDesc} noOfLines={2}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod ratione
-        eos, eius qui consectetur, exercitationem tenetur nam voluptas corporis
-        alias commodi et, natus id laudantium culpa. Corporis maiores ratione
-        laborum!
+       {prop.artist.name}
       </Text>
     </Box>
   );
