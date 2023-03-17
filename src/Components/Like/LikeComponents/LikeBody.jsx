@@ -40,10 +40,10 @@ const LikeBody = () => {
   Player();
 
   const dispatch = useDispatch();
-  let likedSongList = useSelector((state) => state.likedSong[0]);
+  let likedSongList = useSelector((state) => state.likeReducer.likedSong[0]);
   // console.log('songlist', likedSongList)
   if (likedSongList) {
-    console.log(likedSongList[0], "list of");
+    console.log(likedSongList, "list of");
   }
 
   const getData = () => {
