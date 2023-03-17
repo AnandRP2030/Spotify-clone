@@ -12,10 +12,12 @@ import AnimatedPages from "../../AinmatedPages";
 const Home = () => {
   return (
     <AnimatedPages>
-      <Box ml="196px" mb="50px" className={styles.homeContainer}>
+      <Box ml={["80px","80px" ,"196px","196px","196px","196px"]} mb="80px" className={styles.homeContainer}>
         <Navbar bgColor="black" />
         <AnimatedPages>
-        <SpotifyPlaylist />
+        <SpotifyPlaylist artist={'Arjit Singh'} heading={"Arjit Singh"} />
+        <SpotifyPlaylist artist={'Suggested Artists'} heading={"Suggested Artists"} />
+        <SpotifyPlaylist artist={'Badshah'} heading={"Badshah"} />
         </AnimatedPages>
         <Sidebar />
         <Preview />

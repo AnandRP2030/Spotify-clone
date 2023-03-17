@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import { Box, Text, Flex, Grid, Icon } from "@chakra-ui/react";
+import { Box, Text, Flex, Grid, Icon,Heading } from "@chakra-ui/react";
 import SideComp from "./sideComponents";
 import { HiOutlineHome } from "react-icons/hi";
 import { IoSearchOutline } from "react-icons/io5";
 import { BiLibrary } from "react-icons/bi";
 import style from "./sidebar.module.css";
 import { FiDownload } from "react-icons/fi";
-
+import {FaSpotify} from 'react-icons/fa'
 const Sidebar = () => {
 
   const downloadApp = () => {
@@ -26,20 +26,32 @@ const Sidebar = () => {
       className={style.sideBox}
       bg="#000000"
       position={"fixed"}
-      w="196px"
+      // w="196px"
+      w={["80px","80px","196px" ,"196px","196px","196px"]}
       p={"24px"}
       zIndex={5}
       top="0"
       bottom={"0"}
       left="0"
+      // position={['static','static','fixed','fixed','fixed','fixed']}
+      // display='block'
+      // display={["none", "none", "block", "block", "block"]}
     >
-      <img
+      {/* <img
+      display='none'
         src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_White.png"
         alt="logo"
         style={{ maxWidth: "130px", cursor: "pointer" }}
-      />
+        // display={["none", "none", "none", "block", "block"]}
+        
+      /> */}
+      <Flex gap={'5px'} justify='space-between' >
+        <FaSpotify size={'40px'} color='white'  />
+        <Heading size={'lg'} color={'#fff'} display={["none", "none", "block", "block", "block"]} >Spotify</Heading>
+      </Flex>
 
-      <Box mt="12px" p={"10px 0"} color="#b3b3b3">
+      <Box mt="15
+      px" p={"10px 0"} color="#b3b3b3">
         <Link to="/">
           <SideComp icon={HiOutlineHome} name="Home" />
         </Link>
@@ -55,19 +67,23 @@ const Sidebar = () => {
             src="https://raw.githubusercontent.com/AnandRP2030/Resource-website/master/images/playlist.jpg"
             alt="icon"
           />
-          <Text color="#b3b3b3" ml="13px">
+          <Text color="#b3b3b3" ml="13px" display={["none", "none", "block", "block", "block"]}>
             Create Playlist
           </Text>
         </Flex>
         <Flex mt="20px" className={style.hoverText}>
+        
+
+        <Link to='/like' >
           <img
             style={{ height: "25px" }}
             width="25px"
             src="https://raw.githubusercontent.com/AnandRP2030/Resource-website/master/images/love.jpg"
             alt="icon"
           />
-          <Link to="/like">
-            <Text ml="13px" color="#b3b3b3">
+          </Link>
+         <Link to="/like" >
+            <Text ml="13px" color="#b3b3b3" display={["none", "none", "block", "block", "block"]}>
               {" "}
               Liked Songs
             </Text>
@@ -80,7 +96,7 @@ const Sidebar = () => {
             src="https://github.com/AnandRP2030/Resource-website/blob/master/images/bookmark.svg.jpg?raw=true"
             alt="icon"
           />
-          <Text ml="13px" color="#b3b3b3">
+          <Text ml="13px" color="#b3b3b3" display={["none", "none", "block", "block", "block"]} >
             {" "}
             Your Episodes
           </Text>
@@ -93,7 +109,7 @@ const Sidebar = () => {
 
       <Flex style={{ cursor: "pointer" }} onClick={downloadApp} color="white" w="100%" h="50px">
         <Icon as={FiDownload} boxSize={6} />
-        <Text ml="15px"> Install App </Text>
+        <Text ml="15px" display={["none", "none", "block", "block", "block"]} > Install App </Text>
       </Flex>
     </Box>
   );
