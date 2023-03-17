@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./LikeAnimation.css";
 
-const TwitterHeart = () => {
+const LikeAnimation = () => {
   const [isActive, setIsActive] = useState(false);
 
   const handleClick = () => {
@@ -9,13 +9,12 @@ const TwitterHeart = () => {
   };
 
   return (
-    <div className="stage">
       <div
-        className={`heart ${isActive ? "is-active" : ""}`}
+
+        className={`heart ${isActive ? "is-active" : ""} controlPos`}
         onClick={handleClick}
       ></div>
-    </div>
   );
 };
 
-export default TwitterHeart;
+export default LikeAnimation;

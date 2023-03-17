@@ -77,7 +77,7 @@ const LikeBody = ({setPlaySong}) => {
               <Th color='white' fontSize='18px' w="40%"></Th>
               <Th color='white' fontSize='18px' w="30%">Type</Th>
 
-              <Th w="3%"></Th>
+              <Th w="10%"></Th>
               <Th color='white' w="20%" fontSize='18px'>
                 <Icon boxSize={5} as={AiOutlineClockCircle} />{" "}
                 

@@ -4,6 +4,8 @@ import AudioPlayer, { RHAP_UI } from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import style from "./SpotifyPlayer.module.css";
 import { AiFillHeart } from "react-icons/ai";
+import LikeAnimation from "../LikeAnimation/LikeAnimation"
+
 
 const SpotifyAudioPlayer = ({ song }) => {
   const iconsStyle = {
@@ -41,7 +43,7 @@ const SpotifyAudioPlayer = ({ song }) => {
             </Box>
             <Icon
               ml='20px'
-              as={AiFillHeart}
+              as={LikeAnimation}
               style={iconsStyle}
               onClick={() => songAdded()}
               boxSize={7}
