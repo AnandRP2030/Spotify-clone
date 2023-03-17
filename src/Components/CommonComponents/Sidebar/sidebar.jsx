@@ -8,6 +8,19 @@ import style from "./sidebar.module.css";
 import { FiDownload } from "react-icons/fi";
 
 const Sidebar = () => {
+
+  const downloadApp = () => {
+    // i have a app in my asset folder how i can download that app when this function invoked
+    
+      const link = document.createElement('a');
+      link.download = 'spotifyAppDownload.exe';
+      link.href = `${process.env.PUBLIC_URL}/assets/spotifyAppDownload.exe`
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      console.log('called')
+  }
+
   return (
     <Box
       className={style.sideBox}
@@ -78,7 +91,7 @@ const Sidebar = () => {
         {/* playlist box work pending  */}
       </Box>
 
-      <Flex style={{ cursor: "pointer" }} color="white" w="100%" h="50px">
+      <Flex style={{ cursor: "pointer" }} onClick={downloadApp} color="white" w="100%" h="50px">
         <Icon as={FiDownload} boxSize={6} />
         <Text ml="15px"> Install App </Text>
       </Flex>
