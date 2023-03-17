@@ -22,7 +22,9 @@ import {
   MenuDivider,
   transition,
   Divider,
-
+Input,
+InputGroup,
+InputLeftElement,
   
 } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
@@ -33,6 +35,7 @@ import {
   TriangleUpIcon,
   ExternalLinkIcon,
   EditIcon,
+  SearchIcon,
 } from "@chakra-ui/icons";
 
 import { FaPowerOff } from "react-icons/fa";
@@ -52,12 +55,15 @@ function Navbar({bgColor}) {
         // w='100%'
         // h={"10vh"}
         // // position={['relative','relative','relative','fixed']}
-        // position='fixed'
-        // top="0px"
+        position='fixed'
+        top="0px"
+        left='175px'
+        right={'0'}
         // // left={"240px"}
         // zIndex={3}
         //
       >
+       
         {/* //! pagination buttons */}
         <Box
         // ml={'240px'}
@@ -84,6 +90,16 @@ function Navbar({bgColor}) {
             variant={"unstyled"}
             icon={<ChevronRightIcon boxSize={8} />}
           />
+        </Box>
+
+        {/* //! search section */}
+        <Box>
+        <InputGroup>
+          <Input  htmlSize={32} width='auto' borderRadius='50px'bg={'white'} focusBorderColor='black.400' placeholder="What do you want to listen to?" _placeholder={{ opacity: 1, color: 'gray.500' }} />
+          <InputLeftElement>
+          <SearchIcon boxSize={'20px'} color={'#000000'} />
+          </InputLeftElement>
+        </InputGroup>
         </Box>
         <Spacer />
 
@@ -131,7 +147,7 @@ function Navbar({bgColor}) {
             </Button>
           </Link>
 
-          {/* //! Divide vertical */}
+          {/* //! vertical Divider  */}
 
           <Divider
             orientation="vertical"
