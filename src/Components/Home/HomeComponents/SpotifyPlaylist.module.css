@@ -2,7 +2,7 @@
     padding: 15px 40px 10px 40px ;
     /* height: 100vh; */
     background-color: #181818;
-    margin-top: 52px;
+    /* margin-top: 45px; */
     bottom: 0;
    
 }
@@ -17,6 +17,7 @@
     /* gap: 20px; */
   overflow: hidden;
   bottom: 0;
+  justify-content: space-between;
 }
 /* 
 .cardContainer{
