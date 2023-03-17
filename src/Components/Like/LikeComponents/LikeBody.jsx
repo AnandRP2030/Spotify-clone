@@ -8,8 +8,9 @@ import { likePageDisplaySong } from "../../../Redux/LikedSong/likeThunk";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useState } from "react";
-import AudioPlayer from 'react-h5-audio-player';
-import 'react-h5-audio-player/lib/styles.css';
+
+
+
 import style from "../like.module.css";
 import {
   Table,
@@ -21,29 +22,16 @@ import {
   Td,
 } from "@chakra-ui/react";
 
-const LikeBody = () => {
+const LikeBody = ({setPlaySong}) => {
 
-  const[playSong, setPlaySong] = useState({
-    songUrl: "",
-    playSong: false
-  })
+ 
 
-  const Player = () => (
-    <AudioPlayer
-      autoPlay
-      src="https://cdns-preview-e.dzcdn.net/stream/c-e54e737bf7f2cf479c66a13ba5116848-2.mp3"
-      onPlay={e => console.log("onPlay")}
-      // other props here
-    />
-  );
-
-  Player();
 
   const dispatch = useDispatch();
   let likedSongList = useSelector((state) => state.likeReducer.likedSong[0]);
-  // console.log('songlist', likedSongList)
+
   if (likedSongList) {
-    console.log(likedSongList, "list of");
+    // console.log(likedSongList[0].preview, "list of");
   }
 
   const getData = () => {
@@ -72,7 +60,7 @@ const LikeBody = () => {
   return (
     <Box
       bgGradient='linear(to-l, #5337aa, #090612)'
-      w="auto"
+      w="88%"
       h="auto"
       p="5%"
       pt="2%"
@@ -80,7 +68,7 @@ const LikeBody = () => {
       left="195px"
     >
       <PlayButton />
-      <TableContainer w="80%" mt="50px" color="white">
+      <TableContainer w="95%" mt="50px" color="white">
         <Table variant="simple" borderColor="transparent">
           <Thead>
             <Tr id={style.likeTableRow}>
@@ -89,7 +77,7 @@ const LikeBody = () => {
               <Th color='white' fontSize='18px' w="40%"></Th>
               <Th color='white' fontSize='18px' w="30%">Type</Th>
 
-              <Th w="3%"></Th>
+              <Th w="10%"></Th>
               <Th color='white' w="20%" fontSize='18px'>
                 <Icon boxSize={5} as={AiOutlineClockCircle} />{" "}
                 
@@ -101,6 +89,8 @@ const LikeBody = () => {
               return (
                 <TableRow
                   key={index}
+                  url={song.preview}
+                  setPlaySong={setPlaySong}
                   id={index + 1}
                   image={song.album.cover_medium}
                   name={song.artist.name}
