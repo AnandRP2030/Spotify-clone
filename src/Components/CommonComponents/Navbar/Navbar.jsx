@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef , useState} from "react";
 import {
   Flex,
   Box,
@@ -41,9 +41,24 @@ import {
 import { FaPowerOff } from "react-icons/fa";
 import styles from "./Navbar.module.css";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import PlayListAction from "../../../Redux/SpotifyPlayList/PlayListAction";
+
 function Navbar({bgColor}) {
   const initRef = React.useRef();
   const { isOpen, onToggle, onOpen } = useDisclosure();
+
+  const [search, setSearch]= useState('');
+  const dispatch = useDispatch('');
+  const getSongBySearch=(e)=>{
+    const key = e.code;
+      if(key == "Enter"){
+        dispatch(PlayListAction(search))
+      }
+      
+  }
+// console.log(search);
+
   return (
     <>
       <Flex
@@ -96,7 +111,7 @@ function Navbar({bgColor}) {
         {/* //! search section */}
         <Box>
         <InputGroup>
-          <Input  htmlSize={32} width='auto' borderRadius='50px'bg={'white'} focusBorderColor='black.400' placeholder="What do you want to listen to?" _placeholder={{ opacity: 1, color: 'gray.500' }} />
+          <Input onChange={(e)=>{setSearch(e.target.value)}} onKeyUp={getSongBySearch} htmlSize={32} width='auto' borderRadius='50px'bg={'white'} focusBorderColor='black.400' placeholder="What do you want to listen to?" _placeholder={{ opacity: 1, color: 'gray.500' }}   />
           <InputLeftElement>
           <SearchIcon boxSize={'20px'} color={'#000000'} />
           </InputLeftElement>
