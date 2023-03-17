@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import{Flex, Box, Text, Center, List, ListItem, ListIcon, Image, Hide} from "@chakra-ui/react"
 import {Link} from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import {CheckCircleIcon} from '@chakra-ui/icons'
+import {CheckCircleIcon,ChevronRightIcon} from '@chakra-ui/icons'
 import { Badges } from './Badges'
 import Navbar from '../Upgrade/UpgradeComponents/Navbar'
 import { CurrentPlan } from './CurrentPlan'
@@ -80,19 +80,31 @@ console.log(onPlanData);
               {/* monthly subscription details */}
               <Hide below="md">
               <Flex direction="column" mt="10px">
-                <Box border="1px" w="98%" mx="auto" mt="5px" p={2} onClick={()=>updatePlan(3, data.month3)}>
+                <Flex border="1px" w="98%" mx="auto" align="center" justify="space-between" mt="5px" p={2} onClick={()=>updatePlan(3, data.month3)}>
+                  <Box>
                   <Text fontSize="24px">3 months</Text>
                   <Text fontSize="15px">₹{data.month3} one-time payment</Text>
+                  </Box>
+                  <Box><ChevronRightIcon  boxSize={8}/></Box>
                   
-                </Box>
-                <Box border="1px" w="98%" mx="auto" mt="5px" p={2} onClick={()=>updatePlan(6, data.month6)}>
+                </Flex>
+                <Flex border="1px" w="98%" mx="auto" align="center" justify="space-between" mt="5px" p={2} onClick={()=>updatePlan(3, data.month3)}>
+                  <Box>
                   <Text fontSize="24px">6 months</Text>
                   <Text fontSize="15px">₹{data.month6} one-time payment</Text>
-                </Box>
-                <Box border="1px" w="98%" mx="auto" mt="5px" p={2} onClick={()=>updatePlan(12, data.month12)}>
+                  </Box>
+                  <Box><ChevronRightIcon  boxSize={8}/></Box>
+                  
+                </Flex>
+                <Flex border="1px" w="98%" mx="auto" align="center" justify="space-between" mt="5px" p={2} onClick={()=>updatePlan(3, data.month3)}>
+                  <Box>
                   <Text fontSize="24px">1 year</Text>
                   <Text fontSize="15px">₹{data.month12} one-time payment</Text>
-                </Box>
+                  </Box>
+                  <Box><ChevronRightIcon  boxSize={8}/></Box>
+                  
+                </Flex>
+                
               </Flex>
               </Hide>
 
