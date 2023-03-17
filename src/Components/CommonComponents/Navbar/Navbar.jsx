@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef , useState} from "react";
 import {
   Flex,
   Box,
@@ -22,7 +22,9 @@ import {
   MenuDivider,
   transition,
   Divider,
-
+Input,
+InputGroup,
+InputLeftElement,
   
 } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
@@ -33,14 +35,30 @@ import {
   TriangleUpIcon,
   ExternalLinkIcon,
   EditIcon,
+  SearchIcon,
 } from "@chakra-ui/icons";
 
 import { FaPowerOff } from "react-icons/fa";
 import styles from "./Navbar.module.css";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import PlayListAction from "../../../Redux/SpotifyPlayList/PlayListAction";
+
 function Navbar({bgColor}) {
   const initRef = React.useRef();
   const { isOpen, onToggle, onOpen } = useDisclosure();
+
+  const [search, setSearch]= useState('');
+  const dispatch = useDispatch('');
+  const getSongBySearch=(e)=>{
+    const key = e.code;
+      if(key == "Enter"){
+        dispatch(PlayListAction(search))
+      }
+      
+  }
+// console.log(search);
+
   return (
     <>
       <Flex
@@ -52,15 +70,19 @@ function Navbar({bgColor}) {
         // w='100%'
         // h={"10vh"}
         // // position={['relative','relative','relative','fixed']}
-        // position='fixed'
-        // top="0px"
+        position='fixed'
+        top="0px"
+        left='175px'
+        right={'0'}
         // // left={"240px"}
         // zIndex={3}
         //
       >
+       
         {/* //! pagination buttons */}
         <Box
         // ml={'240px'}
+        display={["none", "none", "none", "flex", "flex"]}
         >
           <IconButton
             color={"#7a7a7a"}
@@ -84,6 +106,16 @@ function Navbar({bgColor}) {
             variant={"unstyled"}
             icon={<ChevronRightIcon boxSize={8} />}
           />
+        </Box>
+
+        {/* //! search section */}
+        <Box>
+        <InputGroup>
+          <Input onChange={(e)=>{setSearch(e.target.value)}} onKeyUp={getSongBySearch} htmlSize={32} width='auto' borderRadius='50px'bg={'white'} focusBorderColor='black.400' placeholder="What do you want to listen to?" _placeholder={{ opacity: 1, color: 'gray.500' }}   />
+          <InputLeftElement>
+          <SearchIcon boxSize={'20px'} color={'#000000'} />
+          </InputLeftElement>
+        </InputGroup>
         </Box>
         <Spacer />
 
@@ -131,7 +163,7 @@ function Navbar({bgColor}) {
             </Button>
           </Link>
 
-          {/* //! Divide vertical */}
+          {/* //! vertical Divider  */}
 
           <Divider
             orientation="vertical"

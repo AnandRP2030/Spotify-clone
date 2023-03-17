@@ -11,8 +11,8 @@ import { useEffect, useState } from "react";
 import AnimatedPages from "../../AinmatedPages";
 const Home = () => {
   return (
-    // <AnimatedPages>
-      <Box ml="196px" mb="100px" className={styles.homeContainer}>
+    <AnimatedPages>
+      <Box ml="196px" mb="50px" className={styles.homeContainer}>
         <Navbar bgColor="black" />
         <AnimatedPages>
         <SpotifyPlaylist />
@@ -20,7 +20,7 @@ const Home = () => {
         <Sidebar />
         <Preview />
       </Box>
-      // </AnimatedPages>
+       </AnimatedPages>
   );
 };
 
