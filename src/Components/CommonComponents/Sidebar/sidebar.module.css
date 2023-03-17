@@ -1,6 +1,7 @@
 .sideBarLogo {
     margin: "auto";
-    width: "130px"
+    width: "130px";
+    /* display:'none' */
 }
 
 .sideBox{

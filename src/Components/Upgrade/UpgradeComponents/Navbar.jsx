@@ -24,12 +24,12 @@ function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
   return (
-    <Container bg="black" maxW="container.2xl">
+    <Container bg="black" maxW="container.2xl" pos="fixed">
       <Flex
         bg="black"
         px={{ base: "0", lg: "35px" }}
         py="15px"
-        h={{ base: "55px", lg: "80px" }}
+        h={{ base: "55px", lg: "70px" }}
         maxW="container.xl"
         m="auto"
         align="center"
