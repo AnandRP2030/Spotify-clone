@@ -13,9 +13,10 @@ const LikeHeader = () => {
   return (
     <Box
       h="340px"
-      w="auto"
+      w="88%"
       left="195px"
       pos="relative"
+      
       bgGradient="linear(to-r, #322754, #4826b2)"
     >
       ,
