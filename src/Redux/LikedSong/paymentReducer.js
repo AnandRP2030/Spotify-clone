@@ -25,7 +25,7 @@ const initialState={plans:[
         month12:"1,189",
         month6:"719",
         month3:"389",
-        month1:"129",
+        month1:"119",
         bg:"#1d75de",
         color: "white"
     },
@@ -41,7 +41,7 @@ const initialState={plans:[
         month12:"1,799",
         month6:"899",
         month3:"499",
-        month1:"165",
+        month1:"149",
         bg: "#ffc862",
         color: "black"
     },
@@ -57,13 +57,17 @@ const initialState={plans:[
         month12:"2,149",
         month6:"1,075",
         month3:"595",
-        month1:"199",
+        month1:"179",
         bg:"#EB455F",
         color: "white"
     },
 ],
     currentPlan: 0,
-    viewPayment:false
+    viewPayment:false,
+    onPaymentPlan:{
+        month: 1,
+        price: null,
+    }
 }
 
 const PaymentReducer = (state=initialState, action)=>{
@@ -73,6 +77,15 @@ switch(action.type){
           ...state,
             currentPlan:action.payload,
             viewPayment: true
+        }
+    }
+    case "UPDATE USER PLAN":{
+        return {
+            ...state,
+            onPaymentPlan:{
+                month: action.payload.month,
+                price: action.payload.price
+            }
         }
     }
     default : return state
