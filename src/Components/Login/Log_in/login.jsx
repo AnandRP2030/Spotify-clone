@@ -47,7 +47,6 @@ const Login = () => {
                     // mb="80px"
                     align="center"
                     isRequired
-
                 >
                     <Heading
                         textAlign="center"
@@ -95,7 +94,6 @@ const Login = () => {
                         h="12%"
                         border="none"
                         _hover={{ bg: "#b5f7bc", transition: "fade" }}
-
                     />
                     <Text
                         fontSize="16px"
