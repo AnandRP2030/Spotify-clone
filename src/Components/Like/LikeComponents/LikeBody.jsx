@@ -22,6 +22,7 @@ import {
   Td,
   Select,
 } from "@chakra-ui/react";
+import LikeDumb from "../../CommonComponents/LikeAnimation/LikeDumb";
 
 const LikeBody = ({ setPlaySong, bg1, bg2 }) => {
 
@@ -74,7 +75,7 @@ const LikeBody = ({ setPlaySong, bg1, bg2 }) => {
     >
       <HStack w="40%">
         <PlayButton />
-        <LikeAnimation />
+        <LikeDumb/>
         
         <Icon
           cursor="pointer"
@@ -119,7 +120,7 @@ const LikeBody = ({ setPlaySong, bg1, bg2 }) => {
               return (
                 <TableRow
                   key={index}
-                  url={song.songurl}
+                  url={song.songUrl}
                   setPlaySong={setPlaySong}
                   id={index + 1}
                   image={song.img}

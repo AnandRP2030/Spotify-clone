@@ -10,7 +10,7 @@ import LikeAnimation from "../LikeAnimation/LikeAnimation"
 
 const SpotifyAudioPlayer = ({ song }) => {
 
-
+  console.log(song, 'urllls')
 
   const iconsStyle = {
     color: "#1ed760",
