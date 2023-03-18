@@ -9,7 +9,7 @@ import SpotifyPlaylist from "./HomeComponents/SpotifyPlaylist";
 import { Divider } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import AnimatedPages from "../../AinmatedPages";
-import SearchedData from "./HomeComponents/SearchPage";
+import SuggestedArtists from "../Search/Components/SearchPageComp";
 import SpotifyAudioPlayer from "../CommonComponents/AudioPlayer/SpotifyAudioPlayer";
 const Home = () => {
   const [playSong, setPlaySong] = useState({
@@ -27,7 +27,7 @@ const Home = () => {
         <Navbar bgColor="black" />
         <AnimatedPages>
         <SpotifyPlaylist artist={'Arjit Singh'} heading={"Arjit Singh"} setPlaySong={setPlaySong} />
-        <SearchedData setPlaySong={setPlaySong}/>
+        {/* <SuggestedArtists setPlaySong={setPlaySong}/> */}
         <SpotifyPlaylist artist={'Badshah'} heading={"Badshah"} setPlaySong={setPlaySong} />
         <SpotifyPlaylist artist={'Neha Kakkar'} heading={"Neha Kakkar"} setPlaySong={setPlaySong}/>
         </AnimatedPages>

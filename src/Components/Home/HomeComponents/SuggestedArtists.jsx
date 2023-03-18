@@ -96,7 +96,7 @@ const arr = [
     },
   },
 ];
-function SearchedData({ artist, heading }) {
+function SuggestedArtists({ artist, heading }) {
   //   console.log(artist,heading);
   //   const dispatch = useDispatch();
   //   const [data, setData] = React.useState([])
@@ -244,4 +244,4 @@ function SearchedData({ artist, heading }) {
   );
 }
 
-export default SearchedData;
+export default SuggestedArtists;

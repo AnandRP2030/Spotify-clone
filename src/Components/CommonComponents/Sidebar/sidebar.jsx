@@ -1,41 +1,37 @@
-import { Link } from "react-router-dom";
-import { Box, Text, Flex, Grid, Icon,Heading } from "@chakra-ui/react";
+import { Link, useNavigate } from "react-router-dom";
+import { Box, Text, Flex, Grid, Icon, Heading, Center } from "@chakra-ui/react";
 import SideComp from "./sideComponents";
 import { HiOutlineHome } from "react-icons/hi";
 import { IoSearchOutline } from "react-icons/io5";
 import { BiLibrary } from "react-icons/bi";
 import style from "./sidebar.module.css";
 import { FiDownload } from "react-icons/fi";
-import {FaSpotify} from 'react-icons/fa'
+import { FaSpotify } from "react-icons/fa";
 const Sidebar = () => {
-
+  const navigate = useNavigate();
   const downloadApp = () => {
     // i have a app in my asset folder how i can download that app when this function invoked
-    
-      const link = document.createElement('a');
-      link.download = 'spotifyAppDownload.exe';
-      link.href = `https://github.com/AnandRP2030/Spotify-clone/raw/master/src/Components/CommonComponents/Sidebar/assets/spotifyAppDownload.exe`
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      console.log('called')
-  }
+
+    const link = document.createElement("a");
+    link.download = "spotifyAppDownload.exe";
+    link.href = `https://github.com/AnandRP2030/Spotify-clone/raw/master/src/Components/CommonComponents/Sidebar/assets/spotifyAppDownload.exe`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    console.log("called");
+  };
 
   return (
     <Box
       className={style.sideBox}
       bg="#000000"
       position={"fixed"}
-      // w="196px"
-      w={["80px","80px","196px" ,"196px","196px","196px"]}
+      w={["80px", "80px", "196px", "196px", "196px", "196px"]}
       p={"24px"}
       zIndex={5}
       top="0"
       bottom={"0"}
       left="0"
-      // position={['static','static','fixed','fixed','fixed','fixed']}
-      // display='block'
-      // display={["none", "none", "block", "block", "block"]}
     >
       {/* <img
       display='none'
@@ -45,18 +41,60 @@ const Sidebar = () => {
         // display={["none", "none", "none", "block", "block"]}
         
       /> */}
-      <Flex gap={'5px'} justify='space-between' >
-        <FaSpotify size={'40px'} color='white'  />
-        <Heading size={'lg'} color={'#fff'} display={["none", "none", "block", "block", "block"]} >Spotify</Heading>
+      <Flex gap={"5px"} justify="space-between">
+        <FaSpotify size={"40px"} color="white" />
+        <Heading
+          size={"lg"}
+          color={"#fff"}
+          display={["none", "none", "block", "block", "block"]}
+        >
+          Spotify
+        </Heading>
       </Flex>
 
-      <Box mt="15
-      px" p={"10px 0"} color="#b3b3b3">
-        <Link to="/">
-          <SideComp icon={HiOutlineHome} name="Home" />
-        </Link>
-        {/* onClick={()=>{ localStorage.setItem("SearchFlag", false)}} */}
-        <SideComp icon={IoSearchOutline} name="Search"   />
+      <Box mt="15px" p={"10px 0"} color="#b3b3b3">
+        {/* //! made changes to useLocalStorage */}
+        <Flex
+          className={style.hoverText}
+          h="30px"
+          mt="15px"
+          onClick={() => {
+            localStorage.removeItem("SearchFlag", false);
+            navigate("/");
+          }}
+        >
+          <HiOutlineHome size={"30px"} />
+          <Center>
+            <Text
+              ml="15px"
+              display={["none", "none", "block", "block", "block"]}
+            >
+              Home
+            </Text>
+          </Center>
+        </Flex>
+
+        <Flex
+          className={style.hoverText}
+          h="30px"
+          mt="15px"
+          onClick={() => {
+            localStorage.setItem("SearchFlag", true);
+            navigate("/search");
+          }}
+        >
+          <IoSearchOutline size={"30px"} />
+          <Center>
+            <Text
+              ml="15px"
+              display={["none", "none", "block", "block", "block"]}
+            >
+              Search
+            </Text>
+          </Center>
+        </Flex>
+
+        {/* <SideComp icon={IoSearchOutline} name="Search" flag={true} /> */}
         <SideComp icon={BiLibrary} name="Library" />
       </Box>
 
@@ -68,23 +106,29 @@ const Sidebar = () => {
             src="https://raw.githubusercontent.com/AnandRP2030/Resource-website/master/images/playlist.jpg"
             alt="icon"
           />
-          <Text color="#b3b3b3" ml="13px" display={["none", "none", "block", "block", "block"]}>
+          <Text
+            color="#b3b3b3"
+            ml="13px"
+            display={["none", "none", "block", "block", "block"]}
+          >
             Create Playlist
           </Text>
         </Flex>
         <Flex mt="20px" className={style.hoverText}>
-        
-
-        <Link to='/like' >
-          <img
-            style={{ height: "25px" }}
-            width="25px"
-            src="https://raw.githubusercontent.com/AnandRP2030/Resource-website/master/images/love.jpg"
-            alt="icon"
-          />
+          <Link to="/like">
+            <img
+              style={{ height: "25px" }}
+              width="25px"
+              src="https://raw.githubusercontent.com/AnandRP2030/Resource-website/master/images/love.jpg"
+              alt="icon"
+            />
           </Link>
-         <Link to="/like" >
-            <Text ml="13px" color="#b3b3b3" display={["none", "none", "block", "block", "block"]}>
+          <Link to="/like">
+            <Text
+              ml="13px"
+              color="#b3b3b3"
+              display={["none", "none", "block", "block", "block"]}
+            >
               {" "}
               Liked Songs
             </Text>
@@ -97,7 +141,11 @@ const Sidebar = () => {
             src="https://github.com/AnandRP2030/Resource-website/blob/master/images/bookmark.svg.jpg?raw=true"
             alt="icon"
           />
-          <Text ml="13px" color="#b3b3b3" display={["none", "none", "block", "block", "block"]} >
+          <Text
+            ml="13px"
+            color="#b3b3b3"
+            display={["none", "none", "block", "block", "block"]}
+          >
             {" "}
             Your Episodes
           </Text>
@@ -108,9 +156,18 @@ const Sidebar = () => {
         {/* playlist box work pending  */}
       </Box>
 
-      <Flex style={{ cursor: "pointer" }} onClick={downloadApp} color="white" w="100%" h="50px">
+      <Flex
+        style={{ cursor: "pointer" }}
+        onClick={downloadApp}
+        color="white"
+        w="100%"
+        h="50px"
+      >
         <Icon as={FiDownload} boxSize={6} />
-        <Text ml="15px" display={["none", "none", "block", "block", "block"]} > Install App </Text>
+        <Text ml="15px" display={["none", "none", "block", "block", "block"]}>
+          {" "}
+          Install App{" "}
+        </Text>
       </Flex>
     </Box>
   );
