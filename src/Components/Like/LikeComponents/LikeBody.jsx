@@ -9,7 +9,8 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import LikeAnimation from "../../CommonComponents/LikeAnimation/LikeAnimation";
-
+import { BsThreeDots } from "react-icons/bs";
+import { useToast } from '@chakra-ui/react'
 import style from "../like.module.css";
 import {
   Table,
@@ -19,9 +20,14 @@ import {
   Tr,
   Th,
   Td,
+  Select,
 } from "@chakra-ui/react";
 
 const LikeBody = ({ setPlaySong, bg1, bg2 }) => {
+
+  const toast = useToast();
+  
+
   const dispatch = useDispatch();
   let likedSongList = useSelector((state) => state.likeReducer.likedSong[0]);
 
@@ -52,6 +58,10 @@ const LikeBody = ({ setPlaySong, bg1, bg2 }) => {
     getData();
   }, []);
 
+  const threeDotClicked = () => {
+    console.log("c");
+  };
+
   return (
     <Box
       bgGradient={`linear(to-l, ${bg1}, ${bg2})`}
@@ -64,9 +74,25 @@ const LikeBody = ({ setPlaySong, bg1, bg2 }) => {
     >
       <HStack w="40%">
         <PlayButton />
-
         <LikeAnimation />
+        
+        <Icon
+          cursor="pointer"
+          onClick={() => {
+            threeDotClicked();
+          }}
+          color="#c1dcee"
+          as={BsThreeDots}
+          boxSize={6}
+        >
+          {/* This is react , chakra ui app, i want the behaviour when i click tho this icon i want to
+        show this 3 option as a drop down menu   */}
+          <option value="option1">Option 1</option>
+          <option value="option2">Option 2</option>
+          <option value="option3">Option 3</option>
+        </Icon>
       </HStack>
+
       <TableContainer w="95%" mt="50px" color="white">
         <Table variant="simple" borderColor="transparent">
           <Thead>
