@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   Flex,
   Box,
@@ -50,7 +50,7 @@ import { BiLibrary } from "react-icons/bi";
 
 import { FaPowerOff, FaBars } from "react-icons/fa";
 import styles from "./Navbar.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import PlayListAction from "../../../Redux/SpotifyPlayList/PlayListAction";
 
@@ -61,6 +61,7 @@ function Navbar({ bgColor }) {
   const { isOpen, onOpen, onClose, onToggle } = useDisclosure()
   const btnRef = React.useRef()
 
+  const navigate = useNavigate();
   const [search, setSearch] = useState("");
   const dispatch = useDispatch("");
   const getSongBySearch = (e) => {
@@ -75,8 +76,11 @@ let flag;
 if(useDetails !=null){
   flag = useDetails[0].email_verified;
 }
-//  
-// console.log(useDetails[0].email_verified);
+
+// useEffect(()=>{
+
+// },[])
+console.log(useDetails);
   return (
     <>
       <Flex
@@ -153,8 +157,126 @@ if(useDetails !=null){
               {/* //! conditional Rendering in navbar comp */}
 
         {
-          useDetails != null ? <>
-                
+          useDetails != null ?
+           <>
+           <Link to='/upgrade'>
+                <Button
+            className={styles.navButtons}
+            variant={"unstyled"}
+            bg="blackAlpha.100"
+            // color="white"
+            m={"0 15px"}
+            borderRadius="25px"
+            w="90px"
+            border={"1px solid white"}
+            w="90px"
+            display={["none", "none", "none", "flex", "flex"]}
+          >
+            Upgrade
+          </Button>
+          </Link>
+
+          <Flex
+            justify={"space-between"}
+            align={"center"}
+            bg="black"
+            // color={"white"}
+            borderRadius="25px"
+            h={"45px"}
+            w={"xsm"}
+          >
+            <Image
+              borderRadius="full"
+              boxSize="40px"
+              src={useDetails[0].picture}
+              alt= {useDetails[0].name}
+              onMouseOver={onToggle}
+              onMouseOut={onToggle}
+              onClick={onOpen}
+              mr='15px'
+            />
+            <Text
+              variant={"unstyled"}
+              bg={"blackAlpha.200"}
+              mr={1}
+              display={["none", "none", "flex", "flex", "flex"]}
+            >
+              {useDetails[0].name}
+            </Text>
+
+
+            <Box>
+              <Menu>
+                {({ isOpen }) => (
+                  <>
+                    <MenuButton
+                      as={IconButton}
+                      borderRadius="25px"
+                      bg="blackAlpha.900"
+                      color="white"
+                      variant={"unstyled"}
+                      aria-label="Options"
+                      icon={isOpen ? <TriangleUpIcon /> : <TriangleDownIcon />}
+                    />
+                    <MenuList w="xsm" bg={"black"}>
+                      <MenuItem
+                        icon={<ExternalLinkIcon boxSize={5} />}
+                        bg="black"
+                        color="white"
+                      >
+                        {" "}
+                        Account
+                      </MenuItem>
+                      <MenuItem icon={<EditIcon boxSize={5} />} bg="black">
+                        {" "}
+                        Profile
+                      </MenuItem>
+                      <MenuItem
+                        icon={<ExternalLinkIcon boxSize={5} />}
+                        bg="black"
+                      >
+                        {" "}
+                        Upgrade to Premium
+                      </MenuItem>
+                      <MenuItem
+                        icon={<ExternalLinkIcon boxSize={5} />}
+                        bg="black"
+                      >
+                        {" "}
+                        Download
+                      </MenuItem>
+                      <MenuItem
+                        icon={<ExternalLinkIcon boxSize={5} />}
+                        bg="black"
+                      >
+                        {" "}
+                        Settings
+                      </MenuItem>
+                      <MenuDivider />
+                      <MenuItem icon={<FaPowerOff size={18} />} bg="black" onClick={()=>{
+                        localStorage.removeItem("userDetail")
+                         navigate('/')
+                        }} >
+                       
+                        Log out
+                      </MenuItem>
+                    </MenuList>
+                  </>
+                )}
+              </Menu>
+            </Box>
+            <Fade in={isOpen} mt="50px" mr="80px">
+              <Button
+                bg="blackAlpha.900"
+                color="white"
+                mt={"100px"}
+                ml="-110px"
+              >
+                {useDetails[0].given_name}
+              </Button>
+            </Fade>
+
+            </Flex>
         </>:
         <>
          {/* //! navbar section */}
@@ -241,45 +363,123 @@ if(useDetails !=null){
           </Flex>
         </>
         }
-
-
-
-{/* <Box>
-         <Button
-          ml={"-15px"}
-          mr="15px"
-          display={["block", "block", "none", "none", "none"]}
-          ref={btnRef}
-          onClick={onOpen}
-        >
-          <FaBars size="30px" />
-        </Button>
-        <Drawer
-          isOpen={isOpen}
-          placement="left"
-          onClose={onClose}
-          finalFocusRef={btnRef}
-        >
-          <DrawerContent>
-            <DrawerBody>
-            <Box>
-              <HiOutlineHome/>
-              <BiLibrary/>
-              <SideComp icon={HiOutlineHome} name="Home"/>
-              <SideComp icon={BiLibrary} name="Library"/>
-            </Box>
-             
-            </DrawerBody>
-          </DrawerContent> 
-
-        </Drawer>
-        // </Box> */} 
         {/* //! menubutton */}
         
 
        
        
-       
+          {/* <Button
+            className={styles.navButtons}
+            variant={"unstyled"}
+            bg="blackAlpha.100"
+            // color="white"
+            m={"0 8px"}
+            borderRadius="25px"
+            w="90px"
+            border={"1px solid white"}
+            w="90px"
+            display={["none", "none", "none", "flex", "flex"]}
+          >
+            Upgrade
+          </Button>
+
+          <Flex
+            justify={"space-between"}
+            align={"center"}
+            bg="black"
+            // color={"white"}
+            borderRadius="25px"
+            h={"45px"}
+            w={"xsm"}
+          >
+            <Image
+              borderRadius="full"
+              boxSize="40px"
+              src="https://bit.ly/dan-abramov"
+              alt="Dan Abramov"
+              onMouseOver={onToggle}
+              onMouseOut={onToggle}
+              onClick={onOpen}
+            />
+
+            <Text
+              variant={"unstyled"}
+              bg={"blackAlpha.200"}
+              mr={1}
+              display={["none", "none", "flex", "flex", "flex"]}
+            >
+              User Name{" "}
+            </Text>
+            <Box>
+              <Menu>
+                {({ isOpen }) => (
+                  <>
+                    <MenuButton
+                      as={IconButton}
+                      borderRadius="25px"
+                      display={["none", "none", "flex", "flex", "flex"]}
+                      bg="blackAlpha.900"
+                      color="white"
+                      variant={"unstyled"}
+                      aria-label="Options"
+                      icon={isOpen ? <TriangleUpIcon /> : <TriangleDownIcon />}
+                    />
+                    <MenuList w="xsm" bg={"black"}>
+                      <MenuItem
+                        icon={<ExternalLinkIcon boxSize={5} />}
+                        bg="black"
+                        color="white"
+                      >
+                        {" "}
+                        Account
+                      </MenuItem>
+                      <MenuItem icon={<EditIcon boxSize={5} />} bg="black">
+                        {" "}
+                        Profile
+                      </MenuItem>
+                      <MenuItem
+                        icon={<ExternalLinkIcon boxSize={5} />}
+                        bg="black"
+                      >
+                        {" "}
+                        Upgrade to Premium
+                      </MenuItem>
+                      <MenuItem
+                        icon={<ExternalLinkIcon boxSize={5} />}
+                        bg="black"
+                      >
+                        {" "}
+                        Download
+                      </MenuItem>
+                      <MenuItem
+                        icon={<ExternalLinkIcon boxSize={5} />}
+                        bg="black"
+                      >
+                        {" "}
+                        Settings
+                      </MenuItem>
+                      <MenuDivider />
+                      <MenuItem icon={<FaPowerOff size={18} />} bg="black">
+                        {" "}
+                        Log out
+                      </MenuItem>
+                    </MenuList>
+                  </>
+                )}
+              </Menu>
+            </Box>
+            <Fade in={isOpen} mt="50px" mr="80px">
+              <Button
+                bg="blackAlpha.900"
+                color="white"
+                mt={"100px"}
+                ml="-110px"
+              >
+                User Name
+              </Button>
+            </Fade>
+          </Flex> */}
+        {/* </Flex> */}
       </Flex>
       <Box></Box>
     </>
