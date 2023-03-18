@@ -21,39 +21,39 @@ const Login = () => {
     const data = useSelector((payload) => {
         return payload.SignupReducer
     })
-    console.log(data.UserData[0].email)
-    console.log(data.UserData[0].password)
-    const email=data.UserData[0].email
-    const password=data.UserData[0].password
+    // console.log(data.UserData[0].email)
+    // console.log(data.UserData[0].password)
+    // const email=data.UserData[0].email
+    // const password=data.UserData[0].password
 
 
     const navigate = useNavigate();
     function loginUser(e) {
         e.preventDefault()
-        console.log(list.email)
-        if(email==list.email && password==list.password){
-            toast({
-                title: 'Login Successful',
-                description: "redirected to Home in 2 second",
-                status: 'success',
-                duration: 3000,
-                isClosable: true,
-                position: 'top',
-            })
-            setTimeout(()=>{
+        // console.log(list.email)
+        // if(email==list.email && password==list.password){
+        //     toast({
+        //         title: 'Login Successful',
+        //         description: "redirected to Home in 2 second",
+        //         status: 'success',
+        //         duration: 3000,
+        //         isClosable: true,
+        //         position: 'top',
+        //     })
+        //     setTimeout(()=>{
 
                 navigate("/");
-            },2000)
-        }else{
-            toast({
-                title: 'Login Error',
-                description: "Email or Password may be wrong",
-                status: 'error',
-                duration: 3000,
-                isClosable: true,
-                position: 'top',
-            })
-        }
+        //     },2000)
+        // }else{
+        //     toast({
+        //         title: 'Login Error',
+        //         description: "Email or Password may be wrong",
+        //         status: 'error',
+        //         duration: 3000,
+        //         isClosable: true,
+        //         position: 'top',
+        //     })
+        // }
     }
 
 
