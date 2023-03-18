@@ -4,6 +4,7 @@ import style from "../like.module.css";
 import LikeAnimation from "../../CommonComponents/LikeAnimation/LikeAnimation";
 import { Like } from "../like";
 import LikeAnimationRow from "../../CommonComponents/LikeAnimation/LikeAnimationRow";
+import { useState } from "react";
 
 const TableRow = ({
   name,
@@ -19,6 +20,8 @@ const TableRow = ({
     color: "#1ed760",
     cursor: "pointer",
   };
+
+  const [clicked, setColor] = useState(false);
 
   let inSec = Number(duration);
   let mins = Math.floor(inSec / 60);
@@ -41,6 +44,9 @@ const TableRow = ({
       singer: name,
       playSong: true,
     });
+
+    setColor(true)
+
     console.log("called");
   };
 
@@ -53,11 +59,12 @@ const TableRow = ({
     console.log('added to like')
   }
 
+  
 
   return (
     <Tr
       p='0'
-      onClick={songClicked}
+
       id={style.likeTableRow}
       h={20}
       _hover={{
@@ -78,10 +85,10 @@ const TableRow = ({
         />
       </Td>
       <Td borderColor="black">
-        <Text fontSize={"22px"} mb="10px">
+        <Text fontSize={"22px"} color={clicked?'#1ed760': 'white'} onClick={songClicked} mb="10px">
           {title}
         </Text>
-        <Text style={cursor} as="u">
+        <Text style={cursor} >
           {name}
         </Text>
       </Td>
