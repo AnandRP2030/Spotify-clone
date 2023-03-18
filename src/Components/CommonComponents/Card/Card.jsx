@@ -48,7 +48,7 @@ function CardCom({ prop ,setPlaySong}) {
     >
       <Image src={prop.album.cover_xl} alt="image" />
      
-      <Box className={style.playButtonDiv}>
+      <Box className={style.playButtonDiv} key={prop.title_short} >
         <IconButton
           as={"Button"}
           className={style.playButton}

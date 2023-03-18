@@ -70,7 +70,13 @@ function Navbar({ bgColor }) {
     }
   };
   // console.log(search);
-
+const useDetails = JSON.parse(localStorage.getItem("userDetail"));
+let flag;
+if(useDetails !=null){
+  flag = useDetails[0].email_verified;
+}
+//  
+// console.log(useDetails[0].email_verified);
   return (
     <>
       <Flex
@@ -118,41 +124,9 @@ function Navbar({ bgColor }) {
             icon={<ChevronRightIcon boxSize={8} />}
           />
         </Box>
-        
-        {/* //! menubutton */}
-        {/* <Box> */}
-        {/* <Button
-          ml={"-15px"}
-          mr="15px"
-          display={["block", "block", "none", "none", "none"]}
-          ref={btnRef}
-          onClick={onOpen}
-        >
-          <FaBars size="30px" />
-        </Button>
-        <Drawer
-          isOpen={isOpen}
-          placement="left"
-          onClose={onClose}
-          finalFocusRef={btnRef}
-        >
-          <DrawerContent>
-            <DrawerBody>
-            <Box>
-              <HiOutlineHome/>
-              <BiLibrary/>
-              <SideComp icon={HiOutlineHome} name="Home"/>
-              <SideComp icon={BiLibrary} name="Library"/>
-            </Box>
-             
-            </DrawerBody>
-          </DrawerContent> */}
 
-        {/* </Drawer> */}
-        {/* </Box> */}
-
-        {/* //! search section */}
-        <Box>
+       {/* //! search section */}
+       <Box>
           <InputGroup>
             <Input
               onChange={(e) => {
@@ -175,8 +149,16 @@ function Navbar({ bgColor }) {
         </Box>
         <Spacer />
 
-        {/* //! navbar section */}
-        <Flex align={"center"} alignItems="center">
+
+              {/* //! conditional Rendering in navbar comp */}
+
+        {
+          useDetails != null ? <>
+                
+        </>:
+        <>
+         {/* //! navbar section */}
+         <Flex align={"center"} alignItems="center">
           <Link to={"/upgrade"}>
             <Button
               className={styles.navButtons}
@@ -256,118 +238,48 @@ function Navbar({ bgColor }) {
               Log In
             </Button>
           </Link>
-          {/* <Button
-            className={styles.navButtons}
-            variant={"unstyled"}
-            bg="blackAlpha.100"
-            // color="white"
-            m={"0 8px"}
-            borderRadius="25px"
-            w="90px"
-            border={"1px solid white"}
-            w="90px"
-            display={["none", "none", "none", "flex", "flex"]}
-          >
-            Upgrade
-          </Button>
+          </Flex>
+        </>
+        }
 
-          <Flex
-            justify={"space-between"}
-            align={"center"}
-            bg="black"
-            // color={"white"}
-            borderRadius="25px"
-            h={"45px"}
-            w={"xsm"}
-          >
-            <Image
-              borderRadius="full"
-              boxSize="40px"
-              src="https://bit.ly/dan-abramov"
-              alt="Dan Abramov"
-              onMouseOver={onToggle}
-              onMouseOut={onToggle}
-              onClick={onOpen}
-            />
 
-            <Text
-              variant={"unstyled"}
-              bg={"blackAlpha.200"}
-              mr={1}
-              display={["none", "none", "flex", "flex", "flex"]}
-            >
-              User Name{" "}
-            </Text>
+
+{/* <Box>
+         <Button
+          ml={"-15px"}
+          mr="15px"
+          display={["block", "block", "none", "none", "none"]}
+          ref={btnRef}
+          onClick={onOpen}
+        >
+          <FaBars size="30px" />
+        </Button>
+        <Drawer
+          isOpen={isOpen}
+          placement="left"
+          onClose={onClose}
+          finalFocusRef={btnRef}
+        >
+          <DrawerContent>
+            <DrawerBody>
             <Box>
-              <Menu>
-                {({ isOpen }) => (
-                  <>
-                    <MenuButton
-                      as={IconButton}
-                      borderRadius="25px"
-                      display={["none", "none", "flex", "flex", "flex"]}
-                      bg="blackAlpha.900"
-                      color="white"
-                      variant={"unstyled"}
-                      aria-label="Options"
-                      icon={isOpen ? <TriangleUpIcon /> : <TriangleDownIcon />}
-                    />
-                    <MenuList w="xsm" bg={"black"}>
-                      <MenuItem
-                        icon={<ExternalLinkIcon boxSize={5} />}
-                        bg="black"
-                        color="white"
-                      >
-                        {" "}
-                        Account
-                      </MenuItem>
-                      <MenuItem icon={<EditIcon boxSize={5} />} bg="black">
-                        {" "}
-                        Profile
-                      </MenuItem>
-                      <MenuItem
-                        icon={<ExternalLinkIcon boxSize={5} />}
-                        bg="black"
-                      >
-                        {" "}
-                        Upgrade to Premium
-                      </MenuItem>
-                      <MenuItem
-                        icon={<ExternalLinkIcon boxSize={5} />}
-                        bg="black"
-                      >
-                        {" "}
-                        Download
-                      </MenuItem>
-                      <MenuItem
-                        icon={<ExternalLinkIcon boxSize={5} />}
-                        bg="black"
-                      >
-                        {" "}
-                        Settings
-                      </MenuItem>
-                      <MenuDivider />
-                      <MenuItem icon={<FaPowerOff size={18} />} bg="black">
-                        {" "}
-                        Log out
-                      </MenuItem>
-                    </MenuList>
-                  </>
-                )}
-              </Menu>
+              <HiOutlineHome/>
+              <BiLibrary/>
+              <SideComp icon={HiOutlineHome} name="Home"/>
+              <SideComp icon={BiLibrary} name="Library"/>
             </Box>
-            <Fade in={isOpen} mt="50px" mr="80px">
-              <Button
-                bg="blackAlpha.900"
-                color="white"
-                mt={"100px"}
-                ml="-110px"
-              >
-                User Name
-              </Button>
-            </Fade>
-          </Flex> */}
-        </Flex>
+             
+            </DrawerBody>
+          </DrawerContent> 
+
+        </Drawer>
+        // </Box> */} 
+        {/* //! menubutton */}
+        
+
+       
+       
+       
       </Flex>
       <Box></Box>
     </>
