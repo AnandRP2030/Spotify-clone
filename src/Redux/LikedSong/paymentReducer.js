@@ -67,7 +67,8 @@ const initialState={plans:[
     onPaymentPlan:{
         month: 1,
         price: null,
-    }
+    },
+    continuePayment:  false,
 }
 
 const PaymentReducer = (state=initialState, action)=>{
@@ -99,6 +100,12 @@ switch(action.type){
                 price: newPrice
             }
 
+        }
+    }
+    case "CONTINUE PAYMENT": {
+        return{
+          ...state,
+            continuePayment: true
         }
     }
     default : return state

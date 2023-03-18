@@ -8,11 +8,13 @@ import Footer from "./UpgradeComponents/Footer";
 const Upgrade = () => {
   return (
     <div>
+    
       <Navbar />
       <PremiumSection />
       <PowerSection />
       <PricingCard />
       <Footer />
+     
     </div>
   );
 };
