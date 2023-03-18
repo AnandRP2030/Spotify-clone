@@ -1,13 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { BackAnime } from "./BackAnime";
 // import style from '../Log_in/login.module.css'
-import { Flex, Box, keyframes, FormControl, Heading, Input, FormLabel, ScaleFade, transition,Text,Link } from "@chakra-ui/react"
-// const animationKeyframes = keyframes`
-//   0% { transform:  rotate(0deg);  }
-//   100% { transform:  rotate(360deg); }
-// `;
+import { Flex, Box, FormControl, Heading, Input, FormLabel, ScaleFade, transition,Text,Link } from "@chakra-ui/react"
 
-// const animation = `${animationKeyframes} 5s linear infinite`;
+
+
+
 const Login = () => {
 
     const navigate = useNavigate();
@@ -15,7 +14,17 @@ const Login = () => {
         console.log("login")
         navigate("/");
     }
+// return <Flex 
+// w="1fr"
+//     h="100vh"
+//     bg="#1f2120"
+//     justify="center"
+//     alignItems="center"
+//     boxSizing="boderBox"
+// >
+    
 
+// </Flex>
 
     return <Flex
         w="1fr"
@@ -25,6 +34,7 @@ const Login = () => {
         alignItems="center"
         boxSizing="boderBox"
     >
+        <BackAnime/>
         <Flex
             h="60%"
             w="24%"
@@ -33,9 +43,11 @@ const Login = () => {
             display="flex"
             alignItems="center"
             justifyContent="center"
-            boxShadow="#1ed760 0px 19px 38px, #1ed760 0px 15px 12px"
-            minWidth="480px"
-        >
+            // boxShadow="#1ed760 0px 19px 38px, #1ed760 0px 15px 12px"
+            minWidth="380px"
+            zIndex="100"
+            position="fixed"
+            >
             <form onSubmit={loginUser} style={{ width: "100%", height: "90%", display: "flex", margin: "auto", alignItems: "center", justifyContent: "center" }}>
                 <FormControl
                     display="flex"
@@ -52,7 +64,7 @@ const Login = () => {
                         textAlign="center"
                         mt="20px"
                     >
-                        Sigin In
+                        Sign In
                     </Heading>
                     <FormLabel fontSize="0.875rem"
                         textAlign="left"

@@ -1,16 +1,12 @@
-import React from "react";
+import React,{useState} from "react";
 import { useGoogleLogin } from "@react-oauth/google";
 import axios from "axios";
 import {
     VStack,
     HStack,
     Heading,
-    Button,
     Flex,
     Divider,
-    Image,
-    SimpleGrid,
-    GridItem,
     Input,
     FormLabel,
     FormControl,
@@ -20,34 +16,34 @@ import {
     Checkbox,
     Link,
     Text,
-    keyframes,
 } from "@chakra-ui/react";
+import { useToast } from '@chakra-ui/react'
 import { useNavigate } from "react-router-dom";
 import { GoogleButton } from "./GoogleButton";
 import { FacebookButton } from "./FacebookButton";
 import { Head } from "./Head";
+import { useSelector, useDispatch } from "react-redux";
 
-
-// const animationKeyframes = keyframes`
-//   0% { transform:  rotate(0deg);  }
-//   100% { transform:  rotate(360deg); }
-// `;
-
-// const animation = `${animationKeyframes} 5s linear infinite`;
-// const clint_id="577316870252-rj741d84b5410lalp73fun6l5fg1bhci.apps.googleusercontent.com"
-// try{
-//     const Userdata=await axios.get("https://www.googleapis.com/oauth2/v3/userinfo",{
-//         headers:{
-//             "Authorization": `Bearer ${response.access_token}`
-//         }
-//     })
-//     console.log(Userdata.data)
-// }catch{
-//     console.log("error")
-// }
 
 function Signup() {
-    const login = useGoogleLogin({
+    // -------------------useselector-----------------
+    const data = useSelector((payload) => {
+        return payload.SignupReducer
+    })
+    console.log(data)
+
+
+    // --------------useState for form data------------
+    const [list,setList]=useState([])
+    // --------------------dispatch------------
+    const dispatch = useDispatch();
+
+    const toast = useToast()
+    // ------------localStorage-------------------------
+    const user = JSON.parse(localStorage.getItem("userDetail")) || [];
+
+    // ---------------------google SignUp------------------------
+    const loging = useGoogleLogin({
         onSuccess: async (response) => {
             try {
                 const Userdata = await axios.get(
@@ -58,6 +54,12 @@ function Signup() {
                         },
                     }
                 );
+                user.push(Userdata.data)
+                localStorage.setItem("userDetail", JSON.stringify(user))
+                dispatch({
+                    type: "LOGIN_SUCCESS",
+                    payload: Userdata.data
+                })
                 console.log(Userdata.data);
                 navigate("/");
             } catch {
@@ -66,17 +68,51 @@ function Signup() {
         },
     });
 
+    // ----------------form submit-------------------
     const navigate = useNavigate();
-    function Sign_up() {
-        navigate("/");
+    const Sign_up = (event) => {
+        event.preventDefault()
+        dispatch({
+            type: "LOGIN_SUCCESS",
+            payload: list
+        })
+        istoast()
+setTimeout(()=>{
+    navigate("/");
+},2000)
+        
     }
+   function istoast(){
+    if (data.isAuth === true) {
+        toast({
+            title: 'Sign Up Success',
+            description: "Your will redirected to Home Page in 2 second",
+            status: 'success',
+            duration: 2000,
+            isClosable: true,
+            position: 'top',
+        })
+    } }
+
+    // ----------------fill form detail---------------
+    function getList(e){
+        const {name,value}=e;
+        setList({...list,[name]:value})
+        console.log(list)
+    }
+
+
+
+
+
+    // ------------component------------------------
     return (
         <>
             <VStack
                 w="1fr"
                 bgGradient="linear(to-b, #1ed760, RGBA(0, 0, 0.5, 0.9),#000000)"
             >
-                <Head/>
+                <Head />
                 <Flex
                     display="flex"
                     align="center"
@@ -86,8 +122,13 @@ function Signup() {
                     gap="20px"
                 >
                     <VStack h="full" w="full">
-                        <FacebookButton />
-                        <GoogleButton onClick={login} />
+                        {/* -------------facebook button------------ */}
+                        <FacebookButton 
+                        />
+                        {/* ------------google button------------------ */}
+                        <GoogleButton
+                            loging={loging}
+                        />
                     </VStack>
                     <Divider orientation="vertical" />
                     <VStack
@@ -103,7 +144,9 @@ function Signup() {
                         boxShadow="#1ed760 0px 19px 38px, #1ed760 0px 15px 12px"
                         minWidth="380px"
                     >
-                        <form onSubmit={Sign_up} style={{ width: "98%", height: "98%" }}>
+                        <form style={{ width: "98%", height: "98%" }}
+                            onSubmit={Sign_up}
+                        >
                             <Flex
                                 w="full"
                                 h="90%"
@@ -119,7 +162,7 @@ function Signup() {
                                     textAlign="center"
                                     mt="20px"
                                 >
-                                    Sigin Up
+                                    Sign Up
                                 </Heading>
                                 <FormControl
                                     w="84%"
@@ -134,42 +177,38 @@ function Signup() {
                                     </FormLabel>
                                     <Input
                                         type="email"
+                                        name="email"
                                         placeholder="Enter your email."
                                         border="1px solid white"
                                         _placeholder={{ color: "white" }}
                                         _focus={{ border: "2px solid white" }}
+                                        onChange={(e)=>{getList(e.target)}}
                                     />
-                                    {/* <FormLabel fontSize="0.875rem">
-                                        Confirm your email
-                                    </FormLabel>
-                                    <Input
-                                        type="email"
-                                        placeholder="Enter your email again."
-                                        border="1px solid white"
-                                        _placeholder={{ color: "white" }}
-                                        _focus={{ border: "2px solid white" }}
-                                    /> */}
                                     <FormLabel fontSize="0.875rem">
                                         Create a password
                                     </FormLabel>
                                     <Input
                                         type="password"
+                                        name="password"
                                         placeholder="Create a password"
                                         border="1px solid white"
                                         _placeholder={{ color: "white" }}
                                         _focus={{ border: "2px solid white" }}
                                         minLength={6}
+                                        onChange={(e)=>{getList(e.target)}}
                                     />
                                     <FormLabel fontSize="0.875rem">
                                         What should we call you?
                                     </FormLabel>
                                     <Input
                                         type="text"
+                                        name="name"
                                         placeholder="Enter a profile Name"
                                         border="1px solid white"
                                         _placeholder={{ color: "white" }}
                                         _focus={{ border: "2px solid white" }}
                                         minLength={4}
+                                        onChange={(e)=>{getList(e.target)}}
                                     />
                                     <FormHelperText
                                         fontSize="0.799rem"
@@ -183,10 +222,13 @@ function Signup() {
                                     </FormLabel>
                                     <Input
                                         type="date"
+                                        name="date"
                                         placeholder="dd/mm/yyyy"
                                         border="1px solid white"
                                         _placeholder={{ color: "white" }}
                                         _focus={{ border: "2px solid white" }}
+                                        _hover={{ bg: "green" }}
+                                        onChange={(e)=>{getList(e.target)}}
                                     />
                                     <FormLabel fontSize="0.875rem">
                                         What's your gender?
@@ -197,16 +239,19 @@ function Signup() {
                                         display="flex"
                                         flexWrap="wrap"
                                         colorScheme="green"
+
+                                        
                                     >
                                         <HStack
                                             spacing="10px"
                                             display="flex"
                                             flexWrap="wrap"
+                                            onChange={(e)=>{getList(e.target)}}
                                         >
-                                            <Radio value="male">Male</Radio>
-                                            <Radio value="female">Female</Radio>
-                                            <Radio value="other">Others</Radio>
-                                            <Radio value="Prefer not to say">
+                                            <Radio name="gender" value="male">Male</Radio>
+                                            <Radio name="gender" value="female">Female</Radio>
+                                            <Radio name="gender" value="other">Others</Radio>
+                                            <Radio name="gender" value="Prefer not to say">
                                                 Prefer not to say
                                             </Radio>
                                         </HStack>
@@ -262,6 +307,7 @@ function Signup() {
                                         w="140px"
                                         border="none"
                                         _hover={{ bg: "#b5f7bc" }}
+                                    // onClick={abc}
                                     />
                                     <Text
                                         fontSize="16px"

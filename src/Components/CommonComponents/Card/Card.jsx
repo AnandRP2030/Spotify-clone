@@ -11,6 +11,7 @@ import {
   Center,
   Box,
   Flex,
+  Collapse,
 } from "@chakra-ui/react";
 import { FaCaretRight } from "react-icons/fa";
 import style from "./Card.module.css";
@@ -19,12 +20,15 @@ import { BsFillSuitHeartFill, BsHeart } from "react-icons/bs";
 
 function CardCom({ prop }) {
   console.log(prop);
+  const [show, setShow] = React.useState(false);
+
+  const handleToggle = () => setShow(!show);
   const navigate = useNavigate();
   return (
     <Box
       // position={'relative'}
       key={prop.id}
-    className={style.cardContainer}
+      className={style.cardContainer}
       onClick={() => {
         navigate("/like");
       }}
@@ -46,7 +50,6 @@ function CardCom({ prop }) {
           transition="all ease 0.4s"
           bg="#1db954"
           borderRadius="50%"
-         
           // _groupHover
           _hover={{ opacity: "1", transition: "all ease 0.4s" }}
           variant={"unstyled"}
@@ -63,7 +66,7 @@ function CardCom({ prop }) {
         {prop.album.title}
       </Heading>
       <Text className={style.songDesc} noOfLines={2}>
-       {prop.artist.name}
+        {prop.artist.name}
       </Text>
     </Box>
   );

@@ -3,25 +3,26 @@ import Navbar from "../../CommonComponents/Navbar/Navbar";
 import { useState } from "react";
 
 
-const LikeHeader = () => {
+const LikeHeader = (props) => {
 
     const[userData, setUserData] = useState({
         name: "User name",
-        noOfSong: 2
+        noOfSong: 2,
+
     })
 
   return (
     <Box
       h="340px"
-      w="auto"
+      w="88%"
       left="195px"
       pos="relative"
-      bgGradient="linear(to-r, #322754, #4826b2)"
+      bgGradient={`linear(to-r, ${props.bg1}, ${props.bg2})`}
     >
       ,
       <Image
-        src="https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png"
-        h="61%"
+        src={props.img}
+        h="55%"
         w="13.3%"
         pos="relative"
         alt="Like-logo"
@@ -31,7 +32,7 @@ const LikeHeader = () => {
       <Box w='50%' h='200px' color='#fff' pos='relative' left='18%' bottom='105px'>
         <Text as='b' ml='6px'> Playlist</Text>
         <br/>
-        <Text fontSize='88px' as='b' > Liked Songs</Text>
+        <Text fontSize='88px' as='b' > {props.heading}</Text>
         <br/>
         
         {/* make dynamic here */}

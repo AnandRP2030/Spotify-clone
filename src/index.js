@@ -11,17 +11,15 @@ import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
     <GoogleOAuthProvider clientId="577316870252-rj741d84b5410lalp73fun6l5fg1bhci.apps.googleusercontent.com">
+    <BrowserRouter>
       <ChakraProvider>
         <Provider store={store}>
           <App />
         </Provider>
       </ChakraProvider>
-    </GoogleOAuthProvider>
     </BrowserRouter>
-  </React.StrictMode>
+    </GoogleOAuthProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

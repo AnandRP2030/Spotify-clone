@@ -11,7 +11,12 @@ import { PrivatePayment } from './Components/Payment/plansDetails/PrivatePayment
 import  {Payment}  from './Components/Payment/payment';
 import NotFound from './Components/CommonComponents/NotFoundPage/Notfound';
 import { AnimatePresence } from 'framer-motion';
+
 import { PaymentSuccess } from './Components/Payment/PaymentSuccess';
+
+
+import TwitterHeart from "./Components/CommonComponents/LikeAnimation/LikeAnimation" 
+import Playlist from './Components/Playlist/Playlist';
 
 
 
@@ -26,6 +31,8 @@ function App() {
           <Route path="/like" element={<Like/>}/>
           <Route path="/upgrade" element={<Upgrade/>}/>
           <Route path="/login" element={<Login/>}/>
+          <Route path="/test" element={<TwitterHeart/>}/>
+          <Route path="/playlist" element={<Playlist/>}/>
           <Route path="/Signup" element={<Signup/>}/>
           <Route path="/paymentsuccess" element={<PaymentSuccess />}/>
           <Route path="/payment" element={<PrivatePayment><Payment /></PrivatePayment>}/>

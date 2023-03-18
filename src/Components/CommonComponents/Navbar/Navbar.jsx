@@ -1,4 +1,4 @@
-import React, { useRef , useState} from "react";
+import React, { useRef, useState } from "react";
 import {
   Flex,
   Box,
@@ -22,10 +22,16 @@ import {
   MenuDivider,
   transition,
   Divider,
-Input,
-InputGroup,
-InputLeftElement,
-  
+  Input,
+  InputGroup,
+  InputLeftElement,
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
 } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
 import {
@@ -38,26 +44,32 @@ import {
   SearchIcon,
 } from "@chakra-ui/icons";
 
-import { FaPowerOff } from "react-icons/fa";
+import { HiOutlineHome } from "react-icons/hi";
+import { IoSearchOutline } from "react-icons/io5";
+import { BiLibrary } from "react-icons/bi";
+
+import { FaPowerOff, FaBars } from "react-icons/fa";
 import styles from "./Navbar.module.css";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import PlayListAction from "../../../Redux/SpotifyPlayList/PlayListAction";
 
-function Navbar({bgColor}) {
-  const initRef = React.useRef();
-  const { isOpen, onToggle, onOpen } = useDisclosure();
+import Sidebar from "../Sidebar/sidebar";
+import SideComp from "../Sidebar/sideComponents";
 
-  const [search, setSearch]= useState('');
-  const dispatch = useDispatch('');
-  const getSongBySearch=(e)=>{
+function Navbar({ bgColor }) {
+  const { isOpen, onOpen, onClose, onToggle } = useDisclosure()
+  const btnRef = React.useRef()
+
+  const [search, setSearch] = useState("");
+  const dispatch = useDispatch("");
+  const getSongBySearch = (e) => {
     const key = e.code;
-      if(key == "Enter"){
-        dispatch(PlayListAction(search))
-      }
-      
-  }
-// console.log(search);
+    if (key == "Enter") {
+      dispatch(PlayListAction(search));
+    }
+  };
+  // console.log(search);
 
   return (
     <>
@@ -70,19 +82,18 @@ function Navbar({bgColor}) {
         // w='100%'
         // h={"10vh"}
         // // position={['relative','relative','relative','fixed']}
-        position='fixed'
+        position="fixed"
         top="0px"
-        left='175px'
-        right={'0'}
+        left={["80px", "80px", "175px", "175px", "175px", "175px"]}
+        right={"0"}
         // // left={"240px"}
         // zIndex={3}
         //
       >
-       
         {/* //! pagination buttons */}
         <Box
-        // ml={'240px'}
-        display={["none", "none", "none", "flex", "flex"]}
+          // ml={'240px'}
+          display={["none", "none", "none", "flex", "flex"]}
         >
           <IconButton
             color={"#7a7a7a"}
@@ -107,21 +118,66 @@ function Navbar({bgColor}) {
             icon={<ChevronRightIcon boxSize={8} />}
           />
         </Box>
+        
+        {/* //! menubutton */}
+        {/* <Box> */}
+        {/* <Button
+          ml={"-15px"}
+          mr="15px"
+          display={["block", "block", "none", "none", "none"]}
+          ref={btnRef}
+          onClick={onOpen}
+        >
+          <FaBars size="30px" />
+        </Button>
+        <Drawer
+          isOpen={isOpen}
+          placement="left"
+          onClose={onClose}
+          finalFocusRef={btnRef}
+        >
+          <DrawerContent>
+            <DrawerBody>
+            <Box>
+              <HiOutlineHome/>
+              <BiLibrary/>
+              <SideComp icon={HiOutlineHome} name="Home"/>
+              <SideComp icon={BiLibrary} name="Library"/>
+            </Box>
+             
+            </DrawerBody>
+          </DrawerContent> */}
+
+        {/* </Drawer> */}
+        {/* </Box> */}
 
         {/* //! search section */}
         <Box>
-        <InputGroup>
-          <Input onChange={(e)=>{setSearch(e.target.value)}} onKeyUp={getSongBySearch} htmlSize={32} width='auto' borderRadius='50px'bg={'white'} focusBorderColor='black.400' placeholder="What do you want to listen to?" _placeholder={{ opacity: 1, color: 'gray.500' }}   />
-          <InputLeftElement>
-          <SearchIcon boxSize={'20px'} color={'#000000'} />
-          </InputLeftElement>
-        </InputGroup>
+          <InputGroup>
+            <Input
+              onChange={(e) => {
+                setSearch(e.target.value);
+              }}
+              onKeyUp={getSongBySearch}
+              htmlSize={25}
+              width="auto"
+              borderRadius="50px"
+              bg={"white"}
+              height={['33px','33px','33px','33px','37px','38px']}
+              focusBorderColor="black.400"
+              placeholder="What do you want to listen to?"
+              _placeholder={{ opacity: 1, color: "gray.500" }}
+            />
+            <InputLeftElement>
+              <SearchIcon boxSize={"20px"} color={"#000000"} />
+            </InputLeftElement>
+          </InputGroup>
         </Box>
         <Spacer />
 
         {/* //! navbar section */}
         <Flex align={"center"} alignItems="center">
-          <Link to={""}>
+          <Link to={"/upgrade"}>
             <Button
               className={styles.navButtons}
               variant={"unstyled"}
@@ -170,6 +226,7 @@ function Navbar({bgColor}) {
             m={"0 20px"}
             fontSize="25px"
             w={"auto"}
+            display={["none", "none", "none", "flex", "flex"]}
           />
 
           <Link to={"/signup"}>

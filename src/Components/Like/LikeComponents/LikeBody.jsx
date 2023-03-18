@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Box, HStack } from "@chakra-ui/react";
 import PlayButton from "../../CommonComponents/PlayButton/playButton";
 import TableRow from "./TableRow";
 import { AiOutlineClockCircle } from "react-icons/ai";
@@ -8,8 +8,9 @@ import { likePageDisplaySong } from "../../../Redux/LikedSong/likeThunk";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useState } from "react";
-import AudioPlayer from 'react-h5-audio-player';
-import 'react-h5-audio-player/lib/styles.css';
+import LikeAnimation from "../../CommonComponents/LikeAnimation/LikeAnimation";
+import { BsThreeDots } from "react-icons/bs";
+import { useToast } from '@chakra-ui/react'
 import style from "../like.module.css";
 import {
   Table,
@@ -19,31 +20,19 @@ import {
   Tr,
   Th,
   Td,
+  Select,
 } from "@chakra-ui/react";
 
-const LikeBody = () => {
+const LikeBody = ({ setPlaySong, bg1, bg2 }) => {
 
-  const[playSong, setPlaySong] = useState({
-    songUrl: "",
-    playSong: false
-  })
-
-  const Player = () => (
-    <AudioPlayer
-      autoPlay
-      src="https://cdns-preview-e.dzcdn.net/stream/c-e54e737bf7f2cf479c66a13ba5116848-2.mp3"
-      onPlay={e => console.log("onPlay")}
-      // other props here
-    />
-  );
-
-  Player();
+  const toast = useToast();
+  
 
   const dispatch = useDispatch();
   let likedSongList = useSelector((state) => state.likeReducer.likedSong[0]);
-  // console.log('songlist', likedSongList)
+
   if (likedSongList) {
-    console.log(likedSongList, "list of");
+    // console.log(likedSongList[0].preview, "list of");
   }
 
   const getData = () => {
@@ -69,30 +58,59 @@ const LikeBody = () => {
     getData();
   }, []);
 
+  const threeDotClicked = () => {
+    console.log("c");
+  };
+
   return (
     <Box
-      bgGradient='linear(to-l, #5337aa, #090612)'
-      w="auto"
+      bgGradient={`linear(to-l, ${bg1}, ${bg2})`}
+      w="88%"
       h="auto"
       p="5%"
       pt="2%"
       pos="relative"
       left="195px"
     >
-      <PlayButton />
-      <TableContainer w="80%" mt="50px" color="white">
+      <HStack w="40%">
+        <PlayButton />
+        <LikeAnimation />
+        
+        <Icon
+          cursor="pointer"
+          onClick={() => {
+            threeDotClicked();
+          }}
+          color="#c1dcee"
+          as={BsThreeDots}
+          boxSize={6}
+        >
+          {/* This is react , chakra ui app, i want the behaviour when i click tho this icon i want to
+        show this 3 option as a drop down menu   */}
+          <option value="option1">Option 1</option>
+          <option value="option2">Option 2</option>
+          <option value="option3">Option 3</option>
+        </Icon>
+      </HStack>
+
+      <TableContainer w="95%" mt="50px" color="white">
         <Table variant="simple" borderColor="transparent">
           <Thead>
             <Tr id={style.likeTableRow}>
-              <Th color='white' fontSize='18px' w="4%">No.</Th>
-              <Th color='white' fontSize='18px' w="8%" >Title</Th>
-              <Th color='white' fontSize='18px' w="40%"></Th>
-              <Th color='white' fontSize='18px' w="30%">Type</Th>
+              <Th color="white" fontSize="18px" w="4%">
+                No.
+              </Th>
+              <Th color="white" fontSize="18px" w="8%">
+                Title
+              </Th>
+              <Th color="white" fontSize="18px" w="40%"></Th>
+              <Th color="white" fontSize="18px" w="30%">
+                Type
+              </Th>
 
-              <Th w="3%"></Th>
-              <Th color='white' w="20%" fontSize='18px'>
+              <Th w="10%"></Th>
+              <Th color="white" w="20%" fontSize="18px">
                 <Icon boxSize={5} as={AiOutlineClockCircle} />{" "}
-                
               </Th>
             </Tr>
           </Thead>
@@ -101,6 +119,8 @@ const LikeBody = () => {
               return (
                 <TableRow
                   key={index}
+                  url={song.preview}
+                  setPlaySong={setPlaySong}
                   id={index + 1}
                   image={song.album.cover_medium}
                   name={song.artist.name}

@@ -1,7 +1,7 @@
 import React from 'react'
 
 function PlayListAction(singer) {
-   console.log('singer',singer)
+  //  console.log('singer',singer)
     return(dispatch)=>{
         const options = {
             method: "GET",
@@ -20,7 +20,7 @@ function PlayListAction(singer) {
               
             })
             .catch((e)=>{
-console.log(e.message);
+              console.log(e.message);
             })
         }
 }
