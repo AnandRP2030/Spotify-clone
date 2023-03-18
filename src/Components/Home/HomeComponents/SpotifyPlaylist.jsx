@@ -23,17 +23,49 @@ import { useDispatch, useSelector } from "react-redux";
 import PlayListAction from "../../../Redux/SpotifyPlayList/PlayListAction";
 
 function SpotifyPlaylist({artist, heading}) {
-  console.log(artist,heading);
+  // console.log(artist,heading);
   const dispatch = useDispatch();
+  const [data, setData] = React.useState([])
   const [show, setShow] = React.useState(false)
 
   const handleToggle = () => setShow(!show);
 
-  const data = useSelector((store)=>{
+  const searchedSongs = useSelector((store)=>{
     return(store.playListReducer.songs)
   })  
+// setData(searchedSongs)
+  const getSongs = (artist)=>{
+    const options = {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": "f0d9fa046cmsh6df55b1f1af7fe2p15efc9jsn9790aeeb6432",
+        "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+      },
+    };
+    fetch(`https://deezerdevs-deezer.p.rapidapi.com/search?q=${artist}`, options)
+      .then((response) =>{
+          return (response.json())
+      })
+      .then((response) => {
+      //   console.log('res' ,response.data)
+          const arr = response.data;
+         let artist_Id_Arr = [];
+       setData(response.data);
+          arr.map((ele,ind)=>{
+            artist_Id_Arr.push(ele.artist.id)
+            
+          })
+          localStorage.setItem("artist_Id",JSON.stringify(artist_Id_Arr))
+        
+      })
+      .catch((e)=>{
+        console.log(e.message);
+      })
+  }
+
     useEffect(()=>{
-      dispatch(PlayListAction(artist))
+      // dispatch(PlayListAction(artist))
+      getSongs(artist)
     },[useSelector,dispatch,artist])
 // console.log("data",data)
   return (
@@ -57,11 +89,8 @@ function SpotifyPlaylist({artist, heading}) {
                 ]} gap='20px' >
           {
             data.map((ele)=>{
-              return(
-                
-              <CardCom prop={ele} /> 
-                
-                
+              return(                
+              <CardCom prop={ele} />               
               )
             })
           }
