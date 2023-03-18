@@ -1,13 +1,19 @@
 import React, {useState} from 'react'
 import Cards from 'react-credit-cards-2'
-import { FormControl, Input , Button,Box, Center, Flex} from '@chakra-ui/react';
+import { FormControl, Input , Button,Box, Center, Flex, Text} from '@chakra-ui/react';
+import { useDisclosure,Modal,ModalBody,ModalOverlay,  ModalCloseButton, ModalContent,ModalHeader,ModalFooter} from '@chakra-ui/react'
+
 import 'react-credit-cards-2/es/styles-compiled.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Form } from 'react-router-dom';
 
 
 export const CreditCard = () => {
     const  dispatch = useDispatch()
+    const price = useSelector(state=>state.paymentReducer.onPaymentPlan.price);
+    const month = useSelector(state=>state.paymentReducer.onPaymentPlan.month);
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
 
     const [state, setState] = useState({
         number: '',
@@ -41,6 +47,7 @@ export const CreditCard = () => {
       }
   return (
     <>
+     <Center ml={{base:2, xl:14}}><Text color="white" fontSize="20px" my={6}>One time payment of ₹{price}.00 INR for {month} months</Text></Center>
     <Box mt={15} boxShadow="  2px 59px 36px -50px rgba(31,207,28,0.75);
 -webkit-box-shadow: 2px 59px 36px -50px rgba(31,207,28,0.75);
 -moz-box-shadow: 2px 59px 36px -50px rgba(31,207,28,0.75)"
@@ -67,7 +74,22 @@ width="fit-content" mx="auto"
 
         <Center>
 
-        <Button type="submit"  colorScheme="green" mt={5} w="35%" rounded="20px" fontSize="18px">Payment</Button>
+        <Button type="submit"  colorScheme="green" mt={5} w="35%" rounded="20px" fontSize="18px" onClick={isOpen}>Payment</Button>
+        <Modal  isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent bg="black" mt="25%">
+          <ModalHeader color="green">Apply Promo Code</ModalHeader>
+          <ModalCloseButton color="white"/>
+          <ModalBody>
+            
+ 6t         </ModalBody>
+
+          <ModalFooter>
+           
+              
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
         </Center>
     </form>
     </>
