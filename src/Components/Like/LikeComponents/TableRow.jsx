@@ -94,7 +94,7 @@ const TableRow = ({
           onClick={() => songAdded()}
           boxSize={7}
         /> */}
-        <LikeAnimationRow url={name}/>
+        <LikeAnimationRow url={name} />
       </Td>
       <Td borderColor="black">{formatted} </Td>
     </Tr>

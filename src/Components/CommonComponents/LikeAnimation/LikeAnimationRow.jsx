@@ -9,12 +9,12 @@ const LikeAnimationRow = ({url}) => {
   const dispatch = useDispatch();
 
 
-  const [isActive, setIsActive] = useState(false);
+  const [rowActive, setRowActive] = useState(true);
 
   const handleClick = () => {
-    setIsActive(!isActive);
+    setRowActive(!rowActive);
 
-    if (!isActive) {
+    if (!rowActive) {
       toast({
         position: "top-center",
 
@@ -26,7 +26,7 @@ const LikeAnimationRow = ({url}) => {
         ),
       });
 
-      dispatch(likeSongRemove(url))
+     
 
     } else {
       toast({
@@ -38,6 +38,7 @@ const LikeAnimationRow = ({url}) => {
           </Center> 
         ),
       });
+      dispatch(likeSongRemove(url))
     }
   };
 
@@ -45,7 +46,7 @@ const LikeAnimationRow = ({url}) => {
     <div
       w="50px"
       h="50px"
-      className={`heart ${isActive ? "is-active" : ""} controlPos`}
+      className={`heart ${rowActive ? "is-active" : ""} controlPos`}
       onClick={handleClick}
     ></div>
   );
