@@ -55,7 +55,8 @@ const Sidebar = () => {
         <Link to="/">
           <SideComp icon={HiOutlineHome} name="Home" />
         </Link>
-        <SideComp icon={IoSearchOutline} name="Search" />
+        {/* onClick={()=>{ localStorage.setItem("SearchFlag", false)}} */}
+        <SideComp icon={IoSearchOutline} name="Search"   />
         <SideComp icon={BiLibrary} name="Library" />
       </Box>
 

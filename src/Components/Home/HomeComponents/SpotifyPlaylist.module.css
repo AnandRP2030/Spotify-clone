@@ -19,10 +19,10 @@
   bottom: 0;
   justify-content: space-between;
 }
-/* 
+
 .cardContainer{
     min-width: 140px;
-    width: 160px;
+    width: 180px;
     padding: 15px;
     background-color: #181818;
     border-radius: 6px;
@@ -34,9 +34,15 @@
     background-color:#252525;
     
 }
+.cardContainer:hover{
+    background-color:#252525;
+    transition: 500ms linear; 
+     transform: scale(1.1);
+    
+}
 .cardContainer img{
     width: 100%;
-    border-radius:6px;
+    border-radius:50%;
     margin-bottom: 10px;
 }
 
@@ -44,7 +50,7 @@
     position: relative;
 }
 
-  /* .playButtonDiv .fa{
+   .playButtonDiv .fa{
     position: absolute;
     right: 10px;
     top: -60px;
@@ -57,11 +63,15 @@
 .cardContainer:hover .playButtonDiv .fa {
     opacity: 1;
     transform: translateY(-20px);
-  } */
+  } 
 
-  /* .songDesc{
+   .songDesc{
     color: #989898;
     font-size: 12px;
     line-height: 20px;
     font-weight: 600;
-  } */ 
+  } 
+  .cardContainer:hover .playButton{
+    opacity: 1;
+    transition: all ease 0.7s;
+  }
