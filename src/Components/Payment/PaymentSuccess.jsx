@@ -8,7 +8,7 @@ export const PaymentSuccess = () => {
    
     <Box >
         <Navbar />
-    <Image src="https://cdn.dribbble.com/users/1751799/screenshots/5512482/check02.gif" mx="auto"/>
+    <Image src="https://cdn.dribbble.com/users/1751799/screenshots/5512482/check02.gif" mx="auto" />
     <Center mt="-60px">
          <Text color="#00d34f" fontSize="56px" fontWeight="bold">You're Premium now.</Text>
          
