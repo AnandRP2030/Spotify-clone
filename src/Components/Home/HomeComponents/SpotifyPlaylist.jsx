@@ -107,7 +107,7 @@ function SpotifyPlaylist({artist, heading}) {
       "repeat(4, 1fr)",
       "repeat(6, 1fr)",
       "repeat(6, 1fr)",
-  ]} gap='20px' >
+  ]} gap='20px' bg='#121212' >
     {
       [...new Array(20)].map((ele)=>{
         return(

@@ -29,16 +29,12 @@ function CardCom({ prop }) {
       // position={'relative'}
       key={prop.id}
       className={style.cardContainer}
-      onClick={() => {
-        navigate("/like");
-      }}
+      // onClick={() => {
+      //   navigate("/like");
+      // }}
     >
       <Image src={prop.album.cover_xl} alt="image" />
-      {/* <Box 
-      position={"absolute"}
-          top="-20vh" left='15px'  >
-        <BsHeart fontSize={'30px'} color={'white'} />
-      </Box> */}
+     
       <Box className={style.playButtonDiv}>
         <IconButton
           as={"Button"}
