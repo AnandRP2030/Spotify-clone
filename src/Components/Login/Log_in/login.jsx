@@ -1,30 +1,61 @@
-import React from "react";
+import React,{useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { BackAnime } from "./BackAnime";
+import { useToast } from '@chakra-ui/react'
 // import style from '../Log_in/login.module.css'
 import { Flex, Box, FormControl, Heading, Input, FormLabel, ScaleFade, transition,Text,Link } from "@chakra-ui/react"
-
+import { useSelector } from "react-redux";
 
 
 
 const Login = () => {
+    const toast = useToast()
+    const [list,setList]=useState([])
+
+    function getList(e){
+        const {name,value}=e;
+        setList({...list,[name]:value})
+        console.log(list)
+    }
+ 
+    const data = useSelector((payload) => {
+        return payload.SignupReducer
+    })
+    console.log(data.UserData[0].email)
+    console.log(data.UserData[0].password)
+    const email=data.UserData[0].email
+    const password=data.UserData[0].password
+
 
     const navigate = useNavigate();
-    function loginUser() {
-        console.log("login")
-        navigate("/");
-    }
-// return <Flex 
-// w="1fr"
-//     h="100vh"
-//     bg="#1f2120"
-//     justify="center"
-//     alignItems="center"
-//     boxSizing="boderBox"
-// >
-    
+    function loginUser(e) {
+        e.preventDefault()
+        console.log(list.email)
+        if(email==list.email && password==list.password){
+            toast({
+                title: 'Login Successful',
+                description: "redirected to Home in 2 second",
+                status: 'success',
+                duration: 3000,
+                isClosable: true,
+                position: 'top',
+            })
+            setTimeout(()=>{
 
-// </Flex>
+                navigate("/");
+            },2000)
+        }else{
+            toast({
+                title: 'Login Error',
+                description: "Email or Password may be wrong",
+                status: 'error',
+                duration: 3000,
+                isClosable: true,
+                position: 'top',
+            })
+        }
+    }
+
 
     return <Flex
         w="1fr"
@@ -34,6 +65,7 @@ const Login = () => {
         alignItems="center"
         boxSizing="boderBox"
     >
+        {/* --------------backAnimation--------------- */}
         <BackAnime/>
         <Flex
             h="60%"
@@ -74,11 +106,12 @@ const Login = () => {
                     </FormLabel>
                     <Input
                         type="email"
+                        name="email"
                         placeholder="Enter your email."
                         border="1px solid white"
                         _placeholder={{ color: "white" }}
                         _focus={{ border: "2px solid white" }}
-
+                        onChange={(e)=>{getList(e.target)}}
                     />
                     <FormLabel fontSize="0.875rem"
                         textAlign="left"
@@ -88,11 +121,13 @@ const Login = () => {
                     </FormLabel>
                     <Input
                         type="password"
+                        name="password"
                         placeholder="Enter your Password"
                         border="1px solid white"
                         _placeholder={{ color: "white" }}
                         _focus={{ border: "2px solid white" }}
                         minLength={6}
+                        onChange={(e)=>{getList(e.target)}}
                     />
                     <Input
                         type="submit"
