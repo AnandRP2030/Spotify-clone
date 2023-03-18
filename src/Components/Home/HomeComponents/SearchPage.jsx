@@ -125,7 +125,7 @@ function SearchedData({ artist, heading }) {
         return response.json();
       })
       .then((response) => {
-        console.log("responce", response.data);
+        // console.log("responce", response.data);
         // if(response.data != undefined){
         //   setData([...data,response.data]);
         // }

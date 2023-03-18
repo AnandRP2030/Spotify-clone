@@ -22,7 +22,7 @@ import CardCom from "../../CommonComponents/Card/Card";
 import { useDispatch, useSelector } from "react-redux";
 import PlayListAction from "../../../Redux/SpotifyPlayList/PlayListAction";
 
-function SpotifyPlaylist({artist, heading}) {
+function SpotifyPlaylist({artist, heading, setPlaySong}) {
   // console.log(artist,heading);
   const dispatch = useDispatch();
   const [data, setData] = React.useState([])
@@ -90,7 +90,7 @@ function SpotifyPlaylist({artist, heading}) {
           {
             data.map((ele)=>{
               return(                
-              <CardCom prop={ele} />               
+              <CardCom prop={ele} setPlaySong={setPlaySong} />               
               )
             })
           }
@@ -107,7 +107,7 @@ function SpotifyPlaylist({artist, heading}) {
       "repeat(4, 1fr)",
       "repeat(6, 1fr)",
       "repeat(6, 1fr)",
-  ]} gap='20px' >
+  ]} gap='20px' bg='#121212' >
     {
       [...new Array(20)].map((ele)=>{
         return(

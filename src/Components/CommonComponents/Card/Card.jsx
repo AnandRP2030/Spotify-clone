@@ -18,27 +18,36 @@ import style from "./Card.module.css";
 import { useNavigate } from "react-router-dom";
 import { BsFillSuitHeartFill, BsHeart } from "react-icons/bs";
 
-function CardCom({ prop }) {
-  console.log(prop);
-  const [show, setShow] = React.useState(false);
+function CardCom({ prop ,setPlaySong}) {
+  // console.log(prop);
 
-  const handleToggle = () => setShow(!show);
-  const navigate = useNavigate();
+  
+  // const handleToggle = () => setShow(!show);
+  // const navigate = useNavigate();
+
+  const songClicked = ()=>{
+    console.log('songClicked')
+    setPlaySong({
+      songUrl: prop.preview,
+      img: prop.album.cover_xl,
+      songName: prop.title_short,
+      singer: prop.artist.name,
+      playSong: true,
+    })
+    console.log('songClicked',setPlaySong)
+  }
   return (
     <Box
       // position={'relative'}
       key={prop.id}
       className={style.cardContainer}
-      onClick={() => {
-        navigate("/like");
-      }}
+      // onClick={songClicked}
+      // onClick={() => {
+      //   navigate("/like");
+      // }}
     >
       <Image src={prop.album.cover_xl} alt="image" />
-      {/* <Box 
-      position={"absolute"}
-          top="-20vh" left='15px'  >
-        <BsHeart fontSize={'30px'} color={'white'} />
-      </Box> */}
+     
       <Box className={style.playButtonDiv}>
         <IconButton
           as={"Button"}
@@ -50,6 +59,7 @@ function CardCom({ prop }) {
           transition="all ease 0.4s"
           bg="#1db954"
           borderRadius="50%"
+          onClick={songClicked}
           // _groupHover
           _hover={{ opacity: "1", transition: "all ease 0.4s" }}
           variant={"unstyled"}
