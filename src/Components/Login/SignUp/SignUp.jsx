@@ -78,17 +78,17 @@ function Signup() {
         })
         istoast()
 setTimeout(()=>{
-    navigate("/");
+    navigate("/Otp");
 },2000)
         
     }
    function istoast(){
     if (data.isAuth === true) {
         toast({
-            title: 'Sign Up Success',
-            description: "Your will redirected to Home Page in 2 second",
+            title: 'OTP Sent to Your Email',
+            description: "Please check your Email",
             status: 'success',
-            duration: 2000,
+            duration: 3000,
             isClosable: true,
             position: 'top',
         })

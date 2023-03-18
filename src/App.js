@@ -3,7 +3,7 @@ import { Login } from '../src/Components/Login/Log_in/login';
 import { Like } from './Components/Like/like';
 import { Upgrade } from './Components/Upgrade/upgrade';
 import {Signup} from "../src/Components/Login/SignUp/SignUp"
-
+import {Otp} from "../src/Components/Login/Log_in/Otp"
 import { Routes, Route,useLocation} from 'react-router-dom'
 
 import { PrivatePayment } from './Components/Payment/plansDetails/PrivatePayment';
@@ -28,6 +28,7 @@ function App() {
           <Route path="/test" element={<TwitterHeart/>}/>
           <Route path="/playlist" element={<Playlist/>}/>
           <Route path="/Signup" element={<Signup/>}/>
+          <Route path="/Otp" element={<Otp/>}/>
           <Route path="/payment" element={<PrivatePayment><Payment /></PrivatePayment>}/>
           <Route path="*" element={<NotFound/>}/>
 
