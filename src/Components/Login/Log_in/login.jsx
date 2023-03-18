@@ -21,11 +21,37 @@ const Login = () => {
     const data = useSelector((payload) => {
         return payload.SignupReducer
     })
+    
+
+
     const navigate = useNavigate();
     function loginUser(e) {
         e.preventDefault()
+        const email=data.UserDataByForm[0].email
+    const password=data.UserDataByForm[0].password
+        if(email===list.email && password===list.password){
+            toast({
+                title: 'Login Successful',
+                description: "redirected to Home in 2 second",
+                status: 'success',
+                duration: 3000,
+                isClosable: true,
+                position: 'top',
+            })
+            setTimeout(()=>{
 
                 navigate("/");
+            },2000)
+        }else{
+            toast({
+                title: 'Login Error',
+                description: "Email or Password may be wrong",
+                status: 'error',
+                duration: 3000,
+                isClosable: true,
+                position: 'top',
+            })
+        }
     }
 
 
