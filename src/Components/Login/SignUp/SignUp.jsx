@@ -73,7 +73,7 @@ function Signup() {
     const Sign_up = (event) => {
         event.preventDefault()
         dispatch({
-            type: "LOGIN_SUCCESS",
+            type: "LOGIN_SUCCESS_BY_FORM",
             payload: list
         })
         istoast()
