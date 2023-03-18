@@ -7,12 +7,14 @@ import {CheckCircleIcon,ChevronRightIcon} from '@chakra-ui/icons'
 import { Badges } from './Badges'
 import Navbar from '../Upgrade/UpgradeComponents/Navbar'
 import { CurrentPlan } from './CurrentPlan'
+import { CreditCard } from './CreditCard'
 
 export const Payment = () => {
 
   const currentPlan = useSelector(state=>state.paymentReducer.currentPlan)
   const data = useSelector(state=>state.paymentReducer.plans[currentPlan-1])
   const onPlanData = useSelector(state=>state.paymentReducer.onPaymentPlan)
+  const continuePayment = useSelector(state=>state.paymentReducer.continuePayment)
   const dispatch = useDispatch();
 useEffect(()=>{
    updatePlan(1, data.month1);
@@ -119,13 +121,17 @@ console.log(onPlanData);
                   
                   />
                 </Box>
-                <Box >
+               {continuePayment? null : <Box >
                   <Image
                     src="https://cdn.dribbble.com/users/1299339/screenshots/14693431/media/0d14cfd0199c68d53fff50e42cca6c4b.gif"
                   />
                 </Box>
+                }
                 </Flex>
-                <Badges isMargin={true}/>
+                {
+                  continuePayment ? <CreditCard /> :(
+                    <>
+                    <Badges isMargin={true}/>
                <CurrentPlan 
                
                price={onPlanData.price}
@@ -134,6 +140,9 @@ console.log(onPlanData);
                bg={data.bg}
                color={data.color}
                />
+                    </>
+                  )
+                }
 
 
          </Flex>

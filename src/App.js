@@ -5,13 +5,16 @@ import { Upgrade } from './Components/Upgrade/upgrade';
 import {Signup} from "../src/Components/Login/SignUp/SignUp"
 import {Otp} from "../src/Components/Login/Log_in/Otp"
 import { Routes, Route,useLocation} from 'react-router-dom'
-
 import { PrivatePayment } from './Components/Payment/plansDetails/PrivatePayment';
 import  {Payment}  from './Components/Payment/payment';
 import NotFound from './Components/CommonComponents/NotFoundPage/Notfound';
 import { AnimatePresence } from 'framer-motion';
+import { PaymentSuccess } from './Components/Payment/PaymentSuccess';
+
+
 import TwitterHeart from "./Components/CommonComponents/LikeAnimation/LikeAnimation" 
 import Playlist from './Components/Playlist/Playlist';
+
 
 
 function App() {
@@ -29,6 +32,7 @@ function App() {
           <Route path="/playlist" element={<Playlist/>}/>
           <Route path="/Signup" element={<Signup/>}/>
           <Route path="/Otp" element={<Otp/>}/>
+          <Route path="/paymentsuccess" element={<PaymentSuccess />}/>
           <Route path="/payment" element={<PrivatePayment><Payment /></PrivatePayment>}/>
           <Route path="*" element={<NotFound/>}/>
 
