@@ -1,7 +1,15 @@
 import { Box, Button, Center, Flex, Text } from '@chakra-ui/react'
 import React from 'react'
+import { useDispatch } from 'react-redux'
 
 export const CurrentPlan = ({month, price, plan,bg,color}) => {
+  const dispatch = useDispatch();
+  const continuePayment= ()=>{
+    dispatch({
+      type: "CONTINUE PAYMENT",
+
+    })
+  }
   return (
     <Box p={3} mx={4}  color={color} mt="10px">
         <Box bg={bg} p={4} borderTopLeftRadius="10px" borderTopRightRadius="10px">
@@ -14,7 +22,7 @@ export const CurrentPlan = ({month, price, plan,bg,color}) => {
         </Flex>
         <Center mt="10px">
 
-        <Button colorScheme="green" size="lg">Continue Payment</Button>
+        <Button colorScheme="green" size="lg" onClick={continuePayment}>Continue Payment</Button>
         </Center>
     </Box>
   )
