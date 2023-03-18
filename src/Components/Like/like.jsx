@@ -4,6 +4,7 @@ import Navbar from "../CommonComponents/Navbar/Navbar";
 import LikeBody from "./LikeComponents/LikeBody";
 import SpotifyAudioPlayer from "../CommonComponents/AudioPlayer/SpotifyAudioPlayer";
 import { useState } from "react";
+import EmptyList from "../EmptyList/emptyList";
 
 const Like = () => {
   const [playSong, setPlaySong] = useState({
@@ -13,6 +14,8 @@ const Like = () => {
     songName: "",
     singer: "",
   });
+
+  const [playList, setPlayList] = useState([]);
 
   return (
     <div>
@@ -27,7 +30,11 @@ const Like = () => {
 
       {playSong.playSong ? <SpotifyAudioPlayer song={playSong} /> : ""}
 
-      <LikeBody bg1={'#5337aa'} bg2={'#090612'} setPlaySong={setPlaySong} />
+      {playList.length > 0 ? (
+        <LikeBody bg1={"#5337aa"} bg2={"#090612"} setPlaySong={setPlaySong} />
+      ) : (
+        <EmptyList />
+      )}
     </div>
   );
 };
