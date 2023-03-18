@@ -6,3 +6,13 @@ export function likePageDisplaySong(songData) {
         payload: songData
     }
 }
+
+export function likeSongRemove (url) {
+    
+    console.log('check ', url)
+
+    return {
+        type: "REMOVE",
+        payload: url
+    }
+}

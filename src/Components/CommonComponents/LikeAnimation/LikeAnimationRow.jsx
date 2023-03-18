@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import "./LikeAnimation.css";
 import {Box, useToast, Center } from "@chakra-ui/react";
-import { likePageDisplaySong } from "../../../Redux/LikedSong/likeThunk";
+import { likePageDisplaySong, likeSongRemove } from "../../../Redux/LikedSong/likeThunk";
 import {useDispatch} from 'react-redux';
 
-
-const LikeAnimation = ({song}) => {
+const LikeAnimationRow = ({url}) => {
   const toast = useToast();
   const dispatch = useDispatch();
 
@@ -27,7 +26,7 @@ const LikeAnimation = ({song}) => {
         ),
       });
 
-      dispatch(likePageDisplaySong(song))
+      dispatch(likeSongRemove(url))
 
     } else {
       toast({
@@ -52,4 +51,4 @@ const LikeAnimation = ({song}) => {
   );
 };
 
-export default LikeAnimation;
+export default LikeAnimationRow;
