@@ -76,14 +76,6 @@ function Signup() {
             type: "LOGIN_SUCCESS_BY_FORM",
             payload: list
         })
-        istoast()
-setTimeout(()=>{
-    navigate("/Otp");
-},2000)
-        
-    }
-   function istoast(){
-    if (data.isAuth === true) {
         toast({
             title: 'OTP Sent to Your Email',
             description: "Please check your Email",
@@ -92,7 +84,22 @@ setTimeout(()=>{
             isClosable: true,
             position: 'top',
         })
-    } }
+setTimeout(()=>{
+    navigate("/Otp");
+},2000)
+        
+    }
+//    function istoast(){
+//     if (data.isAuth === true) {
+//         toast({
+//             title: 'OTP Sent to Your Email',
+//             description: "Please check your Email",
+//             status: 'success',
+//             duration: 3000,
+//             isClosable: true,
+//             position: 'top',
+//         })
+//     } }
 
     // ----------------fill form detail---------------
     function getList(e){
