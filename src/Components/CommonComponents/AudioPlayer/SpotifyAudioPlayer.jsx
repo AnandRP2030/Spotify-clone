@@ -41,13 +41,16 @@ const SpotifyAudioPlayer = ({ song }) => {
               </Text>
               <Text as="u"> {song.singer}</Text>
             </Box>
+            <Box pos='absolute' left='20%' top='-29px'>
+
             <Icon
               ml='20px'
               as={LikeAnimation}
               style={iconsStyle}
               onClick={() => songAdded()}
-              boxSize={7}
+              boxSize={4}
             />
+            </Box>
           </Flex>,
           RHAP_UI.PROGRESS_BAR,
           RHAP_UI.CURRENT_TIME,
