@@ -11,6 +11,7 @@ import  {Payment}  from './Components/Payment/payment';
 import NotFound from './Components/CommonComponents/NotFoundPage/Notfound';
 import { AnimatePresence } from 'framer-motion';
 import TwitterHeart from "./Components/CommonComponents/LikeAnimation/LikeAnimation" 
+import Playlist from './Components/Playlist/Playlist';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
           <Route path="/upgrade" element={<Upgrade/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/test" element={<TwitterHeart/>}/>
+          <Route path="/playlist" element={<Playlist/>}/>
           <Route path="/Signup" element={<Signup/>}/>
           <Route path="/payment" element={<PrivatePayment><Payment /></PrivatePayment>}/>
           <Route path="*" element={<NotFound/>}/>

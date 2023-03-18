@@ -54,6 +54,8 @@ const TableRow = ({
 
   return (
     <Tr
+      p='0'
+
       onClick={songClicked}
       id={style.likeTableRow}
       h={20}
@@ -83,15 +85,7 @@ const TableRow = ({
         </Text>
       </Td>
       <Td borderColor="black">{"Song"}</Td>
-      <Td borderColor="black">
-        {" "}
-        {/* <LikeAnimation/> */}
-        {/* <Icon
-          boxSize={7}
-          // style={iconStyle}
-          as={LikeAnimation}
-          onClick={handleRemove}
-        />{" "} */}
+      <Td borderColor="black"   p='0'>
         <Icon
           ml="20px"
           as={LikeAnimation}

@@ -11,23 +11,23 @@ const Like = () => {
     playSong: false,
     img: "",
     songName: "",
-    singer: ""
+    singer: "",
   });
 
   return (
     <div>
-        <Sidebar />
+      <Sidebar />
 
-        <LikeHeader />
-        
-        {playSong.playSong ? (
-          <SpotifyAudioPlayer song={playSong} />
-        ) : (
-          ""
-        )}
+      <LikeHeader
+        img={"https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png"}
+        heading={"LikedSong"}
+        bg1={"#322754"}
+        bg2={"#4286b2"}
+      />
 
-        <LikeBody setPlaySong={setPlaySong} />
-       
+      {playSong.playSong ? <SpotifyAudioPlayer song={playSong} /> : ""}
+
+      <LikeBody bg1={'#5337aa'} bg2={'#090612'} setPlaySong={setPlaySong} />
     </div>
   );
 };

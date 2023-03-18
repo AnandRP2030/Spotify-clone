@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Box, HStack } from "@chakra-ui/react";
 import PlayButton from "../../CommonComponents/PlayButton/playButton";
 import TableRow from "./TableRow";
 import { AiOutlineClockCircle } from "react-icons/ai";
@@ -8,8 +8,7 @@ import { likePageDisplaySong } from "../../../Redux/LikedSong/likeThunk";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useState } from "react";
-
-
+import LikeAnimation from "../../CommonComponents/LikeAnimation/LikeAnimation";
 
 import style from "../like.module.css";
 import {
@@ -22,11 +21,7 @@ import {
   Td,
 } from "@chakra-ui/react";
 
-const LikeBody = ({setPlaySong}) => {
-
- 
-
-
+const LikeBody = ({ setPlaySong, bg1, bg2 }) => {
   const dispatch = useDispatch();
   let likedSongList = useSelector((state) => state.likeReducer.likedSong[0]);
 
@@ -59,7 +54,7 @@ const LikeBody = ({setPlaySong}) => {
 
   return (
     <Box
-      bgGradient='linear(to-l, #5337aa, #090612)'
+      bgGradient={`linear(to-l, ${bg1}, ${bg2})`}
       w="88%"
       h="auto"
       p="5%"
@@ -67,20 +62,29 @@ const LikeBody = ({setPlaySong}) => {
       pos="relative"
       left="195px"
     >
-      <PlayButton />
+      <HStack w="40%">
+        <PlayButton />
+
+        <LikeAnimation />
+      </HStack>
       <TableContainer w="95%" mt="50px" color="white">
         <Table variant="simple" borderColor="transparent">
           <Thead>
             <Tr id={style.likeTableRow}>
-              <Th color='white' fontSize='18px' w="4%">No.</Th>
-              <Th color='white' fontSize='18px' w="8%" >Title</Th>
-              <Th color='white' fontSize='18px' w="40%"></Th>
-              <Th color='white' fontSize='18px' w="30%">Type</Th>
+              <Th color="white" fontSize="18px" w="4%">
+                No.
+              </Th>
+              <Th color="white" fontSize="18px" w="8%">
+                Title
+              </Th>
+              <Th color="white" fontSize="18px" w="40%"></Th>
+              <Th color="white" fontSize="18px" w="30%">
+                Type
+              </Th>
 
               <Th w="10%"></Th>
-              <Th color='white' w="20%" fontSize='18px'>
+              <Th color="white" w="20%" fontSize="18px">
                 <Icon boxSize={5} as={AiOutlineClockCircle} />{" "}
-                
               </Th>
             </Tr>
           </Thead>

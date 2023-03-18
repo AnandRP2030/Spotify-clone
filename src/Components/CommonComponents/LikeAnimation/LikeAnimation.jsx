@@ -9,7 +9,7 @@ const LikeAnimation = () => {
   };
 
   return (
-      <div
+      <div w='50px' h='50px'
 
         className={`heart ${isActive ? "is-active" : ""} controlPos`}
         onClick={handleClick}
