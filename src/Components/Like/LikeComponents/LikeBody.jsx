@@ -29,10 +29,10 @@ const LikeBody = ({ setPlaySong, bg1, bg2 }) => {
   
 
   const dispatch = useDispatch();
-  let likedSongList = useSelector((state) => state.likeReducer.likedSong[0]);
+  let likedSongList = useSelector((state) => state.likeReducer.likedSong);
 
   if (likedSongList) {
-    // console.log(likedSongList[0].preview, "list of");
+    console.log(likedSongList, "list of");
   }
 
   const getData = () => {
@@ -55,7 +55,7 @@ const LikeBody = ({ setPlaySong, bg1, bg2 }) => {
   };
 
   useEffect(() => {
-    getData();
+    // getData();
   }, []);
 
   const threeDotClicked = () => {
@@ -119,14 +119,13 @@ const LikeBody = ({ setPlaySong, bg1, bg2 }) => {
               return (
                 <TableRow
                   key={index}
-                  url={song.preview}
+                  url={song.songurl}
                   setPlaySong={setPlaySong}
                   id={index + 1}
-                  image={song.album.cover_medium}
-                  name={song.artist.name}
-                  title={song.title_short}
-                  type={song.type}
-                  duration={song.duration}
+                  image={song.img}
+                  name={song.singer}
+                  title={song.songName}
+                  duration={245}
                 />
               );
             })}

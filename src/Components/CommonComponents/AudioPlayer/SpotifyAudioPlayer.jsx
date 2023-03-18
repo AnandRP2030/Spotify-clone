@@ -7,7 +7,11 @@ import { AiFillHeart } from "react-icons/ai";
 import LikeAnimation from "../LikeAnimation/LikeAnimation"
 
 
+
 const SpotifyAudioPlayer = ({ song }) => {
+
+
+
   const iconsStyle = {
     color: "#1ed760",
     cursor: "pointer",
@@ -43,13 +47,14 @@ const SpotifyAudioPlayer = ({ song }) => {
             </Box>
             <Box pos='absolute' left='20%' top='-29px'>
 
-            <Icon
+            {/* <Icon
               ml='20px'
               as={LikeAnimation}
               style={iconsStyle}
               onClick={() => songAdded()}
               boxSize={4}
-            />
+            /> */}
+            <LikeAnimation song={song}/>
             </Box>
           </Flex>,
           RHAP_UI.PROGRESS_BAR,
@@ -58,7 +63,7 @@ const SpotifyAudioPlayer = ({ song }) => {
           // RHAP_UI.DURATION,
         ]}
         onPlay={(e) => console.log("song playing")}
-        np
+        
       />
     </Box>
   );
