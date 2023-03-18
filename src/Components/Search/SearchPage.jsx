@@ -19,7 +19,7 @@ const SearchPage = () => {
   const [playList, setPlayList] = useState([]);
   return (
     <AnimatedPages>
-      <Box ml={["80px","80px" ,"196px","196px","196px","196px"]} mb="80px" className={styles.homeContainer}>
+      <Box ml={["80px","80px" ,"196px","196px","196px","196px"]} h='100%' bottom='0'  className={styles.homeContainer}>
         <Navbar bgColor="black" />
         <AnimatedPages>
             <SearchPageComp/>

@@ -136,7 +136,7 @@ function Navbar({ bgColor }) {
                 bg="blackAlpha.100"
                 m={"0 20px"}
                 borderRadius="25px"
-                w="90px"
+                w="95px"
                 border={"1px solid white"}
                 display={["none", "none", "none", "flex", "flex"]}
               >
@@ -144,7 +144,19 @@ function Navbar({ bgColor }) {
               </Button>
             </Link>
 
+             {/* //! vertical Divider  */}
+
+             <Divider
+                orientation="vertical"
+                m={"0 20px"}
+                fontSize="25px"
+                w={"auto"}
+                display={["none", "none", "none", "flex", "flex"]}
+              />
+
+
             <Flex
+           
               justify={"space-between"}
               align={"center"}
               bg="black"

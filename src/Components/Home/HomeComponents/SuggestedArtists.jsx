@@ -142,7 +142,7 @@ function SuggestedArtists({ artist, heading }) {
   }, []);
   // console.log("data",data)
   return arr?.length > 0 ? (
-    <Box className={style.SpotifyPlaylist} mb="-40px">
+    <Box className={style.SpotifyPlaylist} mb="-40px" bg='#121212' >
       <Flex
         justify={"space-between"}
         mt={["42px", "42px", "42px", "60px", "60px"]}
@@ -170,13 +170,13 @@ function SuggestedArtists({ artist, heading }) {
             return (
               <Box
                 // position={'relative'}
-                key={ele.id}
+                key={ele.album.id}
                 className={style.cardContainer}
                 onClick={() => {
                   // navigate("/like");
                 }}
               >
-                <Image src={ele.album.cover_xl} alt="image" />
+                <Image src={ele.album.cover_xl} alt="image" borderRadius={'50%'} />
                 {/* <Box 
                 position={"absolute"}
                     top="-20vh" left='15px'  >
