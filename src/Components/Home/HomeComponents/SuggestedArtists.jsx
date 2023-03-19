@@ -108,8 +108,17 @@ const arr = [
   // },
 ];
 function SuggestedArtists({ setPlaySong }) {
+  const LibraryArray =JSON.parse(localStorage.getItem("LibraryArray"))|| [];
   const songClicked = (prop) => {
-    console.log("songClicked");
+    LibraryArray.push({
+      songUrl: prop.preview,
+      img: prop.album.cover_xl,
+      songName: prop.title_short,
+      singer: prop.artist.name,
+      playSong: true,
+    })
+    localStorage.setItem("LibraryArray", JSON.stringify(LibraryArray))
+
     setPlaySong({
       songUrl: prop.preview,
       img: prop.album.cover_xl,
