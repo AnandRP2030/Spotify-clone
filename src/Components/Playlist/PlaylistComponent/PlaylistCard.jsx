@@ -1,18 +1,10 @@
 import {
   Card,
-  Flex,
-  CardHeader,
-  Button,
   Text,
-  ButtonGroup,
   Heading,
-  Divider,
-  Stack,
   Image,
   CardBody,
-  CardFooter,
   Grid,
-  Spacer,
   GridItem,
   Icon,
 
@@ -24,7 +16,7 @@ const PlaylistCard = ({ img, title, des }) => {
   return (
     <Card maxW="sm" w='233px' h="270px" > 
       <CardBody p='10px'>
-        <Image src={img} alt="img" w='70%' borderRadius='80%' margin='auto'/>
+        <Image src={img} alt="img" w='73%' h='152px' borderRadius='80%' margin='auto'/>
         <Grid
             mt='10px'
           h="100px"

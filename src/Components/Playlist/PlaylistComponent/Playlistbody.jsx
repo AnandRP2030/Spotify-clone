@@ -1,7 +1,6 @@
 import React from "react";
 import { Box } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
-import { useRef } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import { useState } from "react";
 
@@ -47,8 +46,16 @@ const PlaylistBody = () => {
   });
 
   const createPlaylist = () => {
+
+    if (!userInput.title){
+        setUserInput((prevState) => ({
+            ...prevState,
+            img: 'https://www.shutterstock.com/image-vector/music-player-on-smartphone-lp-600w-1100594210.jpg',
+        }))
+
+    }
+    
     setPlaylistArr([...playlistArr, userInput])
-    console.log(playlistArr, 'full ')
   }
 
   return (

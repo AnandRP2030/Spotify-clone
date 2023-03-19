@@ -1,7 +1,6 @@
 import { Box } from "@chakra-ui/react";
 import Sidebar from "../CommonComponents/Sidebar/sidebar";
 import LikeHeader from "../Like/LikeComponents/LikeHeader";
-import LikeBody from "../Like/LikeComponents/LikeBody";
 import SpotifyAudioPlayer from "../CommonComponents/AudioPlayer/SpotifyAudioPlayer";
 import { useState } from "react";
 import PlaylistBody from "./PlaylistComponent/Playlistbody";
