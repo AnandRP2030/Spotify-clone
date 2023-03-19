@@ -24,6 +24,7 @@ function App() {
       <AnimatePresence mode="wait">
         <Routes key={location.pathname} location={location}>
           <Route path="/" element={<Home />} />
+          <Route path="/search" element={<SearchPage />} />
           <Route path="/like" element={<Like />} />
           <Route path="/upgrade" element={<Upgrade />} />
           <Route path="/login" element={<Login />} />
