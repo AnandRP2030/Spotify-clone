@@ -16,7 +16,6 @@ import {
 import { FaCaretRight } from "react-icons/fa";
 import style from "./SpotifyPlaylist.module.css";
 import CardCom from "../../CommonComponents/Card/Card";
-import { useDispatch, useSelector } from "react-redux";
 import PlayListAction from "../../../Redux/SpotifyPlayList/PlayListAction";
 import { useNavigate } from "react-router-dom";
 const arr = [
