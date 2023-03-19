@@ -98,7 +98,7 @@ function SearchPageComp({ artist, heading, setPlaySong }) {
         </Button>
       </Flex>:null}
 
-      {data?.length > 0 ? <Collapse startingHeight={250} in={show}>
+      {data?.length > 0 ? <Collapse startingHeight={290} in={show}>
         <Grid
           className={style.listContainer}
           flexWrap="wrap"
