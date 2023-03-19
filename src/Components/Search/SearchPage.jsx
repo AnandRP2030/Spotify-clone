@@ -22,7 +22,7 @@ const SearchPage = () => {
       <Box ml={["80px","80px" ,"196px","196px","196px","196px"]} h='100%' bottom='0'  className={styles.homeContainer}>
         <Navbar bgColor="black" />
         <AnimatedPages>
-            <SearchPageComp/>
+            <SearchPageComp setPlaySong={setPlaySong} />
         </AnimatedPages>
         <Sidebar />
         
