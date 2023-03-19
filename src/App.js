@@ -15,6 +15,7 @@ import { PaymentSuccess } from "./Components/Payment/PaymentSuccess";
 import { SearchPage } from "./Components/Search/SearchPage";
 import TwitterHeart from "./Components/CommonComponents/LikeAnimation/LikeAnimation";
 import Playlist from "./Components/Playlist/Playlist";
+import PlaylistDetails from "./Components/Playlist/PlaylistComponent/PlaylistDetails";
 
 function App() {
   const location = useLocation();
@@ -33,6 +34,8 @@ function App() {
           <Route path="/Otp" element={<Otp />} />
           <Route path="/paymentsuccess" element={<PaymentSuccess />} />
           <Route path="/paymentotp" element={<PaymentOtp />} />
+          <Route path="/playlistDetails" element={<PlaylistDetails/>}/>
+          
           <Route
             path="/payment"
             element={

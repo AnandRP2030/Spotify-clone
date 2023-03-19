@@ -8,7 +8,7 @@ const initialValue = {
 
 
 export default function LikeReducer(state = initialValue, action) {
-    console.log(state, 'sspayload')
+  
   switch (action.type) {
     case "DISPLAY_SONG":
       return {
@@ -28,7 +28,6 @@ export default function LikeReducer(state = initialValue, action) {
     };
 
     default:  
-    console.log('workd')
       return state
   }
 }
