@@ -12,7 +12,7 @@ import { FaCaretRight } from "react-icons/fa";
 import style from "./Card.module.css";
 
 function CardCom({ prop, setPlaySong }) {
-  const LibraryArray = [];
+  const LibraryArray =JSON.parse(localStorage.getItem("LibraryArray"))|| [];
   const songClicked = () => {
     LibraryArray.push({
       songUrl: prop.preview,
@@ -21,7 +21,7 @@ function CardCom({ prop, setPlaySong }) {
       singer: prop.artist.name,
       playSong: true,
     })
-    localStorage.setItem("Library", JSON.stringify(LibraryArray))
+    localStorage.setItem("LibraryArray", JSON.stringify(LibraryArray))
 
     console.log("songClicked");
     setPlaySong({
