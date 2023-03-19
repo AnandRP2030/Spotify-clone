@@ -38,8 +38,9 @@ console.log(onPlanData);
       maxW="1140px"
       mx="auto"
       mt="65px"
-      h="85vh"
-      minH="600px" boxShadow="rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px" rounded="20px">
+      // h="120vh"
+      maxH="820px"
+       boxShadow="rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px" rounded="20px">
         {/* for displaying the pricePlans */}
          <Flex direction="column" flex="1" 
         bg={data.bg} color={data.color}

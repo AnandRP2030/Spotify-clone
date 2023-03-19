@@ -18,7 +18,7 @@ export function Otp() {
 
     function SucessLogin(event) {
 event.preventDefault()
-        if ("1234" == otp) {
+        if ("123456" == otp) {
             toast({
                 title: 'SignUP Successful',
                 description: "redirected to Login page in 2 second",
