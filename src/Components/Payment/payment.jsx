@@ -43,37 +43,6 @@ export const Payment = () => {
 
   return (
     <>
-    <Navbar />
-    <Box bgGradient='linear(to-r, rgb(5,227,136),rgb(26,141,95))' p={10} minH="100vh" >
-      
-      <Flex fontWeight="bold"
-      maxW="1140px"
-      mx="auto"
-      mt="65px"
-      // h="120vh"
-      maxH="820px"
-       boxShadow="rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px" rounded="20px">
-        {/* for displaying the pricePlans */}
-         <Flex direction="column" flex="1" 
-        bg={data.bg} color={data.color}
-          py="10px"
-         borderTopLeftRadius="20px" borderBottomLeftRadius="20px">
-          <Center fontSize="38px"  >Music For Everyone.</Center>
-          <Center fontSize="25px" >Premium Subscription</Center>
-        
-              <Flex justify="space-around" align="center" mt="10px">
-                <Text fontSize="24px" >You chose</Text>
-                <Link to="/upgrade"
-                ><Text color={data.color==="white"?"black":"white"}
-                fontWeight="semibold">Change plan</Text></Link>
-              </Flex>
-              {/* price and subscription details */}
-              <Box bg={data.bg} color={data.color} w="90%" mx="auto" rounded="20px" py={3}>
-              <Flex direction="column" 
-              boxShadow="rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px"
-               rounded="10px"
-               p={3}>
-                <Text fontSize="32px" >Premium {data.plan}</Text>
       <Navbar />
       <Box
         bgGradient="linear(to-r, rgb(5,227,136),rgb(26,141,95))"
@@ -89,7 +58,7 @@ export const Payment = () => {
           boxShadow="rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px"
           rounded="20px"
         >
-          {/* for displaying the pricePlans */}
+          {/* for displaying the pricePlans on page */}
           <Flex
             direction="column"
             flex="1"
@@ -130,7 +99,6 @@ export const Payment = () => {
                 p={3}
               >
                 <Text fontSize="32px">Premium {data.plan}</Text>
-
                 <Text>{data.account}</Text>
               </Flex>
               <Badges isMargin={false} />
