@@ -27,7 +27,7 @@ function SearchCard({ color, name, imageUrl }) {
     <Box
       className={style.cardContainer}
       bg={color}
-      h="250px"
+      h="245px"
       variant="unstyled"
       m={"5px 5px"}
     >

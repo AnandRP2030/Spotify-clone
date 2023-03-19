@@ -13,7 +13,6 @@ import NotFound from "./Components/CommonComponents/NotFoundPage/Notfound";
 import { AnimatePresence } from "framer-motion";
 import { PaymentSuccess } from "./Components/Payment/PaymentSuccess";
 import { SearchPage } from "./Components/Search/SearchPage";
-import SearchPageComp from "./Components/Search/Components/SearchPageComp";
 import TwitterHeart from "./Components/CommonComponents/LikeAnimation/LikeAnimation";
 import Playlist from "./Components/Playlist/Playlist";
 
