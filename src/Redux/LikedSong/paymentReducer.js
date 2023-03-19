@@ -116,6 +116,13 @@ const PaymentReducer = (state = initialState, action) => {
         await: true,
       };
     }
+    case "PREMIUM USER": {
+      return {
+        ...state,
+        continuePayment: false,
+        await: false,
+      };
+    }
     default:
       return state;
   }

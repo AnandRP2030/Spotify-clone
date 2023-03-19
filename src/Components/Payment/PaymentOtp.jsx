@@ -39,7 +39,7 @@ export function PaymentOtp() {
         navigate("/paymentsuccess");
         setTimeout(() => {
           navigate("/");
-        }, 5000);
+        }, 7000);
       }, 2500);
 
       dispatch({
