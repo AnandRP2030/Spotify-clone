@@ -15,11 +15,11 @@ import { PaymentSuccess } from "./Components/Payment/PaymentSuccess";
 import { SearchPage } from "./Components/Search/SearchPage";
 import TwitterHeart from "./Components/CommonComponents/LikeAnimation/LikeAnimation";
 import Playlist from "./Components/Playlist/Playlist";
-<<<<<<< HEAD
+
 import PlaylistDetails from "./Components/Playlist/PlaylistComponent/PlaylistDetails";
-=======
+
 import PrivateLogin from "./Components/CommonComponents/Routes/PrivateLogin";
->>>>>>> 554995342feccc4c9c32506573e8e4b7af34e880
+
 
 function App() {
   const location = useLocation();
