@@ -12,6 +12,10 @@ const LikeAnimation = ({song}) => {
 
   const [isActive, setIsActive] = useState(false);
 
+  useEffect(() => {
+    setIsActive(false)
+  },[song])
+
   const handleClick = () => {
     setIsActive(!isActive);
 
