@@ -1,19 +1,34 @@
 
 const initialValue = {
-  likedSong: [],
+  likedSong: [
+    
+      
+  ],
 };
 
 
 export default function LikeReducer(state = initialValue, action) {
-    // console.log(action.payload, 'payload')
+    console.log(state, 'sspayload')
   switch (action.type) {
     case "DISPLAY_SONG":
       return {
         ...state,
-        likedSong : [ action.payload],
+        likedSong : [...state.likedSong, action.payload],
       };
+    case "REMOVE" :
 
-    default:
-      return state;
+    console.log('reom')
+    const finalRes = state.likedSong.filter((elem) =>{
+        console.log(elem.singer, 'compare', action.payload)  
+      return elem.singer !== action.payload
+    });
+    return {
+      ...state,
+      likedSong: finalRes,
+    };
+
+    default:  
+    console.log('workd')
+      return state
   }
 }

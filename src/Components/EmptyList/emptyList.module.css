@@ -1,5 +1,5 @@
 .rainbow{
-    background-color: #343A40;
+    background-color: #343A40 !important;
     border-radius: 4px;  
     color: #fff;
     cursor: pointer;

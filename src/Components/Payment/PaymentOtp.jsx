@@ -10,70 +10,43 @@ import {
   Heading,
   useToast,
 } from "@chakra-ui/react";
-import { BackAnime } from "./BackAnime";
-import { PinInputOtp } from "./PinInput";
+import { BackAnime } from "../Login/Log_in/BackAnime";
+import { PinInputOtp } from "../Login/Log_in/PinInput";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
-export function Otp() {
-  const navigate = useNavigate();
-  const toast = useToast();
-
+export function PaymentOtp() {
   const [otp, setOtp] = useState("");
-  function getOtp(e) {
-    console.log(e);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const toast = useToast();
+  const getOtp = (e) => {
     setOtp(e);
-}
-    function SucessLogin(event) {
-event.preventDefault()
-        if ("123456" == otp) {
-            toast({
-                title: 'SignUP Successful',
-                description: "redirected to Login page in 2 second",
-                status: 'success',
-                duration: 3000,
-                isClosable: true,
-                position: 'top',
-            })
-            setTimeout(() => {
-                navigate("/Login")
-            }, 3000)
-        } else {
-            toast({
-                title: 'SignUp Failed',
-                description: "You may have entered the wrong OTP",
-                status: 'error',
-                duration: 3000,
-                isClosable: true,
-                position: 'top',
-            })
-        }
-  function SucessLogin(event) {
-    event.preventDefault();
-    if ("1234" == otp) {
+  };
+
+  const SuccessPayment = (e) => {
+    e.preventDefault();
+    if (otp === "1234") {
       toast({
-        title: "SignUP Successful",
-        description: "redirected to Login page in 2 second",
+        title: "Payment Successful",
+        description: "Your payment has been successful",
         status: "success",
-        duration: 3000,
+        duration: 2500,
         isClosable: true,
         position: "top",
       });
       setTimeout(() => {
-        navigate("/Login");
-      }, 3000);
-    } else {
-      toast({
-        title: "SignUp Failed",
-        description: "You may have entered the wrong OTP",
-        status: "error",
-        duration: 3000,
-        isClosable: true,
-        position: "top",
+        navigate("/paymentsuccess");
+        setTimeout(() => {
+          navigate("/");
+        }, 5000);
+      }, 2500);
+
+      dispatch({
+        type: "PREMIUM USER",
       });
-
     }
-  }
-
+  };
   return (
     <Flex
       w="1fr"
@@ -127,7 +100,7 @@ event.preventDefault()
             <PinInputOtp getOtp={getOtp} />
             <Input
               type="submit"
-              value="Submit"
+              value="Confirm Payment"
               bg="#1ed760"
               color="black"
               fontSize="20px"
@@ -137,7 +110,7 @@ event.preventDefault()
               h="12%"
               border="none"
               _hover={{ bg: "#b5f7bc", transition: "fade" }}
-              onClick={SucessLogin}
+              onClick={SuccessPayment}
             />
           </FormControl>
         </form>

@@ -5,6 +5,8 @@ import LikeBody from "./LikeComponents/LikeBody";
 import SpotifyAudioPlayer from "../CommonComponents/AudioPlayer/SpotifyAudioPlayer";
 import { useState } from "react";
 import EmptyList from "../EmptyList/emptyList";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 const Like = () => {
   const [playSong, setPlaySong] = useState({
@@ -15,6 +17,9 @@ const Like = () => {
     singer: "",
   });
 
+  const dispatch = useDispatch();
+  let likedSongList = useSelector((state) => state.likeReducer.likedSong);
+
   const [playList, setPlayList] = useState([]);
 
   return (
@@ -23,14 +28,14 @@ const Like = () => {
 
       <LikeHeader
         img={"https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png"}
-        heading={"LikedSong"}
+        heading={"Liked Song"}
         bg1={"#322754"}
         bg2={"#4286b2"}
       />
 
       {playSong.playSong ? <SpotifyAudioPlayer song={playSong} /> : ""}
 
-      {playList.length > 0 ? (
+      {likedSongList.length > 0 ? (
         <LikeBody bg1={"#5337aa"} bg2={"#090612"} setPlaySong={setPlaySong} />
       ) : (
         <EmptyList />

@@ -1,25 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./LikeAnimation.css";
 import {Box, useToast, Center } from "@chakra-ui/react";
-import { likePageDisplaySong } from "../../../Redux/LikedSong/likeThunk";
+import { likePageDisplaySong, likeSongRemove } from "../../../Redux/LikedSong/likeThunk";
 import {useDispatch} from 'react-redux';
 
-
-const LikeAnimation = ({song}) => {
+const LikeAnimationRow = ({url}) => {
   const toast = useToast();
   const dispatch = useDispatch();
 
 
-  const [isActive, setIsActive] = useState(false);
-
-  useEffect(() => {
-    setIsActive(false)
-  },[song])
+  const [rowActive, setRowActive] = useState(true);
 
   const handleClick = () => {
-    setIsActive(!isActive);
+    setRowActive(!rowActive);
 
-    if (!isActive) {
+    if (!rowActive) {
       toast({
         position: "top-center",
 
@@ -31,7 +26,7 @@ const LikeAnimation = ({song}) => {
         ),
       });
 
-      dispatch(likePageDisplaySong(song))
+     
 
     } else {
       toast({
@@ -43,21 +38,18 @@ const LikeAnimation = ({song}) => {
           </Center> 
         ),
       });
+      dispatch(likeSongRemove(url))
     }
   };
-
-  useEffect(() => {
-    setIsActive(false);
-  },[])
 
   return (
     <div
       w="50px"
       h="50px"
-      className={`heart ${isActive ? "is-active" : ""} controlPos`}
+      className={`heart ${rowActive ? "is-active" : ""} controlPos`}
       onClick={handleClick}
     ></div>
   );
 };
 
-export default LikeAnimation;
+export default LikeAnimationRow;

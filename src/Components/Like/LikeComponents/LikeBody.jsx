@@ -12,6 +12,17 @@ import LikeAnimation from "../../CommonComponents/LikeAnimation/LikeAnimation";
 import { BsThreeDots } from "react-icons/bs";
 import { useToast } from '@chakra-ui/react'
 import style from "../like.module.css";
+import { Link, useNavigate } from "react-router-dom";
+import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  TriangleDownIcon,
+  TriangleUpIcon,
+  ExternalLinkIcon,
+  EditIcon,
+  SearchIcon,
+} from "@chakra-ui/icons";
+import { FaPowerOff, FaBars } from "react-icons/fa";
 import {
   Table,
   Tbody,
@@ -19,20 +30,25 @@ import {
   Thead,
   Tr,
   Th,
-  Td,
-  Select,
+  Menu,
+  MenuButton, 
+  IconButton,
+   MenuList, 
+   MenuItem,
+  MenuDivider,
 } from "@chakra-ui/react";
+import LikeDumb from "../../CommonComponents/LikeAnimation/LikeDumb";
 
 const LikeBody = ({ setPlaySong, bg1, bg2 }) => {
 
   const toast = useToast();
-  
+  const navigate = useNavigate()
 
   const dispatch = useDispatch();
-  let likedSongList = useSelector((state) => state.likeReducer.likedSong[0]);
+  let likedSongList = useSelector((state) => state.likeReducer.likedSong);
 
   if (likedSongList) {
-    // console.log(likedSongList[0].preview, "list of");
+    console.log(likedSongList, "list of");
   }
 
   const getData = () => {
@@ -55,7 +71,7 @@ const LikeBody = ({ setPlaySong, bg1, bg2 }) => {
   };
 
   useEffect(() => {
-    getData();
+    // getData();
   }, []);
 
   const threeDotClicked = () => {
@@ -74,23 +90,80 @@ const LikeBody = ({ setPlaySong, bg1, bg2 }) => {
     >
       <HStack w="40%">
         <PlayButton />
-        <LikeAnimation />
+        <LikeDumb/>
         
-        <Icon
-          cursor="pointer"
-          onClick={() => {
-            threeDotClicked();
-          }}
-          color="#c1dcee"
-          as={BsThreeDots}
-          boxSize={6}
-        >
-          {/* This is react , chakra ui app, i want the behaviour when i click tho this icon i want to
-        show this 3 option as a drop down menu   */}
-          <option value="option1">Option 1</option>
-          <option value="option2">Option 2</option>
-          <option value="option3">Option 3</option>
-        </Icon>
+        <Box>
+                {/* //! menubutton */}
+                <Menu color='white'>
+                  {({ isOpen }) => (
+                    <>
+                      <MenuButton
+                        as={IconButton}
+                        bg="blackAlpha.900"
+                        color="white"
+                        variant={"unstyled"}
+                        aria-label="Options"
+                        boxSize={10} 
+                        icon={
+                          isOpen ? <BsThreeDots /> : <BsThreeDots/> 
+                        }
+                      />
+                      <MenuList w="xsm" bg={"black"}>
+                        <MenuItem
+                          icon={<ExternalLinkIcon boxSize={5} />}
+                          bg="black"
+                          color="white"
+                        >
+                          {" "}
+                          Account
+                        </MenuItem>
+                        <MenuItem color='white' icon={<EditIcon boxSize={5} />} bg="black">
+                          {" "}
+                          Profile
+                        </MenuItem>
+                        <MenuItem
+                          icon={<ExternalLinkIcon boxSize={5} />}
+                          bg="black"
+                          color='white'
+                        >
+                          {" "}
+                          Upgrade to Premium
+                        </MenuItem>
+                        <MenuItem
+                          icon={<ExternalLinkIcon boxSize={5} />}
+                          bg="black"
+                          color='white'
+                        >
+                          {" "}
+                          Download
+                        </MenuItem>
+                        <MenuItem
+                          icon={<ExternalLinkIcon boxSize={5} />}
+                          bg="black"
+                          color='white'
+                        >
+                          {" "}
+                          Settings
+                        </MenuItem>
+                        <MenuDivider />
+                        <MenuItem
+                          icon={<FaPowerOff size={18} />}
+                          bg="black"
+                          color='white'
+                          onClick={() => {
+                            localStorage.removeItem("userDetail");
+                            navigate("/");
+                          }}
+                        >
+                          Log out
+                        </MenuItem>
+                      </MenuList>
+                    </>
+                  )}
+                </Menu>
+              </Box>
+
+
       </HStack>
 
       <TableContainer w="95%" mt="50px" color="white">
@@ -119,14 +192,13 @@ const LikeBody = ({ setPlaySong, bg1, bg2 }) => {
               return (
                 <TableRow
                   key={index}
-                  url={song.preview}
+                  url={song.songUrl}
                   setPlaySong={setPlaySong}
                   id={index + 1}
-                  image={song.album.cover_medium}
-                  name={song.artist.name}
-                  title={song.title_short}
-                  type={song.type}
-                  duration={song.duration}
+                  image={song.img}
+                  name={song.singer}
+                  title={song.songName}
+                  duration={245}
                 />
               );
             })}
