@@ -2,7 +2,7 @@ const initialState = {
   token: "",
   isAuth: false,
   UserData: [],
-  UserDataByForm: [],
+  // UserDataByForm: [],
   error: false,
   isPremiumUser:false
   };
@@ -18,14 +18,14 @@ const initialState = {
           }
       
         }
-        case "LOGIN_SUCCESS_BY_FORM":{
-          return{
-            ...state,
-            isAuth:true,
-            UserDataByForm:[action.payload],
-          }
+        // case "LOGIN_SUCCESS_BY_FORM":{
+        //   return{
+        //     ...state,
+        //     isAuth:true,
+        //     UserDataByForm:[action.payload],
+        //   }
       
-        }
+        // }
         case "LOGOUT_USER":{
           return{
             ...state,

@@ -16,7 +16,6 @@ import {
 import { FaCaretRight } from "react-icons/fa";
 import style from "./SpotifyPlaylist.module.css";
 import CardCom from "../../CommonComponents/Card/Card";
-import { useDispatch, useSelector } from "react-redux";
 import PlayListAction from "../../../Redux/SpotifyPlayList/PlayListAction";
 import { useNavigate } from "react-router-dom";
 const arr = [
@@ -109,8 +108,17 @@ const arr = [
   // },
 ];
 function SuggestedArtists({ setPlaySong }) {
+  const LibraryArray =JSON.parse(localStorage.getItem("LibraryArray"))|| [];
   const songClicked = (prop) => {
-    console.log("songClicked");
+    LibraryArray.push({
+      songUrl: prop.preview,
+      img: prop.album.cover_xl,
+      songName: prop.title_short,
+      singer: prop.artist.name,
+      playSong: true,
+    })
+    localStorage.setItem("LibraryArray", JSON.stringify(LibraryArray))
+
     setPlaySong({
       songUrl: prop.preview,
       img: prop.album.cover_xl,
