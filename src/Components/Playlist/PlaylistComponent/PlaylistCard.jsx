@@ -9,6 +9,8 @@ import {
   Icon,
 
 } from "@chakra-ui/react";
+import style from "../playlist.module.css"
+
 import {MdPlaylistAdd} from 'react-icons/md';
 
 const PlaylistCard = ({ img, title, des, count }) => {
@@ -27,9 +29,9 @@ const PlaylistCard = ({ img, title, des, count }) => {
   }
 
   return (
-    <Card maxW="sm" w='233px' h="270px" > 
+    <Card maxW="sm" w='233px' h="270px" className={style.playlistCard}> 
       <CardBody p='10px'>
-        <Image src={img} alt="img" w='73%' h='152px' borderRadius='80%' margin='auto'/>
+        <Image className={style.playlistCardImg} src={img} alt="img" w='73%' h='152px' borderRadius='80%' margin='auto'/>
         <Grid
             mt='10px'
           h="100px"
