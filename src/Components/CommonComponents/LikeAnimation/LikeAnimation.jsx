@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./LikeAnimation.css";
 import {Box, useToast, Center } from "@chakra-ui/react";
 import { likePageDisplaySong } from "../../../Redux/LikedSong/likeThunk";
@@ -11,6 +11,10 @@ const LikeAnimation = ({song}) => {
 
 
   const [isActive, setIsActive] = useState(false);
+
+  useEffect(() => {
+    setIsActive(false)
+  },[song])
 
   const handleClick = () => {
     setIsActive(!isActive);
@@ -41,6 +45,10 @@ const LikeAnimation = ({song}) => {
       });
     }
   };
+
+  useEffect(() => {
+    setIsActive(false);
+  },[])
 
   return (
     <div

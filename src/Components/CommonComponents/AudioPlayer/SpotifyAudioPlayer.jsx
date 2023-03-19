@@ -45,15 +45,9 @@ const SpotifyAudioPlayer = ({ song }) => {
               </Text>
               <Text as="u"> {song.singer}</Text>
             </Box>
-            <Box pos='absolute' left='20%' top='-29px'>
+            <Box pos='absolute' left='99%' top='-44px'>
 
-            {/* <Icon
-              ml='20px'
-              as={LikeAnimation}
-              style={iconsStyle}
-              onClick={() => songAdded()}
-              boxSize={4}
-            /> */}
+            
             <LikeAnimation song={song}/>
             </Box>
           </Flex>,

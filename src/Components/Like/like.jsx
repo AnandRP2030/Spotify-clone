@@ -28,7 +28,7 @@ const Like = () => {
 
       <LikeHeader
         img={"https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png"}
-        heading={"LikedSong"}
+        heading={"Liked Song"}
         bg1={"#322754"}
         bg2={"#4286b2"}
       />
