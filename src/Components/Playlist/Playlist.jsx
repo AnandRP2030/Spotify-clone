@@ -4,16 +4,11 @@ import LikeHeader from "../Like/LikeComponents/LikeHeader";
 import SpotifyAudioPlayer from "../CommonComponents/AudioPlayer/SpotifyAudioPlayer";
 import { useState } from "react";
 import PlaylistBody from "./PlaylistComponent/Playlistbody";
+import EmptyList from "../EmptyList/emptyList";
 
 
 const Playlist = () => {
-  const [playSong, setPlaySong] = useState({
-    songUrl: "",
-    playSong: false,
-    img: "",
-    songName: "",
-    singer: "",
-  });
+ 
 
   return (
     <Box>
@@ -27,9 +22,8 @@ const Playlist = () => {
         bg2={"#53aced"}
       />
 
-      {playSong.playSong ? <SpotifyAudioPlayer song={playSong} /> : ""}
-
-        <PlaylistBody/>
+      <PlaylistBody/>
+  
       {/* <LikeBody bg1={'#53aced'} bg2={'#0f0b15'} setPlaySong={setPlaySong} /> */}
     </Box>
   );

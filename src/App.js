@@ -16,6 +16,12 @@ import { SearchPage } from "./Components/Search/SearchPage";
 import TwitterHeart from "./Components/CommonComponents/LikeAnimation/LikeAnimation";
 import Playlist from "./Components/Playlist/Playlist";
 import { Library } from "./Components/Libaray/LibarayPage";
+
+import PlaylistDetails from "./Components/Playlist/PlaylistComponent/PlaylistDetails";
+
+import PrivateLogin from "./Components/CommonComponents/Routes/PrivateLogin";
+
+
 function App() {
   const location = useLocation();
   return (
@@ -27,13 +33,15 @@ function App() {
           <Route path="/library" element={<Library />} />
           <Route path="/like" element={<Like />} />
           <Route path="/upgrade" element={<Upgrade />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<PrivateLogin><Login /></PrivateLogin>} />
           <Route path="/test" element={<TwitterHeart />} />
           <Route path="/playlist" element={<Playlist />} />
           <Route path="/Signup" element={<Signup />} />
           <Route path="/Otp" element={<Otp />} />
           <Route path="/paymentsuccess" element={<PaymentSuccess />} />
           <Route path="/paymentotp" element={<PaymentOtp />} />
+          <Route path="/playlistDetails" element={<PlaylistDetails/>}/>
+          
           <Route
             path="/payment"
             element={
