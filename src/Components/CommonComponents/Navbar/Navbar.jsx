@@ -57,7 +57,17 @@ function Navbar({ bgColor }) {
 
   const SearchFlag = localStorage.getItem("SearchFlag");
   // console.log(SearchFlag);
-
+  
+  
+  const downloadApp = () => {
+    const link = document.createElement("a");
+    link.download = "spotifyAppDownload.exe";
+    link.href = `https://github.com/AnandRP2030/Spotify-clone/raw/master/src/Components/CommonComponents/Sidebar/assets/spotifyAppDownload.exe`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    console.log("called");
+  };
   return (
     <>
       <Flex
@@ -219,7 +229,7 @@ function Navbar({ bgColor }) {
                           {" "}
                           Upgrade to Premium
                         </MenuItem>
-                        <MenuItem
+                        <MenuItem onClick={downloadApp}
                           icon={<ExternalLinkIcon boxSize={5} />}
                           bg="black"
                         >
