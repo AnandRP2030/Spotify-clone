@@ -11,8 +11,21 @@ import {
 } from "@chakra-ui/react";
 import {MdPlaylistAdd} from 'react-icons/md';
 
-const PlaylistCard = ({ img, title, des }) => {
+const PlaylistCard = ({ img, title, des, count }) => {
   console.log("worke");
+
+  if (!img) {
+    img = "https://d2rd7etdn93tqb.cloudfront.net/wp-content/uploads/2022/03/spotify-playlist-cover-orange-headphones-032322.jpg"
+  }
+
+  if (!title) {
+    title = `My Playlist ${count}`
+  }
+
+  if (!des) {
+    des = `Spotify Playlist`
+  }
+
   return (
     <Card maxW="sm" w='233px' h="270px" > 
       <CardBody p='10px'>

@@ -20,7 +20,6 @@ import {
   Icon,
   Grid,
   Center,
-  GridItem,
 } from "@chakra-ui/react";
 
 import PlaylistCard from "./PlaylistCard";
@@ -33,9 +32,9 @@ const PlaylistBody = () => {
 
   const [playlistArr, setPlaylistArr] = useState([
     {
-      title: "Sample",
-      description: "This is sample",
-      img: "https://www.shutterstock.com/image-vector/music-player-on-smartphone-lp-600w-1100594210.jpg",
+      title: "Liked Songs",
+      description: "See all your liked song",
+      img: "https://cdn.pixabay.com/photo/2018/05/08/21/29/spotify-3384019__480.png",
     },
   ]);
 
@@ -46,17 +45,8 @@ const PlaylistBody = () => {
   });
 
   const createPlaylist = () => {
-
-    if (!userInput.title){
-        setUserInput((prevState) => ({
-            ...prevState,
-            img: 'https://www.shutterstock.com/image-vector/music-player-on-smartphone-lp-600w-1100594210.jpg',
-        }))
-
-    }
-    
-    setPlaylistArr([...playlistArr, userInput])
-  }
+    setPlaylistArr([...playlistArr, userInput]);
+  };
 
   return (
     <Box
@@ -113,9 +103,9 @@ const PlaylistBody = () => {
                 />
               </FormControl>
               <FormControl mt={4}>
-                <FormLabel>Playlist Image</FormLabel> 
+                <FormLabel>Playlist Image</FormLabel>
                 <Input
-                  value={userInput.imgUrl}
+                  value={userInput.img}
                   onChange={(e) =>
                     setUserInput((prevState) => ({
                       ...prevState,
@@ -151,6 +141,7 @@ const PlaylistBody = () => {
             return (
               <PlaylistCard
                 key={idx}
+                count={idx}
                 img={card.img}
                 title={card.title}
                 des={card.description}
