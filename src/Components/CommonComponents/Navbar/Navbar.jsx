@@ -44,7 +44,7 @@ function Navbar({ bgColor }) {
 
   const navigate = useNavigate();
   const [search, setSearch] = useState("");
-  const dispatch = useDispatch("");
+  const dispatch = useDispatch();
   const getSongBySearch = (e) => {
     const key = e.code;
     if (key == "Enter") {
@@ -125,7 +125,6 @@ function Navbar({ bgColor }) {
         ) : null}
         <Spacer />
 
-        {/* //! conditional Rendering in navbar comp */}
 
         {useDetails != null ? (
           <>
@@ -239,6 +238,7 @@ function Navbar({ bgColor }) {
                           icon={<FaPowerOff size={18} />}
                           bg="black"
                           onClick={() => {
+                            dispatch({type:"LOGOUT_USER"})
                             localStorage.removeItem("userDetail");
                             navigate("/");
                           }}

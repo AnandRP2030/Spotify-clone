@@ -99,21 +99,23 @@ const Sidebar = () => {
       </Box>
 
       <Grid h="150px" mt="20px" borderBottomColor="white">
-        <Flex mt="20px" className={style.hoverText}>
-          <img
-            width="25px"
-            style={{ height: "25px" }}
-            src="https://raw.githubusercontent.com/AnandRP2030/Resource-website/master/images/playlist.jpg"
-            alt="icon"
-          />
-          <Text
-            color="#b3b3b3"
-            ml="13px"
-            display={["none", "none", "block", "block", "block"]}
-          >
-            Create Playlist
-          </Text>
-        </Flex>
+        <Link to="/playlist">
+          <Flex mt="20px" className={style.hoverText}>
+            <img
+              width="25px"
+              style={{ height: "25px" }}
+              src="https://raw.githubusercontent.com/AnandRP2030/Resource-website/master/images/playlist.jpg"
+              alt="icon"
+            />
+            <Text
+              color="#b3b3b3"
+              ml="13px"
+              display={["none", "none", "block", "block", "block"]}
+            >
+              Create Playlist
+            </Text>
+          </Flex>
+        </Link>
         <Flex mt="20px" className={style.hoverText}>
           <Link to="/like">
             <img
