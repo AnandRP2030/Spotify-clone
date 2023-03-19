@@ -27,9 +27,7 @@ const Login = () => {
     const navigate = useNavigate();
     function loginUser(e) {
         e.preventDefault()
-        const email=data.UserDataByForm[0].email
-    const password=data.UserDataByForm[0].password
-        if(email===list.email && password===list.password){
+        if(data!==[] && data.UserDataByForm[0].email===list.email && data.UserDataByForm[0].password===list.password){
             toast({
                 title: 'Login Successful',
                 description: "redirected to Home in 2 second",

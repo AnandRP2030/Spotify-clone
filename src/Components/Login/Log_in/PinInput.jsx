@@ -10,6 +10,8 @@ export function PinInputOtp({getOtp}) {
                 <PinInputField color="white" />
                 <PinInputField color="white" />
                 <PinInputField color="white" />
+                <PinInputField color="white" />
+                <PinInputField color="white" />
             </PinInput>
         </Flex>
     )

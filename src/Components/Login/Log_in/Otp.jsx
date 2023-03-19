@@ -22,8 +22,31 @@ export function Otp() {
   function getOtp(e) {
     console.log(e);
     setOtp(e);
-  }
-
+}
+    function SucessLogin(event) {
+event.preventDefault()
+        if ("123456" == otp) {
+            toast({
+                title: 'SignUP Successful',
+                description: "redirected to Login page in 2 second",
+                status: 'success',
+                duration: 3000,
+                isClosable: true,
+                position: 'top',
+            })
+            setTimeout(() => {
+                navigate("/Login")
+            }, 3000)
+        } else {
+            toast({
+                title: 'SignUp Failed',
+                description: "You may have entered the wrong OTP",
+                status: 'error',
+                duration: 3000,
+                isClosable: true,
+                position: 'top',
+            })
+        }
   function SucessLogin(event) {
     event.preventDefault();
     if ("1234" == otp) {
@@ -47,6 +70,7 @@ export function Otp() {
         isClosable: true,
         position: "top",
       });
+
     }
   }
 
