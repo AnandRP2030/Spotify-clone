@@ -58,7 +58,7 @@ export const Payment = () => {
           boxShadow="rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px"
           rounded="20px"
         >
-          {/* for displaying the pricePlans on page */}
+          {/* for displaying the pricePlans */}
           <Flex
             direction="column"
             flex="1"
@@ -99,6 +99,7 @@ export const Payment = () => {
                 p={3}
               >
                 <Text fontSize="32px">Premium {data.plan}</Text>
+
                 <Text>{data.account}</Text>
               </Flex>
               <Badges isMargin={false} />
@@ -238,4 +239,4 @@ export const Payment = () => {
       </Box>
     </>
   );
-};
+}
