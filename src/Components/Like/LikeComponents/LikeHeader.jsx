@@ -1,15 +1,24 @@
 import { Box, Text, Image, Circle } from "@chakra-ui/react";
 import Navbar from "../../CommonComponents/Navbar/Navbar";
 import { useState } from "react";
-
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 const LikeHeader = (props) => {
 
-    const[userData, setUserData] = useState({
-        name: "User name",
-        noOfSong: 2,
+    // const[userData, setUserData] = useState({
+    //     name: "User name",
+    //     noOfSong: 2,
+    // })
 
-    })
+    const dispatch = useDispatch();
+    let likedSongList = useSelector((state) => state.likeReducer.likedSong);
+  
+
+    const useDetails = JSON.parse(localStorage.getItem("userDetail"));
+    // console.log(useDetails);
+  
+    const SearchFlag = localStorage.getItem("SearchFlag");
 
   return (
     <Box
@@ -36,7 +45,7 @@ const LikeHeader = (props) => {
         <br/>
         
         {/* make dynamic here */}
-        <Text as='b' ml='6px'> {userData.name}   {userData.noOfSong}  songs </Text>
+        <Text as='b' ml='6px'>  {useDetails[0].given_name} -  {likedSongList.length}  songs </Text>
       </Box>
     </Box>
   );
