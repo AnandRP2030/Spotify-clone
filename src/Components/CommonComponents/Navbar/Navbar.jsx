@@ -125,7 +125,6 @@ function Navbar({ bgColor }) {
         ) : null}
         <Spacer />
 
-        {/* //! conditional Rendering in navbar comp */}
 
         {useDetails != null ? (
           <>

@@ -115,7 +115,7 @@ const LikeBody = ({ setPlaySong, bg1, bg2 }) => {
                           color="white"
                         >
                           {" "}
-                          Account
+                          Add to queue
                         </MenuItem>
                         <MenuItem color='white' icon={<EditIcon boxSize={5} />} bg="black">
                           {" "}
@@ -125,6 +125,10 @@ const LikeBody = ({ setPlaySong, bg1, bg2 }) => {
                           icon={<ExternalLinkIcon boxSize={5} />}
                           bg="black"
                           color='white'
+                          onClick={() => {
+                            localStorage.removeItem("userDetail");
+                            navigate("/upgrade");
+                          }}
                         >
                           {" "}
                           Upgrade to Premium
@@ -135,7 +139,7 @@ const LikeBody = ({ setPlaySong, bg1, bg2 }) => {
                           color='white'
                         >
                           {" "}
-                          Download
+                          Report
                         </MenuItem>
                         <MenuItem
                           icon={<ExternalLinkIcon boxSize={5} />}
@@ -143,7 +147,7 @@ const LikeBody = ({ setPlaySong, bg1, bg2 }) => {
                           color='white'
                         >
                           {" "}
-                          Settings
+                          Add to playlist
                         </MenuItem>
                         <MenuDivider />
                         <MenuItem
@@ -198,7 +202,7 @@ const LikeBody = ({ setPlaySong, bg1, bg2 }) => {
                   image={song.img}
                   name={song.singer}
                   title={song.songName}
-                  duration={245}
+                  duration={32*(index+2)}
                 />
               );
             })}
