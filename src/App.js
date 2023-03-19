@@ -15,6 +15,7 @@ import { PaymentSuccess } from "./Components/Payment/PaymentSuccess";
 import { SearchPage } from "./Components/Search/SearchPage";
 import TwitterHeart from "./Components/CommonComponents/LikeAnimation/LikeAnimation";
 import Playlist from "./Components/Playlist/Playlist";
+import { Library } from "./Components/Libaray/LibarayPage";
 
 import PlaylistDetails from "./Components/Playlist/PlaylistComponent/PlaylistDetails";
 
@@ -29,6 +30,7 @@ function App() {
         <Routes key={location.pathname} location={location}>
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<SearchPage />} />
+          <Route path="/library" element={<Library />} />
           <Route path="/like" element={<Like />} />
           <Route path="/upgrade" element={<Upgrade />} />
           <Route path="/login" element={<PrivateLogin><Login /></PrivateLogin>} />
