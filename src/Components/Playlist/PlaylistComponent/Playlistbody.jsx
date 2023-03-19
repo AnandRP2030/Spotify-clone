@@ -67,6 +67,57 @@ const PlaylistBody = () => {
       description: "Party - Playlist.",
       img: "https://i.scdn.co/image/ab67616d0000b2739fafb8a821738f917d909a1e",
     },
+    {
+      title: "Happy Vibes",
+      description: "Happy vibes - Playlist.",
+      img: "https://i.scdn.co/image/ab67706f000000027b6d2a5a985d54626b639a4a",
+    },
+    {
+      title: "Latest",
+      description: "Latest - Playlist.",
+      img: "https://i.scdn.co/image/ab67616d00001e02df4c03d9572451c02daa4fc8",
+    },
+    {
+      title: "Panda DJ ",
+      description: "Panda - Playlist.",
+      img: "https://i.scdn.co/image/ab67616d00001e02ba61b2caa1d31939600bd3c8",
+    },
+    {
+      title: "Alan Walker",
+      description: "Alan Walker - Playlist.",
+      img: "https://d3vhc53cl8e8km.cloudfront.net/hello-staging/wp-content/uploads/2016/11/03003651/adc8d9dc-8afe-11ed-954e-0ecc81f4ee58-972x597.jpg",
+    },
+    {
+      title: "Joker",
+      description: "Joker - Playlist.",
+      img: "https://i.scdn.co/image/ab6761610000f1787ad41bb6bdccff00adb6809c",
+    },
+    {
+      title: "Fly",
+      description: "Fly - Playlist.",
+      img: "https://i.scdn.co/image/ab6775700000ee852c1a5ad463ffcb2e5b0e0a4a",
+    },
+    {
+      title: "Disney Lullaby",
+      description: "Disney - Playlist.",
+      img: "https://i.scdn.co/image/ab67706f00000002889c7a6c4c41ccd469c3c96a",
+    },
+    {
+      title: "Marvel Moon",
+      description: "Marvel - Playlist.",
+      img: "https://i.scdn.co/image/ab67616d00001e02c6275f2ac0366769a1d88d33",
+    },
+    {
+      title: "Joker",
+      description: "Joker - Playlist.",
+      img: "https://i.scdn.co/image/ab67706f0000000208813c2c8994c3a21baa15f6",
+    },
+    {
+      title: "Depths",
+      description: "In to Depths - Playlist.",
+      img: "https://i.scdn.co/image/ab67656300005f1f812bf8db7b2fd61233a825cc",
+    },
+   
    
   ]);
 

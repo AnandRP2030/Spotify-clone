@@ -23,7 +23,27 @@ const PlaylistCard = ({ img, title, des, count }) => {
       navigate("/like")
     }else if (count === 1) {
       navigate("/playlistDetails", {state:{searchKey: "Shreya%20Ghoshal", title: title, img: img, des: des}})
+    }else if (count === 2) {
+      navigate("/playlistDetails", {state:{searchKey: "hiphop", title: title, img: img, des: des}})
+    }else if (count === 3){
+      navigate("/playlistDetails", {state:{searchKey: "top", title: title, img: img, des: des}})
+    }else if (count === 4){
+      navigate("/playlistDetails", {state:{searchKey: "top%20hits", title: title, img: img, des: des}})
+    }else if (count === 5){
+      navigate("/playlistDetails", {state:{searchKey: "study", title: title, img: img, des: des}})
+    }else if (count === 6) {
+      navigate("/playlistDetails", {state:{searchKey: "party", title: title, img: img, des: des}})
+    }else if (count === 7) {
+      navigate("/playlistDetails", {state:{searchKey: "alanWalker", title: title, img: img, des: des}})
+    }else {
+      
+      navigate("/playlistDetails", {state:{searchKey: "alanWalker", title: title, img: img, des: des}})
     }
+      
+      
+
+      
+      
   }
 
   if (!img) {
