@@ -50,7 +50,7 @@ const LikeHeader = (props) => {
         {/* make dynamic here */}
         <Text as="b" ml="6px">
           {" "}
-          {useDetails[0].given_name} - {likedSongList ? likedSongList.length : 0} songs{" "}
+          {useDetails[0].given_name}
         </Text>
       </Box>
     </Box>

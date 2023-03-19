@@ -59,7 +59,7 @@ function Navbar({ bgColor }) {
   // console.log(SearchFlag);
   
   
-  const downloadApp = () => {
+  function  downloadApp () {
     const link = document.createElement("a");
     link.download = "spotifyAppDownload.exe";
     link.href = `https://github.com/AnandRP2030/Spotify-clone/raw/master/src/Components/CommonComponents/Sidebar/assets/spotifyAppDownload.exe`;
@@ -229,7 +229,7 @@ function Navbar({ bgColor }) {
                           {" "}
                           Upgrade to Premium
                         </MenuItem>
-                        <MenuItem onClick={downloadApp}
+                        <MenuItem
                           icon={<ExternalLinkIcon boxSize={5} />}
                           bg="black"
                         >
@@ -313,6 +313,7 @@ function Navbar({ bgColor }) {
                   borderRadius="25px"
                   w="95px"
                   display={["none", "none", "none", "flex", "flex"]}
+                  onClick={() => {downloadApp()}}
                 >
                   Download
                 </Button>
