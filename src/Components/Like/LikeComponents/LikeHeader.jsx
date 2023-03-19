@@ -6,20 +6,12 @@ import { useSelector } from "react-redux";
 
 const LikeHeader = (props) => {
 
-    // const[userData, setUserData] = useState({
-    //     name: "User name",
-    //     noOfSong: 2,
-    // })
+  const dispatch = useDispatch();
+  let likedSongList = useSelector((state) => state.likeReducer.likedSong);
 
-    const dispatch = useDispatch();
-    let likedSongList = useSelector((state) => state.likeReducer.likedSong);
+  const useDetails = JSON.parse(localStorage.getItem("userDetail")) || [{"given_name": "Username"}];
+  const SearchFlag = localStorage.getItem("SearchFlag");
   
-
-    const useDetails = JSON.parse(localStorage.getItem("userDetail"));
-    // console.log(useDetails);
-  
-    const SearchFlag = localStorage.getItem("SearchFlag");
-
   return (
     <Box
       h="340px"
@@ -28,7 +20,6 @@ const LikeHeader = (props) => {
       pos="relative"
       bgGradient={`linear(to-r, ${props.bg1}, ${props.bg2})`}
     >
-      ,
       <Image
         src={props.img}
         h="55%"
@@ -38,14 +29,29 @@ const LikeHeader = (props) => {
         top="80px"
         left="2%"
       />
-      <Box w='50%' h='200px' color='#fff' pos='relative' left='18%' bottom='105px'>
-        <Text as='b' ml='6px'> Playlist</Text>
-        <br/>
-        <Text fontSize='88px' as='b' > {props.heading}</Text>
-        <br/>
-        
+      <Box
+        w="50%"
+        h="200px"
+        color="#fff"
+        pos="relative"
+        left="18%"
+        bottom="105px"
+      >
+        <Text as="b" ml="6px">
+          {" "}
+          Playlist
+        </Text>
+        <br />
+        <Text fontSize="88px" as="b">
+          {props.heading ? props.heading : "Username"}
+        </Text>
+        <br />
+
         {/* make dynamic here */}
-        <Text as='b' ml='6px'>  {useDetails[0].given_name} -  {likedSongList.length}  songs </Text>
+        <Text as="b" ml="6px">
+          {" "}
+          {useDetails[0].given_name} - {likedSongList ? likedSongList.length : 0} songs{" "}
+        </Text>
       </Box>
     </Box>
   );
