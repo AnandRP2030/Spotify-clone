@@ -43,7 +43,6 @@ const PlaylistDetails = () => {
       .then((response) => {
         // console.log(response.data);
         setPlayList([response.data])
-        // console.log('get',playlistSong)
       });
   };
 
@@ -65,7 +64,7 @@ const PlaylistDetails = () => {
 
   
       {playlistSong.length > 0 ? (
-        <PlaylistBody playlistSong={playlistSong} bg1={"#5337aa"} bg2={"#090612"} setPlaySong={setPlaySong}/>
+        <PlaylistBody playlistSong={playlistSong} bg1={"#8437aa"} bg2={"#090612"} setPlaySong={setPlaySong}/>
       ) : (
         <EmptyList />
       )}
