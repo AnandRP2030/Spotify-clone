@@ -9,9 +9,6 @@ import {
   Center,
   Text,
   Grid,
-  Divider,
-  SkeletonCircle,
-  SkeletonText,
   Skeleton,
   Collapse,
   Button,
@@ -111,8 +108,7 @@ const arr = [
   //   },
   // },
 ];
-function SuggestedArtists({setPlaySong }) {
-
+function SuggestedArtists({ setPlaySong }) {
   const songClicked = (prop) => {
     console.log("songClicked");
     setPlaySong({
@@ -124,135 +120,70 @@ function SuggestedArtists({setPlaySong }) {
     });
     console.log("songClicked", setPlaySong);
   };
-  //   console.log(artist,heading);
-  const dispatch = useDispatch();
-  //   const [data, setData] = React.useState([])
 
-  const navigate = useNavigate();
-  const [show, setShow] = React.useState(false);
-
-  const handleToggle = () => setShow(!show);
-
-  //   const searchedSongs = useSelector((store)=>{
-  //     return(store.playListReducer.songs)
-  //   })
-  // // setData(searchedSongs)
-  const getArtistData = (artist) => {
-    const options = {
-      method: "GET",
-      headers: {
-        "X-RapidAPI-Key": "f0d9fa046cmsh6df55b1f1af7fe2p15efc9jsn9790aeeb6432",
-        "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-      },
-    };
-    let artist_IDs = JSON.parse(localStorage.getItem("artist_Id"));
-    // console.log(artist_IDs);
-    // artist_IDs?.map((ele)=>{
-    // let IDs = ele;
-    fetch(`https://api.deezer.com/artist/491/top?limit=50`, options)
-      .then((response) => {
-        return response.json();
-      })
-      .then((response) => {
-        // console.log("responce", response.data);
-        // if(response.data != undefined){
-        //   setData([...data,response.data]);
-        // }
-      })
-      .catch((e) => {
-        console.log(e.message);
-      });
-    // })
-  };
-  // console.log("set",data)
-  useEffect(() => {
-    // dispatch(PlayListAction(artist))
-    getArtistData();
-  }, []);
-  // console.log("data",data)
   return arr?.length > 0 ? (
     <Box className={style.SpotifyPlaylist} mb="-40px" bg="#121212">
       <Flex
         justify={"space-between"}
         mt={["42px", "42px", "42px", "60px", "60px"]}
+      ></Flex>
+      <Grid
+        className={style.listContainer}
+        flexWrap="wrap"
+        gridTemplateColumns={[
+          "repeat(2, 1fr)",
+          "repeat(2, 1fr)",
+          "repeat(3, 1fr)",
+          "repeat(4, 1fr)",
+          "repeat(5, 1fr)",
+          "repeat(5, 1fr)",
+        ]}
+        gap="20px"
       >
-        <Heading>Suggested Artist </Heading>
-        <Button variant={"unstyled"} color={"#fff"} size="sm" mt="1rem">
-          Show {show ? "Less" : "More"}
-        </Button>
-      </Flex>
-      <Collapse startingHeight={250} in={show}>
-        <Grid
-          className={style.listContainer}
-          flexWrap="wrap"
-          gridTemplateColumns={[
-            "repeat(2, 1fr)",
-            "repeat(2, 1fr)",
-            "repeat(3, 1fr)",
-            "repeat(4, 1fr)",
-            "repeat(5, 1fr)",
-            "repeat(5, 1fr)",
-          ]}
-          gap="20px"
-        >
-          {arr.map((ele) => {
-            return (
-             
-               <Box
-              //   // position={'relative'}
-                key={ele.album.id}
-                className={style.cardContainer}
-                onClick={() => {
-              //     // dispatch(PlayListAction(ele.artist.name))
-              //     navigate("/search");
-                }}
-              >
-                <Image
-                  src={ele.album.cover_xl}
-                  alt="image"
-                  borderRadius={"50%"}
-                />
-                {/* <Box 
-                position={"absolute"}
-                    top="-20vh" left='15px'  >
-                  <BsHeart fontSize={'30px'} color={'white'} />
-                </Box> */}
-                <Box className={style.playButtonDiv}>
-                  <IconButton
-                    as={"Button"}
-                    className={style.playButton}
-                    right="10px"
-                    top="-60px"
-                    position={"absolute"}
-                    opacity="0"
-                    transition="all ease 0.4s"
-                    bg="#1db954"
-                    borderRadius="50%"
-                    onClick={()=>{songClicked(ele)}}
-                    _hover={{ opacity: "1", transition: "all ease 0.4s" }}
-                    variant={"unstyled"}
-                    aria-label="Call Segun"
-                    size="lg"
-                    icon={
-                      <Center>
-                        <FaCaretRight fontSize={"30px"} />
-                      </Center>
-                    }
-                  />
-                </Box>
-                <Heading as={"h6"} size="xsm" color="#fff" noOfLines={1}>
-                  {ele.album.title}
-                </Heading>
-                <Text className={style.songDesc} noOfLines={2}>
-                  {ele.artist.name}
-                </Text>
-              </Box>
-            );
-          })}
-        </Grid>
-      </Collapse>
+        {arr.map((ele) => {
+          return (
+            <Box key={ele.album.id} className={style.cardContainer}>
+              <Image
+                src={ele.album.cover_xl}
+                alt="image"
+                borderRadius={"50%"}
+              />
 
-      {/* <Divider mt={'10px'} mb={'-50px'} /> */}
+              <Box className={style.playButtonDiv}>
+                <IconButton
+                  as={"Button"}
+                  className={style.playButton}
+                  right="10px"
+                  top="-60px"
+                  position={"absolute"}
+                  opacity="0"
+                  transition="all ease 0.4s"
+                  bg="#1db954"
+                  borderRadius="50%"
+                  onClick={() => {
+                    songClicked(ele);
+                  }}
+                  _hover={{ opacity: "1", transition: "all ease 0.4s" }}
+                  variant={"unstyled"}
+                  aria-label="Call Segun"
+                  size="lg"
+                  icon={
+                    <Center>
+                      <FaCaretRight fontSize={"30px"} />
+                    </Center>
+                  }
+                />
+              </Box>
+              <Heading as={"h6"} size="xsm" color="#fff" noOfLines={1}>
+                {ele.album.title}
+              </Heading>
+              <Text className={style.songDesc} noOfLines={2}>
+                {ele.artist.name}
+              </Text>
+            </Box>
+          );
+        })}
+      </Grid>
     </Box>
   ) : (
     <Grid
@@ -274,7 +205,6 @@ function SuggestedArtists({setPlaySong }) {
           </Box>
         );
       })}
-      {/* <SkeletonText mt='4' isLoaded={false} startColor='#d7d2cc' endColor='#304352' noOfLines={24} spacing='4' skeletonHeight='2' /> */}
     </Grid>
   );
 }
