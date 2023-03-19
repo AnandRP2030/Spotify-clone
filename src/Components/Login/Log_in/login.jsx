@@ -21,13 +21,14 @@ const Login = () => {
     const data = useSelector((payload) => {
         return payload.SignupReducer
     })
+    console.log(data)
     
 
 
     const navigate = useNavigate();
     function loginUser(e) {
         e.preventDefault()
-        if(data!==[] && data.UserDataByForm[0].email===list.email && data.UserDataByForm[0].password===list.password){
+        if(data!==[] && data.UserData[0].email===list.email && data.UserData[0].password==list.password){
             toast({
                 title: 'Login Successful',
                 description: "redirected to Home in 2 second",

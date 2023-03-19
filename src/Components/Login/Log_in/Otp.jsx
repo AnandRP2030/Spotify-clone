@@ -15,6 +15,7 @@ import { PinInputOtp } from "./PinInput";
 import { useNavigate } from "react-router-dom";
 
 export function Otp() {
+
   const navigate = useNavigate();
   const toast = useToast();
 
@@ -47,6 +48,7 @@ event.preventDefault()
                 position: 'top',
             })
         }
+      }
   function SucessLogin(event) {
     event.preventDefault();
     if ("1234" == otp) {
@@ -145,3 +147,4 @@ event.preventDefault()
     </Flex>
   );
 }
+
