@@ -95,7 +95,10 @@ const Sidebar = () => {
         </Flex>
 
         {/* <SideComp icon={IoSearchOutline} name="Search" flag={true} /> */}
+        <Link to={'/library'} >
         <SideComp icon={BiLibrary} name="Library" />
+        </Link>
+       
       </Box>
 
       <Grid h="150px" mt="20px" borderBottomColor="white">
