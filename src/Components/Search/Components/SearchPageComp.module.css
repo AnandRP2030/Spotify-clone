@@ -19,8 +19,12 @@
   bottom: 0;
   justify-content: space-between;
 }
-
-.cardContainer{
+.SearchlistContainer{
+    overflow: hidden;
+  bottom: 0;
+  justify-content: space-between;
+}
+/* .cardContainer{
     min-width: 140px;
     width: 180px;
     padding: 15px;
@@ -75,4 +79,4 @@
 .cardContainer:hover .playButton{
   opacity: 1;
   transition: all ease 0.7s;
-}
+} */

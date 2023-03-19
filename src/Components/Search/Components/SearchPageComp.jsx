@@ -1,5 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Flex, Heading, Box, Grid, Divider, Skeleton, Collapse, Button } from "@chakra-ui/react";
+import {
+  Flex,
+  Heading,
+  Box,
+  Grid,
+  Divider,
+  Skeleton,
+  Collapse,
+  Button,
+} from "@chakra-ui/react";
 import style from "./SearchPageComp.module.css";
 import CardCom from "../../CommonComponents/Card/Card";
 import { useDispatch, useSelector } from "react-redux";
@@ -59,6 +68,8 @@ function SearchPageComp({ artist, heading, setPlaySong }) {
 
   const handleToggle = () => setShow(!show);
 
+  
+
   const data = useSelector((store) => {
     return store.playListReducer.songs;
   });
@@ -70,11 +81,12 @@ function SearchPageComp({ artist, heading, setPlaySong }) {
   console.log("data", data);
   return (
     <Box className={style.SpotifyPlaylist} pb="140px">
-      <Flex
+      {/* //! first Container made for search results */}
+      {data?.length > 0 ?<Flex
         justify={"space-between"}
         mt={["42px", "42px", "42px", "60px", "60px"]}
       >
-        <Heading>{data?.length > 0 ? "Recent searches": null}</Heading>
+        <Heading>Recent searches</Heading>
         <Button
           variant={"unstyled"}
           color={"#fff"}
@@ -84,30 +96,32 @@ function SearchPageComp({ artist, heading, setPlaySong }) {
         >
           Show {show ? "Less" : "More"}
         </Button>
-      </Flex>
-      <Collapse startingHeight={250} in={show}>
-      <Grid
-        className={style.listContainer}
-        flexWrap="wrap"
-        gridTemplateColumns={[
-          "repeat(1, 1fr)",
-          "repeat(2, 1fr)",
-          "repeat(3, 1fr)",
-          "repeat(4, 1fr)",
-          "repeat(5, 1fr)",
-          "repeat(5, 1fr)",
-        ]}
-        gap="20px"
-      >
-        {data?.length > 0
-          ? data.map((ele, ind) => {
-              return <CardCom prop={ele} setPlaySong={setPlaySong} />;
-            })
-          :null
-          }
-      </Grid>
-</Collapse>
+      </Flex>:null}
 
+      {data?.length > 0 ? <Collapse startingHeight={250} in={show}>
+        <Grid
+          className={style.listContainer}
+          flexWrap="wrap"
+          gridTemplateColumns={[
+            "repeat(1, 1fr)",
+            "repeat(2, 1fr)",
+            "repeat(3, 1fr)",
+            "repeat(4, 1fr)",
+            "repeat(5, 1fr)",
+            "repeat(5, 1fr)",
+          ]}
+          gap="20px"
+        >
+          {data?.length > 0
+            ? data.map((ele, ind) => {
+                return <CardCom prop={ele} setPlaySong={setPlaySong} />;
+              })
+            : null}
+        </Grid>
+      </Collapse>
+:null}
+
+  {/* //! SEcond Container made for search feeds*/}
       <Flex
         justify={"space-between"}
         mt={["42px", "42px", "42px", "60px", "60px"]}
@@ -116,7 +130,7 @@ function SearchPageComp({ artist, heading, setPlaySong }) {
       </Flex>
 
       <Grid
-        className={style.listContainer}
+        className={style.SearchlistContainer}
         flexWrap="wrap"
         gridTemplateColumns={[
           "repeat(1, 1fr)",
@@ -129,22 +143,30 @@ function SearchPageComp({ artist, heading, setPlaySong }) {
         gap="20px"
       >
         {colors.map((color, ind) => {
-              return (
-                <Box onClick={()=>{dispatch(PlayListAction(names[ind]))}} >
-                  <SearchCard
-                    color={color}
-                    name={names[ind]}
-                    imageUrl={imageUrl[ind]}
-                  />
-                </Box>
-              );
-            })}
+          return (
+            <Box
+              onClick={() => {
+                dispatch(PlayListAction(names[ind]));
+                window.scrollTo({
+                  top: -50,
+                  left: 100,
+                  behavior: 'smooth'
+                });
+              }}
+            >
+              <SearchCard
+                color={color}
+                name={names[ind]}
+                imageUrl={imageUrl[ind]}
+              />
+            </Box>
+          );
+        })}
       </Grid>
-        
+
       <Divider mt={"50px"} mb={"50px"} />
     </Box>
   );
-  
 }
 
 export default SearchPageComp;
