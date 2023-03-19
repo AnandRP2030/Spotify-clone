@@ -16,6 +16,21 @@ import {MdPlaylistAdd} from 'react-icons/md';
 const PlaylistCard = ({ img, title, des, count }) => {
   console.log("worke");
 
+  let colors = [
+    "#88efed",
+    "#e13300",
+    "#7f59d3",
+    "#8ac24a",
+    "#e91d63",
+    "#ff9f00",
+    "#0468aa",
+    "#67a96a",
+    "#fb641b",
+    "#795448",
+    "#ff5656",
+    "#317e8b",
+  ];
+
   if (!img) {
     img = "https://d2rd7etdn93tqb.cloudfront.net/wp-content/uploads/2022/03/spotify-playlist-cover-orange-headphones-032322.jpg"
   }
@@ -29,7 +44,7 @@ const PlaylistCard = ({ img, title, des, count }) => {
   }
 
   return (
-    <Card maxW="sm" w='233px' h="270px" className={style.playlistCard}> 
+    <Card maxW="sm" w='233px' h="270px" bgColor={'black'} color='white' className={style.playlistCard} boxShadow=" rgba(0, 0, 0, 0.24) 0px 3px 8px"> 
       <CardBody p='10px'>
         <Image className={style.playlistCardImg} src={img} alt="img" w='73%' h='152px' borderRadius='80%' margin='auto'/>
         <Grid
