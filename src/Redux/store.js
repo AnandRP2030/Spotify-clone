@@ -1,19 +1,20 @@
-import {legacy_createStore, applyMiddleware, combineReducers } from "redux";
+import { legacy_createStore, applyMiddleware, combineReducers } from "redux";
 import thunk from "redux-thunk";
 import LikeReducer from "./LikedSong/likeReducer";
 import { SignupReducer } from "../Components/Login/SignUp/SignupRedux/SignupReducer";
 import { PaymentReducer } from "./LikedSong/paymentReducer";
 import PlayListReducer from "./SpotifyPlayList/PlayListReducer";
+import { LyricsReducer } from "./lyricsReducer";
+
 let combine = combineReducers({
   likeReducer: LikeReducer,
   paymentReducer: PaymentReducer,
-  playListReducer:PlayListReducer,
-  SignupReducer:SignupReducer
-})
+  playListReducer: PlayListReducer,
+  SignupReducer: SignupReducer,
+  lyricsReducer: LyricsReducer,
+});
 
 let store = legacy_createStore(combine, applyMiddleware(thunk));
-
-
 
 // store.subscribe(() => console.log('state',store.getState()));
 
