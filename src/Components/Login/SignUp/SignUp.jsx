@@ -72,8 +72,11 @@ function Signup() {
     const navigate = useNavigate();
     const Sign_up = (event) => {
         event.preventDefault()
+        user.length=0;
+        user.push(list)
+        localStorage.setItem("userDetail", JSON.stringify(user))
         dispatch({
-            type: "LOGIN_SUCCESS_BY_FORM",
+            type: "LOGIN_SUCCESS",
             payload: list
         })
         toast({
