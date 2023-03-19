@@ -36,6 +36,38 @@ const PlaylistBody = () => {
       description: "See all your liked song",
       img: "https://cdn.pixabay.com/photo/2018/05/08/21/29/spotify-3384019__480.png",
     },
+    {
+      title: "Shreya Ghoshal",
+      description: "Shreya Ghoshal Best",
+      img: "https://media.insider.in/image/upload/c_crop,g_custom/v1669033779/ds4bbdue5v8qcakdth4c.jpg",
+    },
+    {
+      title: "Hip Hop Mix",
+      description: "Hip Hop Playlist",
+      img: "https://seed-mix-image.spotifycdn.com/v6/img/hip_hop/7dGJo4pcD2V6oG8kP0tJRR/en/default",
+    },
+    {
+      title: "Top 50 - Global",
+      description: "Most played - Global.",
+      img: "https://charts-images.scdn.co/assets/locale_en/regional/daily/region_global_default.jpg",
+    },
+    {
+      title: "Top Hits",
+      description: "",
+      img: "https://i.scdn.co/image/ab67616d00001e02113734646dba79ae2634c344",
+    },
+    
+    {
+      title: "Study Playlist",
+      description: "Deep Focus - Playlist.",
+      img: "https://i.scdn.co/image/ab67706f00000002fe24d7084be472288cd6ee6c",
+    },
+    {
+      title: "Party",
+      description: "Party - Playlist.",
+      img: "https://i.scdn.co/image/ab67616d0000b2739fafb8a821738f917d909a1e",
+    },
+   
   ]);
 
   const [userInput, setUserInput] = useState({
@@ -134,9 +166,11 @@ const PlaylistBody = () => {
           pos="relative"
           left="6.2%"
           p="1%"
+          pb='100px'
           h="auto"
           gap={6}
         >
+        
           {playlistArr.map((card, idx) => {
             return (
               <PlaylistCard

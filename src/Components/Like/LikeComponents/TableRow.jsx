@@ -1,8 +1,5 @@
-import { AiFillHeart } from "react-icons/ai";
 import { Tr, Td, Icon, Image, Text } from "@chakra-ui/react";
 import style from "../like.module.css";
-import LikeAnimation from "../../CommonComponents/LikeAnimation/LikeAnimation";
-import { Like } from "../like";
 import LikeAnimationRow from "../../CommonComponents/LikeAnimation/LikeAnimationRow";
 import { useState } from "react";
 
@@ -11,7 +8,6 @@ const TableRow = ({
   image,
   id,
   title,
-  type,
   duration,
   setPlaySong,
   url,
@@ -60,7 +56,6 @@ const TableRow = ({
   }
 
   
-
   return (
     <Tr
       p='0'
@@ -94,13 +89,7 @@ const TableRow = ({
       </Td>
       <Td borderColor="black">{"Song"}</Td>
       <Td borderColor="black"   p='0'>
-        {/* <Icon
-          ml="20px"
-          as={LikeAnimation}
-          style={iconsStyle}
-          onClick={() => songAdded()}
-          boxSize={7}
-        /> */}
+    
         <LikeAnimationRow url={name} />
       </Td>
       <Td borderColor="black">{formatted} </Td>
