@@ -43,7 +43,7 @@ export const CreditCard = () => {
 
     setTimeout(() => {
       navigate("/paymentotp");
-    }, 5000);
+    }, 3000);
   };
 
   const handleChange = (e) => {
