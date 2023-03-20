@@ -86,9 +86,7 @@ function Navbar({ bgColor }) {
         left={["80px", "80px", "175px", "175px", "175px", "175px"]}
         right={"0"}
       >
-        {/* <Button onClick={toggleColorMode}>
-        Toggle {colorMode === 'light' ? 'Dark' : 'Light'}
-      </Button> */}
+       
         {/* //! pagination buttons */}
         <Box display={["none", "none", "none", "flex", "flex"]}>
           <IconButton
