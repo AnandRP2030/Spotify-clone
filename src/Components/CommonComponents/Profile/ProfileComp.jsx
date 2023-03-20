@@ -22,9 +22,7 @@ import {
 function ProfileComp() {
   return (
    <Box w="250px" bg="#181818"  h='100vh' color='#b3b3b3'    >
-        {/* <Box  bg="#181818" > */}
             <Image src='https://www.pngkey.com/png/detail/202-2024792_profile-icon-png.png' boxSize={'80px'} borderRadius={'52%'} margin="10px auto" />
-        {/* </Box> */}
 
         <Divider color='pink' />
         <Flex  align='center' p='15px 10px' color="#fff" >
