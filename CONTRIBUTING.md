@@ -1,4 +1,4 @@
-# Contributing to KFC
+# Contributing to Spotify
 
 Thank you for considering contributing to KFC. We welcome contributions from everyone, regardless of experience level.
 
