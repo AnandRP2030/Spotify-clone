@@ -15,8 +15,13 @@ import { PaymentSuccess } from "./Components/Payment/PaymentSuccess";
 import { SearchPage } from "./Components/Search/SearchPage";
 import TwitterHeart from "./Components/CommonComponents/LikeAnimation/LikeAnimation";
 import Playlist from "./Components/Playlist/Playlist";
+import { Library } from "./Components/Libaray/LibarayPage";
+
+import PlaylistDetails from "./Components/Playlist/PlaylistComponent/PlaylistDetails";
+
 import PrivateLogin from "./Components/CommonComponents/Routes/PrivateLogin";
 import LyricsData from "./Lyrics/LyricsData";
+
 
 function App() {
   const location = useLocation();
@@ -26,6 +31,7 @@ function App() {
         <Routes key={location.pathname} location={location}>
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<SearchPage />} />
+          <Route path="/library" element={<Library />} />
           <Route path="/like" element={<Like />} />
           <Route path="/upgrade" element={<Upgrade />} />
           <Route
@@ -42,7 +48,12 @@ function App() {
           <Route path="/Otp" element={<Otp />} />
           <Route path="/paymentsuccess" element={<PaymentSuccess />} />
           <Route path="/paymentotp" element={<PaymentOtp />} />
+
           <Route path="/lyrics" element={<LyricsData />} />
+
+          <Route path="/playlistDetails" element={<PlaylistDetails/>}/>
+          
+
           <Route
             path="/payment"
             element={

@@ -20,6 +20,7 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
+  
 } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
 import {
@@ -57,7 +58,17 @@ function Navbar({ bgColor }) {
 
   const SearchFlag = localStorage.getItem("SearchFlag");
   // console.log(SearchFlag);
-
+  
+  
+  function  downloadApp () {
+    const link = document.createElement("a");
+    link.download = "spotifyAppDownload.exe";
+    link.href = `https://github.com/AnandRP2030/Spotify-clone/raw/master/src/Components/CommonComponents/Sidebar/assets/spotifyAppDownload.exe`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    console.log("called");
+  };
   return (
     <>
       <Flex
@@ -280,7 +291,7 @@ function Navbar({ bgColor }) {
                 </Button>
               </Link>
 
-              <Link to={""}>
+              <a target={'_blank'} href="https://medium.com/@rutujadhekolkar97/spotify-clone-using-react-js-and-chakra-ui-ca9f0dfee88f"   >
                 <Button
                   className={styles.navButtons}
                   variant={"unstyled"}
@@ -292,7 +303,7 @@ function Navbar({ bgColor }) {
                 >
                   Support
                 </Button>
-              </Link>
+              </a>
 
               <Link to={""}>
                 <Button
@@ -303,6 +314,7 @@ function Navbar({ bgColor }) {
                   borderRadius="25px"
                   w="95px"
                   display={["none", "none", "none", "flex", "flex"]}
+                  onClick={() => {downloadApp()}}
                 >
                   Download
                 </Button>
