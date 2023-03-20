@@ -10,8 +10,6 @@ import { FaSpotify } from "react-icons/fa";
 const Sidebar = () => {
   const navigate = useNavigate();
   const downloadApp = () => {
-    
-
     const link = document.createElement("a");
     link.download = "spotifyAppDownload.exe";
     link.href = `https://github.com/AnandRP2030/Spotify-clone/raw/master/src/Components/CommonComponents/Sidebar/assets/spotifyAppDownload.exe`;
@@ -95,10 +93,9 @@ const Sidebar = () => {
         </Flex>
 
         {/* <SideComp icon={IoSearchOutline} name="Search" flag={true} /> */}
-        <Link to={'/library'} >
-        <SideComp icon={BiLibrary} name="Library" />
+        <Link to={"/library"}>
+          <SideComp icon={BiLibrary} name="Library" />
         </Link>
-       
       </Box>
 
       <Grid h="150px" mt="20px" borderBottomColor="white">
@@ -154,6 +151,27 @@ const Sidebar = () => {
             {" "}
             Your Episodes
           </Text>
+        </Flex>
+
+        <Flex mt="20px" className={style.hoverText}>
+          <Link to="/lyrics">
+            <img
+              style={{ height: "25px" }}
+              width="25px"
+              src="https://th.bing.com/th/id/R.534b8eb3fbbba03dcc9be587878a990e?rik=EEoTicMjkpePlA&riu=http%3a%2f%2fbryanpopin.com%2fwp-content%2fuploads%2f2020%2f05%2fLyrics-Icon.png&ehk=13KFGsdjHfhopgWUID9YTCMvQX%2bUQBzOY%2bUcNP0iChU%3d&risl=&pid=ImgRaw&r=0"
+              alt="icon"
+            />
+          </Link>
+          <Link to="/lyrics">
+            <Text
+              ml="13px"
+              color="#b3b3b3"
+              display={["none", "none", "block", "block", "block"]}
+            >
+              {" "}
+              Lyrics
+            </Text>
+          </Link>
         </Flex>
       </Grid>
 
