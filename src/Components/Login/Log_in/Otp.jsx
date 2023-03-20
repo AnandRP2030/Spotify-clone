@@ -13,9 +13,13 @@ import {
 import { BackAnime } from "./BackAnime";
 import { PinInputOtp } from "./PinInput";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export function Otp() {
 
+  const data = useSelector((payload) => {
+    return payload.SignupReducer
+})
   const navigate = useNavigate();
   const toast = useToast();
 
@@ -26,7 +30,7 @@ export function Otp() {
 }
     function SucessLogin(event) {
 event.preventDefault()
-        if ("123456" == otp) {
+        if ("1234" == otp) {
             toast({
                 title: 'SignUP Successful',
                 description: "redirected to Login page in 2 second",

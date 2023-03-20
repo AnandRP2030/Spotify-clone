@@ -9,8 +9,17 @@ import { useNavigate } from 'react-router'
 export function FacebookButton() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    const user = JSON.parse(localStorage.getItem("userDetail")) || [];
     function resolve(response){
             console.log(response)
+            console.log(response.data.name)
+            console.log(response.data.email)
+            console.log(response.data.picture.data.url)
+            const list={name:response.data.name,email:response.data.email,picture:response.data.picture.data.url}
+            user.length=0;
+            user.push(list)
+            localStorage.setItem("userDetail", JSON.stringify(user))
             dispatch({
                 type: "LOGIN_SUCCESS",
                 payload: response.data
@@ -29,7 +38,7 @@ export function FacebookButton() {
             style={{display:"flex",width:"6000px" ,background:"blue"}}
         >
 
-            <FacebookLoginButton />
+            <FacebookLoginButton style={{borderRadius:"50px",padding:"0 20px"}}/>
             {/* <Button
             h="50px"
             w="65%"
@@ -60,7 +69,7 @@ export function FacebookButton() {
         // onSuccess={responseInstagram}
         // onFailure={responseInstagram}
         >
-            <InstagramLoginButton />
+            <InstagramLoginButton style={{borderRadius:"50px",padding:"0 20px"}}/>
         </LoginSocialInstagram> 
     </>
     )
