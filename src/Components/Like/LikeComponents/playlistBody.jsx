@@ -111,18 +111,8 @@ const PlaylistBody = ({playlistSong, setPlaySong, bg1, bg2 }) => {
                           {" "}
                           Add to playlist
                         </MenuItem>
-                        <MenuDivider />
-                        <MenuItem
-                          icon={<FaPowerOff size={18} />}
-                          bg="black"
-                          color='white'
-                          onClick={() => {
-                            localStorage.removeItem("userDetail");
-                            navigate("/");
-                          }}
-                        >
-                          Log out
-                        </MenuItem>
+                        
+                        
                       </MenuList>
                     </>
                   )}

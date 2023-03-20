@@ -23,7 +23,7 @@ const LikeAnimation = ({song}) => {
       toast({
         position: "top-center",
 
-        duration: 1000,
+        duration: 2000,
         render: () => (
           <Center color="white" p={3} bg="#676767">
             Song Added to Favorite
@@ -36,7 +36,7 @@ const LikeAnimation = ({song}) => {
     } else {
       toast({
         position: "top-center",
-        duration: 1000,
+        duration: 2000,
         render: () => (
           <Center color="white" p={3} bg='#676767'>
             Song Removed from Favorite
