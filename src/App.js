@@ -18,7 +18,7 @@ import Playlist from "./Components/Playlist/Playlist";
 import { Library } from "./Components/Libaray/LibarayPage";
 
 import PlaylistDetails from "./Components/Playlist/PlaylistComponent/PlaylistDetails";
-
+import Account from "./Components/Accounts/Accounts";
 import PrivateLogin from "./Components/CommonComponents/Routes/PrivateLogin";
 import LyricsData from "./Lyrics/LyricsData";
 
@@ -48,7 +48,7 @@ function App() {
           <Route path="/Otp" element={<Otp />} />
           <Route path="/paymentsuccess" element={<PaymentSuccess />} />
           <Route path="/paymentotp" element={<PaymentOtp />} />
-
+            <Route path="/account" element={<Account/>}/>
           <Route path="/lyrics" element={<LyricsData />} />
 
           <Route path="/playlistDetails" element={<PlaylistDetails/>}/>
