@@ -4,9 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import Sidebar from "../Components/CommonComponents/Sidebar/sidebar";
 import Navbar from "../Components/CommonComponents/Navbar/Navbar";
 import { LyricsCard } from "./LyricsCard";
-import { Box, SimpleGrid } from "@chakra-ui/react";
+import { Box, SimpleGrid, Text } from "@chakra-ui/react";
 import SpotifyAudioPlayer from "../Components/CommonComponents/AudioPlayer/SpotifyAudioPlayer";
 import Preview from "../Components/Home/HomeComponents/Preview";
+import { NotPremium } from "./NotPremium";
 const LyricsData = () => {
   useEffect(() => {
     getData();
@@ -14,6 +15,7 @@ const LyricsData = () => {
 
   const data = useSelector((state) => state.lyricsReducer.data);
   const songAudio = useSelector((state) => state.lyricsReducer.songAudio);
+  const isPremium = useSelector((state) => state.SignupReducer.isPremiumUser);
   const [playSong, setPlaySong] = useState({
     songUrl: "",
     playSong: false,
@@ -62,23 +64,27 @@ const LyricsData = () => {
       <Navbar />
       <Sidebar />
       <Box bg="black" pt="50px">
-        <SimpleGrid
-          columns={{ base: 2, lg: 4, xl: 6 }}
-          ml="200px"
-          bg="black"
-          gap={5}
-          p={8}
-        >
-          {data?.map((ele, index) => {
-            return (
-              <LyricsCard
-                prop={ele}
-                song={songAudio[index]}
-                setPlaySong={setPlaySong}
-              />
-            );
-          })}
-        </SimpleGrid>
+        {isPremium ? (
+          <SimpleGrid
+            columns={{ base: 2, lg: 4, xl: 6 }}
+            ml="200px"
+            bg="black"
+            gap={5}
+            p={8}
+          >
+            {data?.map((ele, index) => {
+              return (
+                <LyricsCard
+                  prop={ele}
+                  song={songAudio[index]}
+                  setPlaySong={setPlaySong}
+                />
+              );
+            })}
+          </SimpleGrid>
+        ) : (
+          <NotPremium/>
+        )}
       </Box>
       {playSong.playSong ? <SpotifyAudioPlayer song={playSong} /> : <Preview />}
     </Box>
