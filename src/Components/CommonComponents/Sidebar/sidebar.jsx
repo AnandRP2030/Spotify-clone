@@ -93,7 +93,7 @@ const Sidebar = () => {
         </Flex>
 
         {/* <SideComp icon={IoSearchOutline} name="Search" flag={true} /> */}
-        <Link to={"/library"}>
+        <Link>
           <SideComp icon={BiLibrary} name="Library" />
         </Link>
       </Box>
