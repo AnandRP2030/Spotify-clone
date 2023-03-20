@@ -20,6 +20,7 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
+  
 } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
 import {
@@ -290,7 +291,7 @@ function Navbar({ bgColor }) {
                 </Button>
               </Link>
 
-              <Link to={""}>
+              <a target={'_blank'} href="https://medium.com/@rutujadhekolkar97/spotify-clone-using-react-js-and-chakra-ui-ca9f0dfee88f"   >
                 <Button
                   className={styles.navButtons}
                   variant={"unstyled"}
@@ -302,7 +303,7 @@ function Navbar({ bgColor }) {
                 >
                   Support
                 </Button>
-              </Link>
+              </a>
 
               <Link to={""}>
                 <Button
