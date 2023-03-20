@@ -21,8 +21,9 @@ navigate("/upgrade")
             alignItems="center"
             boxSizing="boderBox"
             direction="column"
+            ml="150px"
         >
-            <Flex color="white" mb="60px">
+            <Flex color="white" mb="80px" >
                 <Heading fontSize="60px">Get more out of your music with Premium</Heading>
             </Flex>
             <Flex fontSize="28px" fontWeight="semibold" color="white">

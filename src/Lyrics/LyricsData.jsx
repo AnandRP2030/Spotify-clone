@@ -7,6 +7,7 @@ import { LyricsCard } from "./LyricsCard";
 import { Box, SimpleGrid, Text } from "@chakra-ui/react";
 import SpotifyAudioPlayer from "../Components/CommonComponents/AudioPlayer/SpotifyAudioPlayer";
 import Preview from "../Components/Home/HomeComponents/Preview";
+import { NotPremium } from "./NotPremium";
 const LyricsData = () => {
   useEffect(() => {
     getData();
@@ -82,9 +83,7 @@ const LyricsData = () => {
             })}
           </SimpleGrid>
         ) : (
-          <Text color="white" fontSize="200px">
-            Not Premium Member
-          </Text>
+          <NotPremium/>
         )}
       </Box>
       {playSong.playSong ? <SpotifyAudioPlayer song={playSong} /> : <Preview />}
