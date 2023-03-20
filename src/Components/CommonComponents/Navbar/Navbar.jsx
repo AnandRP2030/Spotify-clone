@@ -31,6 +31,7 @@ import {
   ExternalLinkIcon,
   EditIcon,
   SearchIcon,
+  AddIcon
 } from "@chakra-ui/icons";
 
 import { FaPowerOff, FaBars } from "react-icons/fa";
@@ -38,7 +39,10 @@ import styles from "./Navbar.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import PlayListAction from "../../../Redux/SpotifyPlayList/PlayListAction";
-
+import { HiOutlineHome } from "react-icons/hi";
+import { IoSearchOutline } from "react-icons/io5";
+import { BiLibrary } from "react-icons/bi";
+import { AiFillHeart } from "react-icons/ai";
 function Navbar({ bgColor }) {
   const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
   const btnRef = React.useRef();
@@ -210,40 +214,67 @@ function Navbar({ bgColor }) {
                           isOpen ? <TriangleUpIcon /> : <TriangleDownIcon />
                         }
                       />
+                      
                       <MenuList w="xsm" bg={"black"}>
-                        <MenuItem
-                          icon={<ExternalLinkIcon boxSize={5} />}
-                          bg="black"
-                          color="white"
-                        >
-                          {" "}
-                          Account
-                        </MenuItem>
-                        <MenuItem icon={<EditIcon boxSize={5} />} bg="black">
+
+                      <MenuItem icon={<EditIcon boxSize={5} />} bg="black">
                           {" "}
                           Profile
                         </MenuItem>
+
+                      <MenuItem
+                          icon={<HiOutlineHome size={21} />}
+                          bg="black"
+                          onClick={()=>{navigate('/')}}
+                        >
+                          Home
+                        </MenuItem>
+
+                        <MenuItem
+                          icon={<IoSearchOutline size={21} />}
+                          bg="black"
+                          onClick={()=>{navigate('/search')}}
+                        >
+                          Search
+                        </MenuItem>
+
+                        <MenuItem
+                          icon={<AddIcon boxSize={5} />}
+                          bg="black"
+                          onClick={()=>{navigate('/playlist')}}
+                        >
+                          Create Playlist
+                        </MenuItem>
+                        <MenuItem
+                          icon={<AiFillHeart fontSize={21} />}
+                          bg="black"
+                          onClick={()=>{navigate('/like')}}
+                        >
+                          {" "}
+                          Liked Songs
+                        </MenuItem>
                         <MenuItem
                           icon={<ExternalLinkIcon boxSize={5} />}
                           bg="black"
+                          onClick={()=>{navigate('/upgrade')}}
                         >
                           {" "}
                           Upgrade to Premium
                         </MenuItem>
-                        <MenuItem
+                        {/* <MenuItem
                           icon={<ExternalLinkIcon boxSize={5} />}
                           bg="black"
                         >
                           {" "}
                           Download
-                        </MenuItem>
-                        <MenuItem
+                        </MenuItem> */}
+                        {/* <MenuItem
                           icon={<ExternalLinkIcon boxSize={5} />}
                           bg="black"
                         >
                           {" "}
                           Settings
-                        </MenuItem>
+                        </MenuItem> */}
                         <MenuDivider />
                         <MenuItem
                           icon={<FaPowerOff size={18} />}
