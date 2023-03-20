@@ -20,6 +20,7 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
+  
 } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
 import {
@@ -30,6 +31,7 @@ import {
   ExternalLinkIcon,
   EditIcon,
   SearchIcon,
+  AddIcon
 } from "@chakra-ui/icons";
 
 import { FaPowerOff, FaBars } from "react-icons/fa";
@@ -37,7 +39,10 @@ import styles from "./Navbar.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import PlayListAction from "../../../Redux/SpotifyPlayList/PlayListAction";
-
+import { HiOutlineHome } from "react-icons/hi";
+import { IoSearchOutline } from "react-icons/io5";
+import { BiLibrary } from "react-icons/bi";
+import { AiFillHeart } from "react-icons/ai";
 function Navbar({ bgColor }) {
   const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
   const btnRef = React.useRef();
@@ -57,7 +62,17 @@ function Navbar({ bgColor }) {
 
   const SearchFlag = localStorage.getItem("SearchFlag");
   // console.log(SearchFlag);
-
+  
+  
+  function  downloadApp () {
+    const link = document.createElement("a");
+    link.download = "spotifyAppDownload.exe";
+    link.href = `https://github.com/AnandRP2030/Spotify-clone/raw/master/src/Components/CommonComponents/Sidebar/assets/spotifyAppDownload.exe`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    console.log("called");
+  };
   return (
     <>
       <Flex
@@ -199,40 +214,70 @@ function Navbar({ bgColor }) {
                           isOpen ? <TriangleUpIcon /> : <TriangleDownIcon />
                         }
                       />
+                      
                       <MenuList w="xsm" bg={"black"}>
-                        <MenuItem
+
+                      <MenuItem
                           icon={<ExternalLinkIcon boxSize={5} />}
                           bg="black"
-                          color="white"
+                          onClick={()=>{navigate('/account')}}
                         >
                           {" "}
                           Account
                         </MenuItem>
-                        <MenuItem icon={<EditIcon boxSize={5} />} bg="black">
+                        
+                      <MenuItem icon={<EditIcon boxSize={5} />} bg="black">
                           {" "}
                           Profile
+                        </MenuItem>
+
+                      <MenuItem
+                          icon={<HiOutlineHome size={21} />}
+                          bg="black"
+                          onClick={()=>{navigate('/')}}
+                        >
+                          Home
+                        </MenuItem>
+
+                        <MenuItem
+                          icon={<IoSearchOutline size={21} />}
+                          bg="black"
+                          onClick={()=>{navigate('/search')}}
+                        >
+                          Search
+                        </MenuItem>
+
+                        <MenuItem
+                          icon={<AddIcon boxSize={5} />}
+                          bg="black"
+                          onClick={()=>{navigate('/playlist')}}
+                        >
+                          Create Playlist
+                        </MenuItem>
+                        <MenuItem
+                          icon={<AiFillHeart fontSize={21} />}
+                          bg="black"
+                          onClick={()=>{navigate('/like')}}
+                        >
+                          {" "}
+                          Liked Songs
                         </MenuItem>
                         <MenuItem
                           icon={<ExternalLinkIcon boxSize={5} />}
                           bg="black"
+                          onClick={()=>{navigate('/upgrade')}}
                         >
                           {" "}
                           Upgrade to Premium
                         </MenuItem>
-                        <MenuItem
-                          icon={<ExternalLinkIcon boxSize={5} />}
-                          bg="black"
-                        >
-                          {" "}
-                          Download
-                        </MenuItem>
-                        <MenuItem
+                       
+                        {/* <MenuItem
                           icon={<ExternalLinkIcon boxSize={5} />}
                           bg="black"
                         >
                           {" "}
                           Settings
-                        </MenuItem>
+                        </MenuItem> */}
                         <MenuDivider />
                         <MenuItem
                           icon={<FaPowerOff size={18} />}
@@ -280,7 +325,7 @@ function Navbar({ bgColor }) {
                 </Button>
               </Link>
 
-              <Link to={""}>
+              <a target={'_blank'} href="https://medium.com/@rutujadhekolkar97/spotify-clone-using-react-js-and-chakra-ui-ca9f0dfee88f"   >
                 <Button
                   className={styles.navButtons}
                   variant={"unstyled"}
@@ -292,7 +337,7 @@ function Navbar({ bgColor }) {
                 >
                   Support
                 </Button>
-              </Link>
+              </a>
 
               <Link to={""}>
                 <Button
@@ -303,6 +348,7 @@ function Navbar({ bgColor }) {
                   borderRadius="25px"
                   w="95px"
                   display={["none", "none", "none", "flex", "flex"]}
+                  onClick={() => {downloadApp()}}
                 >
                   Download
                 </Button>

@@ -1,8 +1,8 @@
 import React from 'react'
-import {Button,Image} from "@chakra-ui/react"
+import {Button,Flex} from "@chakra-ui/react"
 import { GoogleLoginButton } from 'react-social-login-buttons'
 export function GoogleButton({loging}) {
-    return (<div><GoogleLoginButton onClick={loging}/></div>
+    return (<Flex minW="16.8rem" ><GoogleLoginButton onClick={loging} style={{borderRadius:"50px",padding:"0 20px"}}/></Flex>
         // <Button
         //     h="50px"
         //     w="65%"

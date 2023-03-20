@@ -17,12 +17,14 @@ import {
     Link,
     Text,
 } from "@chakra-ui/react";
+
 import { useToast } from '@chakra-ui/react'
 import { useNavigate } from "react-router-dom";
 import { GoogleButton } from "./GoogleButton";
 import { FacebookButton } from "./FacebookButton";
 import { Head } from "./Head";
 import { useSelector, useDispatch } from "react-redux";
+// import emailjs from '@emailjs/browser';
 
 
 function Signup() {
@@ -35,6 +37,8 @@ function Signup() {
 
     // --------------useState for form data------------
     const [list,setList]=useState([])
+    
+
     // --------------------dispatch------------
     const dispatch = useDispatch();
 
@@ -72,6 +76,7 @@ function Signup() {
     const navigate = useNavigate();
     const Sign_up = (event) => {
         event.preventDefault()
+        // sendEmail()
         user.length=0;
         user.push(list)
         localStorage.setItem("userDetail", JSON.stringify(user))
@@ -79,11 +84,13 @@ function Signup() {
             type: "LOGIN_SUCCESS",
             payload: list
         })
+        var number=Math.floor(Math.random()*999999)
+        console.log(number)
         toast({
-            title: 'OTP Sent to Your Email',
-            description: "Please check your Email",
+            title: 'Enter Your OTP',
+            description: "OTP sent to Your Email",
             status: 'success',
-            duration: 3000,
+            duration: 5000,
             isClosable: true,
             position: 'top',
         })
@@ -92,19 +99,21 @@ setTimeout(()=>{
 },2000)
         
     }
-//    function istoast(){
-//     if (data.isAuth === true) {
-//         toast({
-//             title: 'OTP Sent to Your Email',
-//             description: "Please check your Email",
-//             status: 'success',
-//             duration: 3000,
-//             isClosable: true,
-//             position: 'top',
-//         })
-//     } }
+
+    // ---------------sending Otp------------
+    // const sendEmail = (e) => {
+    //     e.preventDefault();
+    
+    //     emailjs.sendForm('service_gl9w4rk', 'template_3bzn68u', e.current, 'LIZeyKJa4hrvL6txE')
+    //       .then((result) => {
+    //           console.log(result.text);
+    //       }, (error) => {
+    //           console.log(error.text);
+    //       });
+    //   };
 
     // ----------------fill form detail---------------
+    
     function getList(e){
         const {name,value}=e;
         setList({...list,[name]:value})
@@ -121,12 +130,13 @@ setTimeout(()=>{
             <VStack
                 w="1fr"
                 bgGradient="linear(to-b, #1ed760, RGBA(0, 0, 0.5, 0.9),#000000)"
+                
             >
                 <Head />
                 <Flex
                     display="flex"
                     align="center"
-                    direction={["column", "column", "row"]}
+                    direction={["column","column","row"]}
                     justifyContent="center"
                     w="90%"
                     gap="20px"
@@ -143,12 +153,14 @@ setTimeout(()=>{
                     <Divider orientation="vertical" />
                     <VStack
                         h="full"
-                        w="75%"
+                        w="68%"
                         display="flex"
                         alignItems="center"
                         justifyContent="center"
+                        pos="relative"
+                        right="120px"
                         mb="50px"
-                        mt="40px"
+                        mt="0px"
                         bgGradient="linear(to-b,#000000, #1ed760)"
                         zIndex="2"
                         boxShadow="#1ed760 0px 19px 38px, #1ed760 0px 15px 12px"

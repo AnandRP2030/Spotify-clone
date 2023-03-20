@@ -134,7 +134,9 @@ function SuggestedArtists({ setPlaySong }) {
       <Flex
         justify={"space-between"}
         mt={["42px", "42px", "42px", "60px", "60px"]}
-      ></Flex>
+      >
+        <Heading>Suggested Artists</Heading>
+      </Flex>
       <Grid
         className={style.listContainer}
         flexWrap="wrap"

@@ -5,17 +5,25 @@ import { AiOutlineClockCircle } from "react-icons/ai";
 import { Icon } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { likePageDisplaySong } from "../../../Redux/LikedSong/likeThunk";
+// import { likePageDisplaySong } from "../../../Redux/LikedSong/likeThunk";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import { useState } from "react";
+import LikeAnimation from "../../CommonComponents/LikeAnimation/LikeAnimation";
 import { BsThreeDots } from "react-icons/bs";
 import { useToast } from '@chakra-ui/react'
-import style from "../like.module.css";
-import { useNavigate } from "react-router-dom";
+import style from "../Library.module.css";
+import { Link, useNavigate } from "react-router-dom";
 import {
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  TriangleDownIcon,
+  TriangleUpIcon,
   ExternalLinkIcon,
   EditIcon,
+  SearchIcon,
 } from "@chakra-ui/icons";
-import { FaPowerOff } from "react-icons/fa";
+import { FaPowerOff, FaBars } from "react-icons/fa";
 import {
   Table,
   Tbody,
@@ -31,8 +39,7 @@ import {
   MenuDivider,
 } from "@chakra-ui/react";
 import LikeDumb from "../../CommonComponents/LikeAnimation/LikeDumb";
-
-const LikeBody = ({ setPlaySong, bg1, bg2 }) => {
+const LibraryBody = ({ setPlaySong, bg1, bg2 }) => {
 
   const toast = useToast();
   const navigate = useNavigate()
@@ -73,7 +80,7 @@ const LikeBody = ({ setPlaySong, bg1, bg2 }) => {
 
   return (
     <Box
-      bgGradient={`linear(to-l, ${bg1}, ${bg2})`}
+      bgGradient={`linear(to-b, ${bg1}, ${bg2})`}
       w="88%"
       h="auto"
       p="5%"
@@ -206,4 +213,4 @@ const LikeBody = ({ setPlaySong, bg1, bg2 }) => {
   );
 };
 
-export default LikeBody;
+export default LibraryBody;

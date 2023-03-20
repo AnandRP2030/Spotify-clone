@@ -10,7 +10,7 @@ import { FaSpotify } from "react-icons/fa";
 const Sidebar = () => {
   const navigate = useNavigate();
   const downloadApp = () => {
-    // i have a app in my asset folder how i can download that app when this function invoked
+    
 
     const link = document.createElement("a");
     link.download = "spotifyAppDownload.exe";
@@ -95,7 +95,10 @@ const Sidebar = () => {
         </Flex>
 
         {/* <SideComp icon={IoSearchOutline} name="Search" flag={true} /> */}
+        <Link to={'/library'} >
         <SideComp icon={BiLibrary} name="Library" />
+        </Link>
+       
       </Box>
 
       <Grid h="150px" mt="20px" borderBottomColor="white">
