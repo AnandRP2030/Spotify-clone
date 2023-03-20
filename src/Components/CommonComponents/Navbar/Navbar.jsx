@@ -22,7 +22,7 @@ import {
   InputLeftElement,
   
 } from "@chakra-ui/react";
-import { useDisclosure } from "@chakra-ui/react";
+import { useDisclosure ,useColorModeValue} from "@chakra-ui/react";
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
@@ -31,7 +31,8 @@ import {
   ExternalLinkIcon,
   EditIcon,
   SearchIcon,
-  AddIcon
+  AddIcon,
+
 } from "@chakra-ui/icons";
 
 import { FaPowerOff, FaBars } from "react-icons/fa";
@@ -43,6 +44,7 @@ import { HiOutlineHome } from "react-icons/hi";
 import { IoSearchOutline } from "react-icons/io5";
 import { BiLibrary } from "react-icons/bi";
 import { AiFillHeart } from "react-icons/ai";
+import { useColorMode } from '@chakra-ui/react' 
 function Navbar({ bgColor }) {
   const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
   const btnRef = React.useRef();
@@ -56,14 +58,13 @@ function Navbar({ bgColor }) {
       dispatch(PlayListAction(search));
     }
   };
-  // console.log(search);
   const useDetails = JSON.parse(localStorage.getItem("userDetail"));
-  // console.log(useDetails);
 
   const SearchFlag = localStorage.getItem("SearchFlag");
-  // console.log(SearchFlag);
-  
-  
+
+  const { colorMode, toggleColorMode } = useColorMode()
+  const bg = useColorModeValue('#ffff', '#000000')
+  const color = useColorModeValue('white', '#b3b3b3')
   function  downloadApp () {
     const link = document.createElement("a");
     link.download = "spotifyAppDownload.exe";
@@ -78,13 +79,16 @@ function Navbar({ bgColor }) {
       <Flex
         className={styles.navbarContainer}
         justify="space-between"
-        bg={bgColor}
+        bg={"#000000"}
         padding="7px 30px"
         position="fixed"
         top="0px"
         left={["80px", "80px", "175px", "175px", "175px", "175px"]}
         right={"0"}
       >
+        {/* <Button onClick={toggleColorMode}>
+        Toggle {colorMode === 'light' ? 'Dark' : 'Light'}
+      </Button> */}
         {/* //! pagination buttons */}
         <Box display={["none", "none", "none", "flex", "flex"]}>
           <IconButton

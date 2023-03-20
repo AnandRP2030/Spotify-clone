@@ -1,7 +1,6 @@
 import React from 'react'
 
 function PlayListAction(singer) {
-  //  console.log('singer',singer)
     return(dispatch)=>{
         const options = {
             method: "GET",
@@ -15,7 +14,6 @@ function PlayListAction(singer) {
                 return (response.json())
             })
             .then((response) => {
-            //   console.log('res' ,response.data)
               return dispatch(getSongData(response.data));
               
             })
