@@ -158,7 +158,7 @@ const Sidebar = () => {
             <img
               style={{ height: "25px" }}
               width="25px"
-              src="https://th.bing.com/th/id/R.534b8eb3fbbba03dcc9be587878a990e?rik=EEoTicMjkpePlA&riu=http%3a%2f%2fbryanpopin.com%2fwp-content%2fuploads%2f2020%2f05%2fLyrics-Icon.png&ehk=13KFGsdjHfhopgWUID9YTCMvQX%2bUQBzOY%2bUcNP0iChU%3d&risl=&pid=ImgRaw&r=0"
+              src="https://www.onlinelogomaker.com/blog/wp-content/uploads/2017/06/music-logo-design.jpg"
               alt="icon"
             />
           </Link>
