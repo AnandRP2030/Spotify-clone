@@ -24,7 +24,7 @@ function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
   return (
-    <Container bg="black" maxW="container.2xl" pos="fixed">
+    <Container bg="black" maxW="container.2xl" pos="fixed" zIndex="500">
       <Flex
         bg="black"
         px={{ base: "0", lg: "35px" }}
