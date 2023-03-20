@@ -86,7 +86,7 @@ const LyricsData = () => {
           <NotPremium/>
         )}
       </Box>
-      {playSong.playSong ? <SpotifyAudioPlayer song={playSong} /> : <Preview />}
+      {playSong.playSong ? <SpotifyAudioPlayer song={playSong} /> : null}
     </Box>
   );
 };

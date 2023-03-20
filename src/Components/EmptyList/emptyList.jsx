@@ -4,6 +4,10 @@ import { MdMusicOff } from "react-icons/md";
 import { Link } from "react-router-dom";
 import style from "./emptyList.module.css";
 const EmptyList = () => {
+
+  const handleClick = () => {
+    localStorage.removeItem("SearchFlag", false);
+  }
   return (
     <Box
       w="88%"
@@ -22,7 +26,7 @@ const EmptyList = () => {
         <Text fontSize="2xl">Save songs by tapping the heart icon. </Text>
 
         <Link to="/">
-          <Button className={`${style.rainbow} ${style["rainbow-3"]}`} mt='20px'>
+          <Button onClick={handleClick} className={`${style.rainbow} ${style["rainbow-3"]}`} mt='20px'>
             Find Songs
           </Button>
         </Link>
