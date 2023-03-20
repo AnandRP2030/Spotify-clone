@@ -18,8 +18,8 @@ const Playlist = () => {
           "https://e-cdns-images.dzcdn.net/images/cover/798bbbf25e2eba0c25ac7be1a8f8e89c/1000x1000-000000-80-0-0.jpg"
         }
         heading={"My Playlist"}
-        bg1={"#090709"}
-        bg2={"#53aced"}
+        bg1={"#322754"}
+        bg2={"#9142b2"} 
       />
 
       <PlaylistBody/>

@@ -29,14 +29,14 @@ const Like = () => {
       <LikeHeader
         img={"https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png"}
         heading={"Liked Song"}
-        bg1={"#322754"}
-        bg2={"#bc55d7"}
+        bg1={"#030303"}
+        bg2={"#98c1ff"}
       />
 
       {playSong.playSong ? <SpotifyAudioPlayer song={playSong} /> : ""}
 
       {likedSongList?.length > 0 ? (
-        <LikeBody bg1={"#db9ce0"} bg2={"#090612"} setPlaySong={setPlaySong} />
+        <LikeBody bg1={"#8bcde7"} bg2={"#090612"} setPlaySong={setPlaySong} />
       ) : (
         <EmptyList />
       )}
