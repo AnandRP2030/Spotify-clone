@@ -74,7 +74,6 @@ const initialState = {
 };
 
 const PaymentReducer = (state = initialState, action) => {
-  console.log(action);
   switch (action.type) {
     case "SET_CURRENT_PLAN": {
       return {

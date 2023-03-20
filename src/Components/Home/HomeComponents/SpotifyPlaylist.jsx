@@ -85,8 +85,8 @@ function SpotifyPlaylist({ artist, heading, setPlaySong }) {
           ]}
           gap="20px"
         >
-          {data.map((ele) => {
-            return <CardCom prop={ele} setPlaySong={setPlaySong} />;
+          {data.map((ele, index) => {
+            return <CardCom key={index} prop={ele} setPlaySong={setPlaySong} />;
           })}
         </Grid>
       </Collapse>
@@ -106,9 +106,9 @@ function SpotifyPlaylist({ artist, heading, setPlaySong }) {
       gap="20px"
       bg="#121212"
     >
-      {[...new Array(20)].map((ele) => {
+      {[...new Array(20)].map((ele, index) => {
         return (
-          <Box>
+          <Box key={index}>
             <Skeleton height="300px" startColor="#000000" endColor="#434343" />
           </Box>
         );

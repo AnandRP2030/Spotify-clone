@@ -32,44 +32,13 @@ import {
 } from "@chakra-ui/react";
 import LikeDumb from "../../CommonComponents/LikeAnimation/LikeDumb";
 
-const LikeBody = ({ setPlaySong, bg1, bg2 }) => {
+const PlaylistBody = ({playlistSong, setPlaySong, bg1, bg2 }) => {
 
   const toast = useToast();
   const navigate = useNavigate()
+  playlistSong = playlistSong[0];
 
-  const dispatch = useDispatch();
-  let likedSongList = useSelector((state) => state.likeReducer.likedSong);
 
-  if (likedSongList) {
-    console.log(likedSongList, "list of");
-  }
-
-  const getData = () => {
-    const options = {
-      method: "GET",
-      headers: {
-        "X-RapidAPI-Key": "f0d9fa046cmsh6df55b1f1af7fe2p15efc9jsn9790aeeb6432",
-        "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
-      },
-    };
-
-    fetch(
-      `https://deezerdevs-deezer.p.rapidapi.com/search?q=Shreya%20Ghoshal`,
-      options
-    )
-      .then((response) => response.json())
-      .then((response) => {
-        dispatch(likePageDisplaySong(response.data));
-      });
-  };
-
-  useEffect(() => {
-    // getData();
-  }, []);
-
-  const threeDotClicked = () => {
-    console.log("c");
-  };
 
   return (
     <Box
@@ -142,18 +111,8 @@ const LikeBody = ({ setPlaySong, bg1, bg2 }) => {
                           {" "}
                           Add to playlist
                         </MenuItem>
-                        <MenuDivider />
-                        <MenuItem
-                          icon={<FaPowerOff size={18} />}
-                          bg="black"
-                          color='white'
-                          onClick={() => {
-                            localStorage.removeItem("userDetail");
-                            navigate("/");
-                          }}
-                        >
-                          Log out
-                        </MenuItem>
+                        
+                        
                       </MenuList>
                     </>
                   )}
@@ -185,16 +144,17 @@ const LikeBody = ({ setPlaySong, bg1, bg2 }) => {
             </Tr>
           </Thead>
           <Tbody borderColor="transparent">
-            {likedSongList?.map((song, index) => {
+            {playlistSong?.map((song, index) => {
+              
               return (
                 <TableRow
                   key={index}
-                  url={song.songUrl}
+                  url={song.preview}
                   setPlaySong={setPlaySong}
                   id={index + 1}
-                  image={song.img}
-                  name={song.singer}
-                  title={song.songName}
+                  image={song.album.cover_medium}
+                  // name={"Shreya Ghoshal"}
+                  title={song.title}
                   duration={32*(index+2)}
                 />
               );
@@ -206,4 +166,4 @@ const LikeBody = ({ setPlaySong, bg1, bg2 }) => {
   );
 };
 
-export default LikeBody;
+export default PlaylistBody;
