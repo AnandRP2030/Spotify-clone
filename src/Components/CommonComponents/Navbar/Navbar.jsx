@@ -217,6 +217,15 @@ function Navbar({ bgColor }) {
                       
                       <MenuList w="xsm" bg={"black"}>
 
+                      <MenuItem
+                          icon={<ExternalLinkIcon boxSize={5} />}
+                          bg="black"
+                          onClick={()=>{navigate('/account')}}
+                        >
+                          {" "}
+                          Account
+                        </MenuItem>
+                        
                       <MenuItem icon={<EditIcon boxSize={5} />} bg="black">
                           {" "}
                           Profile
@@ -261,13 +270,7 @@ function Navbar({ bgColor }) {
                           {" "}
                           Upgrade to Premium
                         </MenuItem>
-                        {/* <MenuItem
-                          icon={<ExternalLinkIcon boxSize={5} />}
-                          bg="black"
-                        >
-                          {" "}
-                          Download
-                        </MenuItem> */}
+                       
                         {/* <MenuItem
                           icon={<ExternalLinkIcon boxSize={5} />}
                           bg="black"

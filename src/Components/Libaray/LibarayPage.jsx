@@ -8,6 +8,7 @@ import EmptyList from "../EmptyList/emptyList";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import styles from './Library.module.css'
+import ProfileComp from "../CommonComponents/Profile/ProfileComp";
 const Library = () => {
 
  
@@ -27,7 +28,9 @@ const Library = () => {
 
   return (
     <div className={styles.container}  >
-      <Sidebar />
+
+      {/* <ProfileComp/> */}
+      {/* <Sidebar />
 
       <LibararyHeader
         img={"https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png"}
@@ -38,7 +41,7 @@ const Library = () => {
 
       {playSong.playSong ? <SpotifyAudioPlayer song={playSong} /> : ""}
 
-      <LibraryBody bg1={"#c00b5b"} bg2={"#000000"} setPlaySong={setPlaySong} />
+      <LibraryBody bg1={"#c00b5b"} bg2={"#000000"} setPlaySong={setPlaySong} /> */}
       {/* {likedSongList.length > 0 ? (
         <LibraryBody bg1={"#c00b5b"} bg2={"#fff"} setPlaySong={setPlaySong} />
       ) : (
