@@ -128,8 +128,12 @@ const PlaylistBody = () => {
   });
 
   const createPlaylist = () => {
-    setPlaylistArr([...playlistArr, userInput]);
+    setPlaylistArr([userInput, ...playlistArr]);
+    setInc(inc+1)
   };
+
+  const[inc, setInc] = useState(0);
+
 
   return (
     <Box
@@ -226,7 +230,7 @@ const PlaylistBody = () => {
             return (
               <PlaylistCard
                 key={idx}
-                count={idx}
+                count={idx+inc}
                 img={card.img}
                 title={card.title}
                 des={card.description}
