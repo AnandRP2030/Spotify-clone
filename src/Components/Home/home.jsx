@@ -1,14 +1,14 @@
 import {useState} from 'react';
 import Navbar from "../CommonComponents/Navbar/Navbar";
 import Sidebar from "../CommonComponents/Sidebar/sidebar";
-import {  Box } from "@chakra-ui/react";
+import {  Box ,Button} from "@chakra-ui/react";
 import styles from "./home.module.css";
 import Preview from "./HomeComponents/Preview";
 import SpotifyPlaylist from "./HomeComponents/SpotifyPlaylist";
 import AnimatedPages from "../../AinmatedPages";
 import SuggestedArtists from './HomeComponents/SuggestedArtists';
 import SpotifyAudioPlayer from "../CommonComponents/AudioPlayer/SpotifyAudioPlayer";
-
+import { useColorMode, useColorModeValue } from '@chakra-ui/react' 
 
 const Home = () => {
   const [playSong, setPlaySong] = useState({
@@ -18,11 +18,12 @@ const Home = () => {
     songName: "",
     singer: "",
   });
-
+ 
   return (
     <>
     <AnimatedPages>
       <Box ml={["80px","80px" ,"196px","196px","196px","196px"]} mb="60px" className={styles.homeContainer}>
+      
         <Navbar bgColor="black" />
         <AnimatedPages>
         <SpotifyPlaylist artist={'Arjit Singh'} heading={"Arjit Singh"} setPlaySong={setPlaySong} />

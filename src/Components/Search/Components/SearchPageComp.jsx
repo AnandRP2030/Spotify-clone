@@ -60,7 +60,6 @@ let imageUrl = [
   "https://e-cdns-images.dzcdn.net/images/artist/d4914ccd414067cd5e2c108867079a85/1000x1000-000000-80-0-0.jpg",
 ];
 
-// let Array = [{"color":"#2a3e5f"},{}]
 function SearchPageComp({ artist, heading, setPlaySong }) {
   const dispatch = useDispatch();
 
@@ -78,7 +77,7 @@ function SearchPageComp({ artist, heading, setPlaySong }) {
     dispatch(PlayListAction(""));
   }, [useSelector, dispatch, artist]);
 
-  console.log("data", data);
+  // console.log("data", data);
   return (
     <Box className={style.SpotifyPlaylist} pb="140px">
       {/* //! first Container made for search results */}

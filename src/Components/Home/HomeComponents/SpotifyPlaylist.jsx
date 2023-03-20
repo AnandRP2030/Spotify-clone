@@ -38,10 +38,7 @@ function SpotifyPlaylist({ artist, heading, setPlaySong }) {
         const arr = response.data;
         let artist_Id_Arr = [];
         setData(response.data);
-        arr.map((ele, ind) => {
-          artist_Id_Arr.push(ele.artist.id);
-        });
-        localStorage.setItem("artist_Id", JSON.stringify(artist_Id_Arr));
+        
       })
       .catch((e) => {
         console.log(e.message);
@@ -52,10 +49,11 @@ function SpotifyPlaylist({ artist, heading, setPlaySong }) {
     getSongs(artist);
   }, [useSelector, dispatch, artist]);
 
-  // console.log("data",data)
+
 
   return data?.length > 0 ? (
     <Box className={style.SpotifyPlaylist} mb="-40px">
+
       <Flex
         justify={"space-between"}
         mt={["42px", "42px", "42px", "60px", "60px"]}
