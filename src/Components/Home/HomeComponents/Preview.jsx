@@ -1,8 +1,11 @@
 import React from 'react'
 import {Box, Heading, Text, Button, Flex} from '@chakra-ui/react';
 import styles from './Preview.module.css';
+import { useNavigate } from 'react-router';
 
 function Preview() {
+
+  const navigate = useNavigate();
   return (
     <Flex className={styles.previewbox} justify="space-between"  zIndex={6} display={["none", "none", "flex", "flex", "flex"]} >
         <Box>
@@ -17,6 +20,7 @@ function Preview() {
         color={"#000000"}
         borderRadius="25px"
         w="140px"
+        onClick={()=>{navigate('/signup')}}
         >Sign up free</Button>
     </Box>
     </Flex>
