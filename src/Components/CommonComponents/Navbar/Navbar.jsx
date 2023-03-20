@@ -261,13 +261,14 @@ function Navbar({ bgColor }) {
                           {" "}
                           Upgrade to Premium
                         </MenuItem>
-                        {/* <MenuItem
+                        <MenuItem
                           icon={<ExternalLinkIcon boxSize={5} />}
                           bg="black"
+                          onClick={()=>{navigate('/account')}}
                         >
                           {" "}
-                          Download
-                        </MenuItem> */}
+                          Account
+                        </MenuItem>
                         {/* <MenuItem
                           icon={<ExternalLinkIcon boxSize={5} />}
                           bg="black"
