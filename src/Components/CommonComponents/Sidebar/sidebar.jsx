@@ -10,8 +10,6 @@ import { FaSpotify } from "react-icons/fa";
 const Sidebar = () => {
   const navigate = useNavigate();
   const downloadApp = () => {
-    
-
     const link = document.createElement("a");
     link.download = "spotifyAppDownload.exe";
     link.href = `https://github.com/AnandRP2030/Spotify-clone/raw/master/src/Components/CommonComponents/Sidebar/assets/spotifyAppDownload.exe`;
@@ -95,10 +93,9 @@ const Sidebar = () => {
         </Flex>
 
         {/* <SideComp icon={IoSearchOutline} name="Search" flag={true} /> */}
-        <Link to={'/library'} >
-        <SideComp icon={BiLibrary} name="Library" />
+        <Link to={"/library"}>
+          <SideComp icon={BiLibrary} name="Library" />
         </Link>
-       
       </Box>
 
       <Grid h="150px" mt="20px" borderBottomColor="white">
@@ -154,6 +151,27 @@ const Sidebar = () => {
             {" "}
             Your Episodes
           </Text>
+        </Flex>
+
+        <Flex mt="20px" className={style.hoverText}>
+          <Link to="/lyrics">
+            <img
+              style={{ height: "25px" }}
+              width="25px"
+              src="https://www.onlinelogomaker.com/blog/wp-content/uploads/2017/06/music-logo-design.jpg"
+              alt="icon"
+            />
+          </Link>
+          <Link to="/lyrics">
+            <Text
+              ml="13px"
+              color="#b3b3b3"
+              display={["none", "none", "block", "block", "block"]}
+            >
+              {" "}
+              Lyrics
+            </Text>
+          </Link>
         </Flex>
       </Grid>
 

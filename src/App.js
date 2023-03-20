@@ -21,7 +21,7 @@ import PlaylistDetails from "./Components/Playlist/PlaylistComponent/PlaylistDet
 import Account from "./Components/Accounts/Accounts";
 import PrivateLogin from "./Components/CommonComponents/Routes/PrivateLogin";
 import LyricsData from "./Lyrics/LyricsData";
-
+import { NotPremium } from "./Lyrics/NotPremium";
 
 function App() {
   const location = useLocation();
@@ -45,6 +45,7 @@ function App() {
           <Route path="/lyrics" element={<LyricsData />} />
 
           <Route path="/playlistDetails" element={<PlaylistDetails/>}/>
+          <Route path="/NotPremium" element={<NotPremium/>}/>
           
 
           <Route
