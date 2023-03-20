@@ -25,7 +25,7 @@ const LikeAnimation = ({song}) => {
 
         duration: 1000,
         render: () => (
-          <Center color="white" p={3} bg="black">
+          <Center color="white" p={3} bg="#676767">
             Song Added to Favorite
           </Center>
         ),
@@ -38,7 +38,7 @@ const LikeAnimation = ({song}) => {
         position: "top-center",
         duration: 1000,
         render: () => (
-          <Center color="white" p={3}  bgGradient='linear(to-r, #131616, #130b0b)'>
+          <Center color="white" p={3} bg='#676767'>
             Song Removed from Favorite
           </Center> 
         ),
