@@ -29,7 +29,7 @@ const Library = () => {
   return (
     <div className={styles.container}  >
 
-      <ProfileComp/>
+      {/* <ProfileComp/> */}
       {/* <Sidebar />
 
       <LibararyHeader
