@@ -1,17 +1,31 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
+import Sidebar from "../Components/CommonComponents/Sidebar/sidebar";
+import Navbar from "../Components/CommonComponents/Navbar/Navbar";
+import { LyricsCard } from "./LyricsCard";
+import { Box, SimpleGrid } from "@chakra-ui/react";
+import SpotifyAudioPlayer from "../Components/CommonComponents/AudioPlayer/SpotifyAudioPlayer";
+import Preview from "../Components/Home/HomeComponents/Preview";
 const LyricsData = () => {
   useEffect(() => {
     getData();
   }, []);
 
+  const data = useSelector((state) => state.lyricsReducer.data);
+  const songAudio = useSelector((state) => state.lyricsReducer.songAudio);
+  const [playSong, setPlaySong] = useState({
+    songUrl: "",
+    playSong: false,
+    img: "",
+    songName: "",
+    singer: "",
+  });
   const dispatch = useDispatch();
-  const htmlData = useSelector((state) => state.htmlData);
-  const ids = useSelector((state) => state.id);
 
   function getData() {
     // const fetch = require("node-fetch");
+
     const options = {
       method: "GET",
       url: "https://genius-song-lyrics1.p.rapidapi.com/chart/albums/",
@@ -38,39 +52,36 @@ const LyricsData = () => {
         });
       })
       .catch(function (error) {
-        console.error(error);
+        return error.message;
       });
   }
 
-  const data = useSelector((state) => state.data);
-  ids?.forEach((element) => {
-    const options = {
-      method: "GET",
-      url: "https://genius-song-lyrics1.p.rapidapi.com/song/lyrics/",
-      params: { id: `${element}` },
-      headers: {
-        "X-RapidAPI-Key": "642dd678camsh7050427eda21061p16063bjsn2163a20f419f",
-        "X-RapidAPI-Host": "genius-song-lyrics1.p.rapidapi.com",
-      },
-    };
-
-    axios
-      .request(options)
-      .then(function (response) {
-        const Data = response.data.lyrics.lyrics.body.html;
-        dispatch({
-          type: "HTML_DATA",
-          payload: Data,
-        });
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-  });
-  console.log(htmlData);
-  console.log(ids);
   console.log(data);
-
-  return <div dangerouslySetInnerHTML={{ __html: htmlData[1] }}></div>;
+  return (
+    <Box bg="black" h="100vh">
+      <Navbar />
+      <Sidebar />
+      <Box bg="black" pt="50px">
+        <SimpleGrid
+          columns={{ base: 2, lg: 4, xl: 6 }}
+          ml="200px"
+          bg="black"
+          gap={5}
+          p={8}
+        >
+          {data?.map((ele, index) => {
+            return (
+              <LyricsCard
+                prop={ele}
+                song={songAudio[index]}
+                setPlaySong={setPlaySong}
+              />
+            );
+          })}
+        </SimpleGrid>
+      </Box>
+      {playSong.playSong ? <SpotifyAudioPlayer song={playSong} /> : <Preview />}
+    </Box>
+  );
 };
 export default LyricsData;
