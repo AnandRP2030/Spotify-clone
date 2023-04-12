@@ -1,6 +1,6 @@
 # Spotify Clone Using React.js and Chakra UI
 
-## Are you a music enthusiast who loves listening to your favorite tracks on Spotify? If yes, then you’re in for a treat! Recently, I and my team collaborated on building a Spotify clone using the latest tech stacks
+### Are you a music enthusiast who loves listening to your favorite tracks on Spotify? If yes, then you’re in for a treat! Recently, I and my team collaborated on building a Spotify clone using the latest tech stacks
 
 ## Tech Stacks Used
 
